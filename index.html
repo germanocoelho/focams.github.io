@@ -34,7 +34,7 @@
   --anel: 1px solid rgba(33,24,18,.12);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth; overflow-x:hidden}
 body{
   font-family:var(--corpo); background:var(--areia); color:var(--carvao);
   line-height:1.65; font-size:16px; -webkit-font-smoothing:antialiased;
@@ -442,6 +442,71 @@ footer a:hover{color:var(--ouro)}
 .faixa3d-wrap{position:relative; width:100%; height:150px; overflow:hidden; background:linear-gradient(180deg, transparent, rgba(22,60,44,.03), transparent)}
 #faixa3d{width:100%; height:100%; display:block}
 @media (max-width:640px){ .faixa3d-wrap{height:100px} }
+
+/* ===== CIRCULO DE DIREITOS (legislacao) ===== */
+.cd-wrap{display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; align-items:center; margin-top:56px}
+@media (max-width:900px){ .cd-wrap{grid-template-columns:1fr; gap:40px} }
+.cd-selector{position:relative; width:min(420px,90vw); aspect-ratio:1/1; margin:0 auto}
+.cd-eixo{position:absolute; inset:8%; border-radius:50%; border:1px dashed rgba(22,60,44,.18)}
+.cd-linha{position:absolute; top:50%; left:50%; height:1.5px; background:rgba(22,60,44,.15); transform-origin:0 50%; transition:background .4s ease, opacity .4s ease}
+.cd-no{
+  position:absolute; transform:translate(-50%,-50%); width:112px; height:112px; border-radius:50%;
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; text-align:center; padding:8px;
+  background:var(--marfim); border:2px solid rgba(22,60,44,.14); cursor:pointer; font-family:var(--corpo);
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease, background .35s ease;
+}
+.cd-no-ico{font-size:1.35rem}
+.cd-no-label{font-size:.66rem; font-weight:700; line-height:1.25; color:var(--carvao-suave)}
+.cd-no:hover{transform:translate(-50%,-50%) scale(1.06)}
+.cd-no.on{box-shadow:0 14px 30px rgba(22,60,44,.22); transform:translate(-50%,-50%) scale(1.1)}
+.cd-no.on .cd-no-label{color:var(--marfim)}
+.cd-hub{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:130px; height:130px; border-radius:50%; background:var(--mata); color:var(--areia);
+  display:flex; align-items:center; justify-content:center; text-align:center; padding:14px;
+  box-shadow:0 16px 40px rgba(22,60,44,.28);
+}
+.cd-hub strong{font-family:var(--disp); font-size:.92rem; line-height:1.25}
+.cd-lista{display:flex; flex-direction:column; gap:14px; min-height:260px}
+.cd-lei{
+  background:var(--marfim); border:var(--anel); border-radius:16px; padding:20px 22px;
+  opacity:0; transform:translateX(18px); animation:cd-entra .5s cubic-bezier(.2,.8,.2,1) forwards;
+  text-decoration:none; color:inherit; display:block; position:relative;
+}
+.cd-lei.destaque{border-color:rgba(181,96,42,.4); background:linear-gradient(150deg,var(--marfim),#F7E9DD)}
+.cd-lei.destaque::after{
+  content:"tema em disputa"; position:absolute; top:12px; right:-30px; transform:rotate(38deg);
+  background:var(--barro); color:#fff; font-family:var(--dado); font-size:.58rem; letter-spacing:.05em;
+  text-transform:uppercase; padding:2px 34px;
+}
+@keyframes cd-entra{to{opacity:1; transform:translateX(0)}}
+.cd-lei h4{font-size:.98rem; margin-bottom:6px; display:flex; align-items:center; gap:8px}
+.cd-lei p{font-size:.84rem; color:var(--carvao-suave); line-height:1.6; margin-bottom:8px}
+.cd-lei .cd-link{font-family:var(--dado); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; color:var(--agua); display:inline-flex; align-items:center; gap:5px}
+.cd-lei .cd-link svg{width:11px; height:11px; transition:transform .25s ease}
+.cd-lei:hover .cd-link svg{transform:translate(2px,-2px)}
+
+/* ===== MAPA 3D DOS CACIQUES ===== */
+.mapa3d-wrap{position:relative; width:100%; height:560px; border-radius:28px; overflow:hidden; margin-top:54px; background:linear-gradient(160deg,var(--mata-2),var(--mata))}
+#mapa3d-canvas{width:100%; height:100%; display:block; cursor:grab}
+#mapa3d-canvas:active{cursor:grabbing}
+.mapa3d-legenda{
+  position:absolute; left:22px; bottom:22px; z-index:3; background:rgba(16,35,28,.72); backdrop-filter:blur(8px);
+  border-radius:16px; padding:14px 18px; color:var(--areia); max-width:260px; pointer-events:none;
+}
+.mapa3d-legenda strong{font-family:var(--disp); font-size:.92rem; display:block; margin-bottom:3px}
+.mapa3d-legenda span{font-size:.76rem; color:rgba(242,233,216,.72); line-height:1.5}
+.mapa3d-dica{
+  position:absolute; top:22px; right:22px; z-index:3; font-family:var(--dado); font-size:.64rem; letter-spacing:.06em;
+  text-transform:uppercase; color:rgba(242,233,216,.75); background:rgba(16,35,28,.55); padding:7px 14px; border-radius:20px;
+}
+.mapa3d-tooltip{
+  position:absolute; z-index:4; pointer-events:none; background:var(--marfim); color:var(--carvao);
+  padding:8px 14px; border-radius:10px; font-size:.8rem; font-weight:700; box-shadow:0 10px 24px rgba(0,0,0,.25);
+  opacity:0; transition:opacity .2s ease; transform:translate(-50%,-130%); white-space:nowrap;
+}
+.mapa3d-tooltip small{display:block; font-weight:400; font-size:.7rem; color:var(--carvao-suave); margin-top:2px}
+@media (max-width:640px){ .mapa3d-wrap{height:440px} .mapa3d-legenda{max-width:200px; font-size:.9em} }
 </style>
 </head>
 <body>
@@ -466,9 +531,11 @@ footer a:hover{color:var(--ouro)}
     <a href="#sobre">O Fórum</a>
     <a href="#roda">A Diretoria</a>
     <a href="#objetivos">Objetivos</a>
+    <a href="#mapa">Mapa</a>
     <a href="#historia">História</a>
     <a href="#irmas">Rede</a>
     <a href="#documentos">Documentos</a>
+    <a href="#legislacao">Legislação</a>
     <a href="#contato">Contato</a>
   </nav>
   <button class="nav-toggle" id="navToggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
@@ -674,6 +741,23 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<section class="sec sec-alt" id="mapa">
+  <div class="wrap">
+    <p class="rotulo reveal">Onde estamos</p>
+    <h2 class="titulo-sec reveal">O território em três dimensões.</h2>
+    <p class="lead reveal">Um recorte real do contorno de Mato Grosso do Sul, em três dimensões, com os municípios onde vivem os caciques e lideranças que hoje compõem a Diretoria e o Conselho Fiscal do FOCAMS. Arraste para girar, use a roda do mouse para aproximar.</p>
+    <div class="mapa3d-wrap reveal">
+      <canvas id="mapa3d-canvas" aria-label="Mapa tridimensional de Mato Grosso do Sul com as localidades das lideranças do FOCAMS"></canvas>
+      <div class="mapa3d-dica">⟲ arraste · ⤢ zoom</div>
+      <div class="mapa3d-legenda">
+        <strong>Território FOCAMS</strong>
+        <span>Cada ponto dourado marca o município de uma liderança da atual Diretoria Executiva ou do Conselho Fiscal.</span>
+      </div>
+      <div class="mapa3d-tooltip" id="mapa3dTooltip"></div>
+    </div>
+  </div>
+</section>
+
 <div class="faixa3d-wrap" aria-label="divisor decorativo"><canvas id="faixa3d" aria-hidden="true"></canvas></div>
 <section class="sec sec-alt" id="historia">
   <div class="wrap">
@@ -772,6 +856,22 @@ footer a:hover{color:var(--ouro)}
         <h4>Endereço oficial</h4>
         <div class="doc-meta">Rua Alberto Romoaldo, nº 69<br>Jardim II · Aquidauana/MS</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
+<section class="sec" id="legislacao">
+  <div class="wrap">
+    <p class="rotulo reveal">Base legal</p>
+    <h2 class="titulo-sec reveal">O círculo de direitos.</h2>
+    <p class="lead reveal">Da terra à saúde, cada objetivo do Artigo 4º do Estatuto se apoia numa base legal própria. Toque em cada eixo do círculo para abrir as normas correspondentes.</p>
+    <div class="cd-wrap">
+      <div class="cd-selector reveal" id="cdSelector">
+        <div class="cd-eixo"></div>
+        <div class="cd-hub"><strong id="cdHubTitulo">Terra e Meio Ambiente</strong></div>
+      </div>
+      <div class="cd-lista reveal" id="cdLista"></div>
     </div>
   </div>
 </section>
@@ -1145,6 +1245,226 @@ footer a:hover{color:var(--ouro)}
       });
       card.addEventListener('pointerleave', function(){ card.style.transform = ''; });
     });
+  }
+  /* ---- Circulo de Direitos: legislacao organizada por eixo do Art. 4 ---- */
+  (function(){
+    var svgSeta = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 L17 7 M9 7 h8 v8"/></svg>';
+    var dados = {
+      terra: {
+        label:'Terra e Meio Ambiente', icon:'🌾', cor:'var(--folha)',
+        leis:[
+          {tit:'Constituição Federal, arts. 231 e 232', desc:'Reconhece a organização social e as terras tradicionalmente ocupadas pelos povos indígenas.', link:'https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm'},
+          {tit:'Código Florestal · Lei nº 12.651/2012', desc:'Base do Cadastro Ambiental Rural (CAR) e do manejo das áreas de reflorestamento e preservação.', link:'https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm'},
+          {tit:'Marco Legal da Biodiversidade · Lei nº 13.123/2015', desc:'Disciplina o acesso ao conhecimento tradicional associado ao artesanato e à agricultura indígena.', link:'https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13123.htm'}
+        ]
+      },
+      direitos: {
+        label:'Direitos e Representação', icon:'⚖️', cor:'var(--agua)',
+        leis:[
+          {tit:'Lei nº 14.701/2023 · Marco Temporal', desc:'Tese que restringia o direito às terras indígenas, declarada inconstitucional pelo STF e reafirmada em lei pelo Congresso. Tema em disputa direta com a autonomia territorial.', link:'https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14701.htm', destaque:true},
+          {tit:'Estatuto do Índio · Lei nº 6.001/1973', desc:'Regula a situação jurídica dos povos indígenas e a atuação do Estado na proteção de seus direitos.', link:'https://www.planalto.gov.br/ccivil_03/leis/l6001.htm'},
+          {tit:'Criação da FUNAI · Lei nº 5.371/1967', desc:'Cria o órgão federal com quem o FOCAMS dialoga diretamente na representação institucional.', link:'https://www.planalto.gov.br/ccivil_03/leis/l5371.htm'},
+          {tit:'Convenção 169 da OIT', desc:'Base do direito à consulta prévia, livre e informada em qualquer medida que afete os povos indígenas.', link:'https://www.ilo.org/brasilia/convencoes/WCMS_236247/lang--pt/index.htm'},
+          {tit:'Declaração da ONU sobre os Direitos dos Povos Indígenas', desc:'Fundamenta a autodeterminação e a livre disposição sobre o próprio desenvolvimento.', link:'https://www.un.org/esa/socdev/unpfii/documents/DRIPS_pt.pdf'}
+        ]
+      },
+      saude: {
+        label:'Saúde e Direitos Humanos', icon:'🩺', cor:'var(--barro)',
+        leis:[
+          {tit:'Lei Arouca · Lei nº 9.836/1999', desc:'Institui o subsistema de atenção à saúde indígena dentro do SUS.', link:'https://www.planalto.gov.br/ccivil_03/leis/l9836.htm'},
+          {tit:'Portaria nº 254/2002', desc:'Política Nacional de Atenção à Saúde dos Povos Indígenas, base dos Distritos Sanitários Especiais.', link:'https://bvsms.saude.gov.br/bvs/saudelegis/gm/2002/prt0254_31_01_2002.html'}
+        ]
+      },
+      trabalho: {
+        label:'Trabalho e Mercados', icon:'🤝', cor:'var(--ouro)',
+        leis:[
+          {tit:'PNAE · Lei nº 11.947/2009', desc:'Garante prioridade legal de compra da produção indígena para a merenda escolar em todo o país.', link:'https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2009/lei/l11947.htm'},
+          {tit:'PAA · Lei nº 10.696/2003', desc:'Institui o Programa de Aquisição de Alimentos, com regras próprias de acesso para comunidades indígenas.', link:'https://www.planalto.gov.br/ccivil_03/leis/2003/l10.696.htm'}
+        ]
+      }
+    };
+    var ordem = ['terra','direitos','saude','trabalho'];
+    var angPos = [{x:50,y:6},{x:94,y:50},{x:50,y:94},{x:6,y:50}];
+    var selector = document.getElementById('cdSelector');
+    var lista = document.getElementById('cdLista');
+    var hubTitulo = document.getElementById('cdHubTitulo');
+    if (!selector || !lista) return;
+
+    ordem.forEach(function(chave, i){
+      var d = dados[chave];
+      var btn = document.createElement('button');
+      btn.className = 'cd-no' + (i===0?' on':'');
+      btn.type = 'button';
+      btn.setAttribute('data-cat', chave);
+      btn.style.left = angPos[i].x + '%';
+      btn.style.top = angPos[i].y + '%';
+      btn.style.setProperty('--cor', d.cor);
+      btn.innerHTML = '<span class="cd-no-ico">'+d.icon+'</span><span class="cd-no-label">'+d.label+'</span>';
+      btn.addEventListener('click', function(){ ativarCategoria(chave); });
+      btn.addEventListener('pointerenter', function(){ if(!btn.classList.contains('on')) btn.style.borderColor = d.cor; });
+      btn.addEventListener('pointerleave', function(){ if(!btn.classList.contains('on')) btn.style.borderColor = ''; });
+      selector.appendChild(btn);
+    });
+
+    function ativarCategoria(chave){
+      var d = dados[chave];
+      selector.querySelectorAll('.cd-no').forEach(function(b){
+        var on = b.getAttribute('data-cat') === chave;
+        b.classList.toggle('on', on);
+        b.style.background = on ? d.cor : '';
+        b.style.borderColor = on ? d.cor : '';
+      });
+      hubTitulo.textContent = d.label;
+      lista.innerHTML = '';
+      d.leis.forEach(function(lei, i){
+        var a = document.createElement('a');
+        a.className = 'cd-lei' + (lei.destaque?' destaque':'');
+        a.href = lei.link; a.target = '_blank'; a.rel = 'noopener';
+        a.style.animationDelay = (i*0.08) + 's';
+        a.innerHTML = '<h4>'+lei.tit+'</h4><p>'+lei.desc+'</p><span class="cd-link">Acessar a norma '+svgSeta+'</span>';
+        lista.appendChild(a);
+      });
+    }
+    ativarCategoria('terra');
+  })();
+
+  /* ---- Mapa 3D de Mato Grosso do Sul com as liderancas do FOCAMS ---- */
+  if (window.THREE){
+    (function(){
+      var wrap = document.querySelector('.mapa3d-wrap');
+      var canvasEl = document.getElementById('mapa3d-canvas');
+      var tooltip = document.getElementById('mapa3dTooltip');
+      if (!wrap || !canvasEl) return;
+
+      var msPathD = "M448.5,197.5 L449.3,198.9 L447.9,200.8 L450.0,205.0 L446.6,205.8 L443.6,213.6 L446.0,223.5 L444.9,226.7 L445.9,233.6 L442.9,241.8 L439.3,245.2 L428.0,248.7 L419.7,260.6 L415.2,264.3 L412.7,271.1 L413.5,281.0 L411.0,283.2 L407.9,283.7 L404.5,290.5 L400.0,292.4 L399.8,295.9 L401.5,299.8 L400.8,303.7 L395.2,312.9 L390.0,313.1 L388.6,315.0 L388.3,316.8 L390.9,320.9 L389.5,324.9 L385.1,328.0 L383.5,332.2 L377.3,338.2 L373.7,346.8 L368.0,352.9 L354.4,360.1 L348.5,365.6 L341.1,368.5 L336.8,372.1 L335.5,375.7 L331.6,380.9 L322.5,384.4 L312.4,390.7 L309.2,394.2 L307.8,396.8 L307.7,403.9 L302.7,414.7 L300.6,417.8 L289.5,422.7 L284.6,439.7 L283.4,449.9 L273.5,456.9 L271.8,453.4 L269.9,453.3 L266.9,450.7 L265.7,447.7 L262.3,446.0 L258.7,445.9 L257.8,444.0 L256.6,444.6 L253.4,442.4 L251.6,445.3 L248.7,444.9 L244.7,446.4 L244.0,447.7 L242.2,447.1 L240.1,448.6 L239.9,450.7 L236.2,450.5 L233.0,452.5 L230.5,450.9 L223.3,452.9 L219.8,450.8 L218.1,452.7 L214.2,450.7 L212.9,448.3 L213.3,437.1 L211.9,436.9 L210.9,432.9 L208.0,432.0 L208.6,428.7 L206.7,424.0 L209.6,418.0 L207.0,414.8 L207.1,412.5 L208.7,411.4 L207.5,409.2 L208.7,407.9 L207.7,405.7 L204.8,405.5 L201.2,388.6 L201.9,385.3 L203.8,383.9 L203.9,377.9 L196.9,368.9 L197.2,362.8 L194.8,362.6 L191.4,356.7 L172.7,356.4 L171.1,354.1 L167.1,353.1 L164.6,350.4 L163.1,345.0 L157.3,346.2 L154.4,351.9 L150.1,354.6 L150.4,355.6 L146.8,353.1 L145.9,355.5 L144.6,354.1 L143.0,355.4 L142.0,354.5 L141.4,356.8 L139.5,357.8 L137.3,354.7 L136.2,355.8 L131.4,353.4 L127.0,354.9 L125.4,354.3 L125.7,353.6 L121.7,354.0 L120.8,352.8 L118.6,354.9 L115.9,353.1 L114.5,354.5 L111.7,353.8 L111.0,352.3 L107.7,351.4 L101.0,350.7 L99.1,346.2 L94.2,346.0 L92.6,346.6 L92.3,348.5 L90.4,347.9 L89.1,349.3 L87.8,347.6 L84.9,348.2 L82.7,347.7 L82.0,345.7 L79.5,345.8 L78.6,342.7 L80.5,341.4 L82.1,336.5 L81.5,335.3 L83.4,334.1 L80.4,332.3 L83.3,329.2 L83.5,327.9 L81.6,326.4 L84.9,323.4 L82.3,321.3 L81.9,319.6 L83.3,317.9 L81.0,316.4 L80.5,314.3 L86.4,303.8 L86.5,302.7 L82.9,300.5 L86.6,297.1 L86.0,292.6 L86.9,290.4 L85.7,287.1 L88.4,283.7 L88.3,281.6 L85.9,281.8 L84.4,279.5 L82.5,279.1 L86.1,275.1 L84.5,273.2 L80.9,273.0 L82.3,270.6 L86.0,270.3 L83.0,266.0 L81.2,268.2 L79.6,268.1 L80.3,264.8 L78.1,263.1 L78.9,260.9 L77.8,257.5 L78.9,253.2 L74.4,249.6 L73.8,243.1 L70.3,243.5 L70.3,241.3 L72.4,239.7 L70.0,238.4 L74.1,234.8 L76.2,234.7 L77.4,232.1 L79.6,232.0 L80.9,230.0 L83.8,231.1 L86.2,227.1 L71.9,215.2 L90.1,174.6 L94.0,174.5 L94.8,173.3 L93.5,171.4 L93.5,167.1 L91.0,167.1 L102.0,130.1 L107.4,129.6 L101.1,124.1 L99.8,119.3 L93.4,107.0 L95.4,107.0 L95.4,105.9 L93.5,103.9 L94.0,101.5 L90.6,97.4 L89.5,92.0 L91.8,92.3 L93.0,90.3 L96.1,98.3 L95.3,100.7 L97.6,100.8 L99.6,105.7 L101.0,105.5 L103.2,108.5 L106.2,108.8 L107.5,111.2 L107.8,109.6 L111.4,106.9 L119.0,106.2 L118.0,105.1 L123.5,103.6 L125.2,104.4 L128.9,101.6 L133.4,94.9 L132.2,94.9 L132.2,93.1 L136.0,90.5 L137.7,90.5 L138.5,87.8 L140.4,86.3 L139.6,85.4 L140.7,84.8 L139.5,84.1 L140.2,82.6 L142.5,82.3 L145.2,78.0 L149.7,79.7 L149.7,78.4 L150.6,79.4 L156.1,78.6 L157.4,76.7 L160.4,79.2 L165.0,75.6 L166.1,76.9 L168.0,76.1 L170.5,72.9 L172.7,73.4 L174.0,71.2 L176.4,71.3 L177.8,70.0 L181.0,71.1 L181.3,70.2 L183.4,72.1 L183.1,74.0 L184.4,75.1 L186.2,74.7 L186.9,76.2 L187.6,75.1 L189.6,75.5 L188.8,76.0 L189.6,76.6 L190.3,75.7 L192.0,77.5 L193.8,77.3 L195.0,79.1 L199.4,80.5 L201.7,79.6 L202.3,80.7 L202.5,79.7 L205.4,81.6 L205.4,84.3 L208.7,87.6 L216.4,89.5 L217.8,91.4 L220.8,91.0 L224.5,95.2 L229.5,97.2 L230.4,96.0 L236.6,96.4 L239.1,94.8 L243.4,95.6 L248.8,92.3 L249.3,89.9 L258.1,86.9 L259.5,88.0 L263.4,88.0 L264.1,90.3 L268.5,92.7 L268.3,96.0 L271.0,97.7 L274.4,97.2 L279.2,94.4 L284.2,95.3 L286.6,87.9 L291.1,86.4 L295.0,81.7 L297.4,80.5 L298.0,77.1 L303.9,73.4 L305.4,74.8 L304.0,97.8 L298.8,98.3 L296.2,100.0 L291.3,108.6 L291.3,112.4 L295.9,112.3 L299.9,116.4 L304.7,117.4 L306.4,115.4 L308.8,115.5 L310.1,117.4 L316.3,118.9 L318.5,115.8 L321.1,117.2 L328.6,117.1 L331.9,119.0 L337.3,118.9 L333.5,121.3 L335.7,134.1 L337.4,135.9 L339.8,136.3 L343.7,133.3 L350.4,134.1 L353.7,136.2 L351.6,139.9 L347.7,140.7 L347.3,142.8 L343.0,147.0 L345.4,152.5 L354.2,155.4 L362.4,155.3 L364.5,153.5 L370.0,155.4 L376.0,163.1 L384.0,164.2 L385.3,166.5 L387.7,167.1 L389.2,170.0 L391.1,169.9 L392.7,171.8 L396.6,170.9 L401.1,175.6 L411.5,180.4 L415.7,179.9 L423.9,182.1 L426.6,185.1 L429.8,185.0 L432.7,188.1 L435.3,187.3 L441.4,190.0 L445.0,194.2 L444.4,195.2 Z";
+      var cena = new THREE.Scene();
+      var camera = new THREE.PerspectiveCamera(45, 1, .1, 5000);
+      var renderer;
+      try { renderer = new THREE.WebGLRenderer({canvas:canvasEl, antialias:true, alpha:true}); }
+      catch(e){ return; }
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 2));
+      renderer.shadowMap.enabled = true;
+
+      /* parse do path (somente M/L/Z) e construcao do THREE.Shape */
+      function construirShapeDoPath(d){
+        var shape = new THREE.Shape();
+        var tokens = d.match(/[ML][^ML]*/g) || [];
+        tokens.forEach(function(tok){
+          var cmd = tok[0];
+          var nums = tok.slice(1).trim().split(/[\s,]+/).map(Number);
+          for (var i=0;i<nums.length;i+=2){
+            var x = nums[i], y = -nums[i+1]; // inverte Y (SVG cresce p/ baixo, Three cresce p/ cima)
+            if (cmd==='M' && i===0) shape.moveTo(x,y); else shape.lineTo(x,y);
+          }
+        });
+        return shape;
+      }
+      var shapeMS = construirShapeDoPath(msPathD);
+      var extrudeSettings = {depth:14, bevelEnabled:true, bevelThickness:1.6, bevelSize:1.6, bevelSegments:2};
+      var geoMS = new THREE.ExtrudeGeometry(shapeMS, extrudeSettings);
+      geoMS.center();
+      geoMS.computeVertexNormals();
+      var matMS = new THREE.MeshStandardMaterial({color:0x2F7D42, roughness:.75, metalness:.05});
+      var matLateral = new THREE.MeshStandardMaterial({color:0x163C2C, roughness:.9});
+      var meshMS = new THREE.Mesh(geoMS, [matMS, matLateral]);
+      meshMS.rotation.x = -Math.PI/2.6;
+      cena.add(meshMS);
+
+      /* municipios reais das liderancas atuais do FOCAMS, em coordenadas aproximadas dentro do contorno */
+      var locais = [
+        {nome:'Aquidauana', pessoas:'Josias Costa França · 1º Secretário', x:200-260, y:230-263},
+        {nome:'Anastácio', pessoas:'Bianca Rui Gonçalves · 2ª Secretária', x:185-260, y:245-263},
+        {nome:'Dois Irmãos do Buriti', pessoas:'Eber Reginaldo Vitorino · 1º Tesoureiro', x:238-260, y:268-263},
+        {nome:'Campo Grande', pessoas:'Aguinaldo Arruda Areco, Lisio Lili · Presidente e Conselho Fiscal', x:292-260, y:250-263}
+      ];
+      var marcadores = [];
+      var alturaMS = 14;
+      locais.forEach(function(loc){
+        var geoEsfera = new THREE.SphereGeometry(4.2, 20, 20);
+        var matEsfera = new THREE.MeshStandardMaterial({color:0xC9973F, emissive:0xC9973F, emissiveIntensity:.5, roughness:.3});
+        var esfera = new THREE.Mesh(geoEsfera, matEsfera);
+        esfera.position.set(loc.x, alturaMS/2 + 8, -loc.y);
+        esfera.userData.loc = loc;
+        marcadores.push(esfera);
+        cena.add(esfera);
+        var geoHaste = new THREE.CylinderGeometry(.6,.6, 10, 8);
+        var haste = new THREE.Mesh(geoHaste, new THREE.MeshStandardMaterial({color:0xC9973F, emissive:0xC9973F, emissiveIntensity:.25}));
+        haste.position.set(loc.x, alturaMS/2 + 3, -loc.y);
+        cena.add(haste);
+      });
+
+      cena.add(new THREE.AmbientLight(0xffffff, .8));
+      var solMapa = new THREE.DirectionalLight(0xffffff, 1.05); solMapa.position.set(80,180,120); cena.add(solMapa);
+      var luzAgua = new THREE.PointLight(0x1D7A93, .5); luzAgua.position.set(-100,60,-80); cena.add(luzAgua);
+
+      /* controle simples de orbita por arrasto (sem OrbitControls) */
+      var raioCam = 320, azimute = 0.6, elevacao = .78, alvo = new THREE.Vector3(0,0,0);
+      var arrastando = false, ultimoX=0, ultimoY=0;
+      function atualizarCamera(){
+        var x = raioCam*Math.sin(elevacao)*Math.sin(azimute);
+        var y = raioCam*Math.cos(elevacao);
+        var z = raioCam*Math.sin(elevacao)*Math.cos(azimute);
+        camera.position.set(x,y,z);
+        camera.lookAt(alvo);
+      }
+      atualizarCamera();
+
+      canvasEl.addEventListener('pointerdown', function(e){ arrastando=true; ultimoX=e.clientX; ultimoY=e.clientY; });
+      window.addEventListener('pointerup', function(){ arrastando=false; });
+      window.addEventListener('pointermove', function(e){
+        if (!arrastando) return;
+        var dx = e.clientX-ultimoX, dy = e.clientY-ultimoY;
+        azimute -= dx*0.006; elevacao = Math.min(1.45, Math.max(.25, elevacao - dy*0.006));
+        ultimoX=e.clientX; ultimoY=e.clientY;
+        atualizarCamera();
+      });
+      canvasEl.addEventListener('wheel', function(e){
+        e.preventDefault();
+        raioCam = Math.min(560, Math.max(160, raioCam + e.deltaY*0.35));
+        atualizarCamera();
+      }, {passive:false});
+
+      var raycaster = new THREE.Raycaster();
+      var mouseNDC = new THREE.Vector2(-10,-10);
+      canvasEl.addEventListener('pointermove', function(e){
+        var r = canvasEl.getBoundingClientRect();
+        mouseNDC.x = ((e.clientX-r.left)/r.width)*2-1;
+        mouseNDC.y = -((e.clientY-r.top)/r.height)*2+1;
+        if (tooltip){ tooltip.style.left = (e.clientX-r.left)+'px'; tooltip.style.top = (e.clientY-r.top)+'px'; }
+      });
+
+      function redimensionarMapa(){
+        var w = wrap.clientWidth, h = wrap.clientHeight;
+        if (!w || !h) return;
+        camera.aspect = w/h; camera.updateProjectionMatrix();
+        renderer.setSize(w, h, false);
+      }
+      redimensionarMapa();
+      window.addEventListener('resize', redimensionarMapa);
+
+      var pulso = 0;
+      function animarMapa(){
+        pulso += 0.045;
+        marcadores.forEach(function(m, i){
+          var s = 1 + Math.sin(pulso + i)*.12;
+          m.scale.set(s,s,s);
+        });
+        raycaster.setFromCamera(mouseNDC, camera);
+        var hits = raycaster.intersectObjects(marcadores);
+        if (hits.length && tooltip){
+          var loc = hits[0].object.userData.loc;
+          tooltip.innerHTML = loc.nome + '<small>' + loc.pessoas + '</small>';
+          tooltip.style.opacity = '1';
+          canvasEl.style.cursor = 'pointer';
+        } else if (tooltip){
+          tooltip.style.opacity = '0';
+          canvasEl.style.cursor = arrastando ? 'grabbing' : 'grab';
+        }
+        renderer.render(cena, camera);
+        requestAnimationFrame(animarMapa);
+      }
+      animarMapa();
+    })();
   }
 })();
 </script>
