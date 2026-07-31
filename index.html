@@ -303,9 +303,142 @@ footer .wrap{display:flex; flex-direction:column; align-items:center; text-align
 footer img{width:44px; opacity:.9}
 footer a{color:rgba(242,233,216,.8); text-decoration:none}
 footer a:hover{color:var(--ouro)}
+
+/* ===== EFEITOS: loading, scroll-progress, veu de transicao, parallax, aurora, shimmer, glass, magnetico, vibrate, contadores, sparkle, zigzag ===== */
+
+/* loading screen */
+#loading{
+  position:fixed; inset:0; z-index:9999; background:var(--areia);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px;
+  transition:opacity .7s ease, visibility .7s ease;
+}
+#loading.done{opacity:0; visibility:hidden; pointer-events:none}
+.loading-anel{
+  width:56px; height:56px; border-radius:50%;
+  border:3px solid rgba(47,125,66,.18); border-top-color:var(--folha); border-right-color:var(--agua);
+  animation:loading-girar 1s linear infinite;
+}
+@keyframes loading-girar{to{transform:rotate(360deg)}}
+.loading-txt{font-family:var(--dado); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--carvao-suave)}
+.loading-barra{width:160px; height:3px; border-radius:3px; background:rgba(22,60,44,.12); overflow:hidden}
+.loading-barra i{display:block; height:100%; width:30%; background:linear-gradient(90deg,var(--folha),var(--agua),var(--barro)); animation:loading-shimmer 1.2s ease-in-out infinite}
+@keyframes loading-shimmer{0%{transform:translateX(-120%)} 100%{transform:translateX(430%)}}
+
+/* scroll progress bar */
+#scroll-progress{position:fixed; top:0; left:0; height:3px; width:0%; z-index:300; background:linear-gradient(90deg,var(--folha),var(--agua),var(--barro),var(--ouro)); transition:width .1s linear}
+
+/* page-transition veu */
+#veu{
+  position:fixed; inset:0; z-index:9998; pointer-events:none; opacity:0;
+  background:radial-gradient(circle at var(--vx,50%) var(--vy,50%), var(--ouro) 0%, var(--folha) 45%, var(--mata) 100%);
+  transition:opacity .5s ease;
+}
+#veu.on{opacity:1; transition:opacity .25s ease}
+
+/* aurora animated background (hero) */
+.hero::before{
+  content:""; position:absolute; inset:-10%; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 20%, rgba(47,125,66,.16), transparent 60%),
+    radial-gradient(ellipse 55% 45% at 80% 30%, rgba(29,122,147,.14), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 85%, rgba(181,96,42,.10), transparent 60%);
+  animation:aurora-drift 22s ease-in-out infinite alternate;
+  filter:blur(10px);
+}
+@keyframes aurora-drift{
+  0%{transform:translate(0,0) scale(1) rotate(0deg)}
+  50%{transform:translate(-2%,3%) scale(1.08) rotate(3deg)}
+  100%{transform:translate(3%,-2%) scale(1.04) rotate(-2deg)}
+}
+.hero-inner{position:relative; z-index:2}
+
+/* sparkle canvas */
+#sparkle-canvas{position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.55}
+
+/* parallax layers */
+.parallax-layer{will-change:transform}
+
+/* title shimmer */
+.titulo-sec{
+  background:linear-gradient(100deg, var(--mata) 30%, var(--folha) 42%, var(--agua) 50%, var(--mata) 62%);
+  background-size:250% 100%;
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:titulo-shimmer 7s ease-in-out infinite;
+}
+.sec-escura .titulo-sec{
+  background:linear-gradient(100deg, var(--areia) 30%, var(--ouro) 45%, var(--areia) 60%);
+  background-size:250% 100%; -webkit-background-clip:text; background-clip:text; color:transparent;
+  animation:titulo-shimmer 7s ease-in-out infinite;
+}
+@keyframes titulo-shimmer{0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}}
+
+/* glassmorphism cards */
+.obj-card, .doc-card, .roda-cargo, .fiscal-faixa, .marca-moldura{
+  backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  background:rgba(251,247,238,.72);
+}
+.irma-card{backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
+@supports not (backdrop-filter:blur(6px)){
+  .obj-card, .doc-card, .roda-cargo, .fiscal-faixa, .marca-moldura{background:var(--marfim)}
+}
+
+/* magnetic buttons */
+.btn{will-change:transform}
+
+/* icon vibrate microinteraction */
+@keyframes icon-vibrate{
+  0%,100%{transform:rotate(0deg) scale(1)}
+  20%{transform:rotate(-8deg) scale(1.08)}
+  40%{transform:rotate(7deg) scale(1.08)}
+  60%{transform:rotate(-5deg) scale(1.05)}
+  80%{transform:rotate(3deg) scale(1.02)}
+}
+.obj-card:hover .obj-marca{animation:icon-vibrate .5s ease}
+.roda-cargo:hover .cargo-titulo{animation:icon-vibrate .5s ease}
+
+/* animated counters */
+.fato-n, .roda-hub strong{font-variant-numeric:tabular-nums}
+
+/* zigzag divider with glow */
+.zig{
+  height:26px; width:100%; overflow:hidden; position:relative; line-height:0;
+}
+.zig svg{width:100%; height:100%; display:block}
+.zig path{
+  fill:none; stroke:var(--barro); stroke-width:1.4; opacity:.4;
+  filter:drop-shadow(0 0 4px var(--barro));
+  animation:zig-glow 4s ease-in-out infinite;
+}
+@keyframes zig-glow{0%,100%{opacity:.22} 50%{opacity:.55}}
+
+/* custom cursor dot */
+#cursor-dot{
+  position:fixed; top:0; left:0; width:9px; height:9px; border-radius:50%; background:var(--barro);
+  pointer-events:none; z-index:9997; transform:translate(-50%,-50%); transition:transform .15s ease, background .3s ease;
+  mix-blend-mode:multiply;
+}
+#cursor-ring{
+  position:fixed; top:0; left:0; width:34px; height:34px; border-radius:50%; border:1.5px solid var(--folha);
+  pointer-events:none; z-index:9996; transform:translate(-50%,-50%); transition:transform .28s cubic-bezier(.2,.8,.2,1), opacity .3s ease, border-color .3s ease;
+}
+@media (hover:none), (max-width:900px){ #cursor-dot,#cursor-ring{display:none} }
+
+@media (prefers-reduced-motion: reduce){
+  .hero::before, .titulo-sec, .sec-escura .titulo-sec, .loading-anel, .loading-barra i, .zig path{animation:none !important}
+}
 </style>
 </head>
 <body>
+
+<div id="loading">
+  <div class="loading-anel" aria-hidden="true"></div>
+  <div class="loading-txt">FOCAMS</div>
+  <div class="loading-barra"><i></i></div>
+</div>
+<div id="scroll-progress"></div>
+<div id="veu" aria-hidden="true"></div>
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <header id="nav">
   <a href="#top" class="nav-marca">
@@ -327,6 +460,7 @@ footer a:hover{color:var(--ouro)}
 
 <main>
 <section class="hero" id="top">
+  <canvas id="sparkle-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <p class="hero-eyebrow reveal">Organização Indígena · Fundada em 2017 · Aquidauana/MS</p>
     <div class="roda-wrap reveal">
@@ -371,6 +505,7 @@ footer a:hover{color:var(--ouro)}
 </section>
 
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec" id="marca">
   <div class="wrap">
     <p class="rotulo reveal">Nossa marca</p>
@@ -411,6 +546,7 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec" id="sobre">
   <div class="wrap">
     <p class="rotulo reveal">O Fórum</p>
@@ -422,15 +558,16 @@ footer a:hover{color:var(--ouro)}
         <p style="font-size:1.02rem; line-height:1.85; color:var(--carvao); margin-top:18px">Toda decisão nasce na Assembleia Geral, onde cada associado tem voz e voto, e se sustenta numa Diretoria Executiva e num Conselho Fiscal eleitos diretamente pelos caciques, para um mandato de quatro anos.</p>
       </div>
       <div class="sobre-fatos reveal">
-        <div class="fato"><span class="fato-n">2017</span><span class="fato-l">Ano de fundação, em Aquidauana/MS</span></div>
-        <div class="fato"><span class="fato-n">74.000+</span><span class="fato-l">Indígenas representados em Mato Grosso do Sul</span></div>
-        <div class="fato"><span class="fato-n">3</span><span class="fato-l">Órgãos estatutários: Assembleia, Diretoria, Conselho Fiscal</span></div>
-        <div class="fato"><span class="fato-n">4 anos</span><span class="fato-l">Mandato da Diretoria Executiva, com uma reeleição</span></div>
+        <div class="fato"><span class="fato-n" data-count="2017" data-suffix="">0</span><span class="fato-l">Ano de fundação, em Aquidauana/MS</span></div>
+        <div class="fato"><span class="fato-n" data-count="74" data-suffix=".000+">0</span><span class="fato-l">Indígenas representados em Mato Grosso do Sul</span></div>
+        <div class="fato"><span class="fato-n" data-count="3" data-suffix="">0</span><span class="fato-l">Órgãos estatutários: Assembleia, Diretoria, Conselho Fiscal</span></div>
+        <div class="fato"><span class="fato-n" data-count="4" data-suffix=" anos">0</span><span class="fato-l">Mandato da Diretoria Executiva, com uma reeleição</span></div>
       </div>
     </div>
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec sec-alt" id="roda">
   <div class="wrap">
     <p class="rotulo reveal">A Diretoria · gestão 2025-2029</p>
@@ -484,6 +621,7 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec" id="objetivos">
   <div class="wrap">
     <p class="rotulo reveal">Objetivos estatutários · Artigo 4º</p>
@@ -519,6 +657,7 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec sec-alt" id="historia">
   <div class="wrap">
     <p class="rotulo reveal">Linha do tempo</p>
@@ -567,6 +706,7 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec sec-escura" id="irmas">
   <div class="wrap">
     <p class="rotulo reveal">A mesma roda, outros círculos</p>
@@ -593,6 +733,7 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec" id="documentos">
   <div class="wrap">
     <p class="rotulo reveal">Registro e transparência</p>
@@ -618,6 +759,7 @@ footer a:hover{color:var(--ouro)}
   </div>
 </section>
 
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
 <section class="sec sec-alt" id="contato">
   <div class="wrap">
     <p class="rotulo reveal">Fale com a diretoria</p>
@@ -700,6 +842,139 @@ footer a:hover{color:var(--ouro)}
     fecharMarcaModal.addEventListener('click', function(){ marcaModal.classList.remove('on'); document.body.style.overflow=''; });
     marcaModal.addEventListener('click', function(e){ if(e.target===marcaModal){ marcaModal.classList.remove('on'); document.body.style.overflow=''; } });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape'){ marcaModal.classList.remove('on'); document.body.style.overflow=''; } });
+  }
+
+  /* ---- loading screen ---- */
+  var loadingEl = document.getElementById('loading');
+  function esconderLoading(){ if(loadingEl){ loadingEl.classList.add('done'); } }
+  if (document.readyState === 'complete'){ setTimeout(esconderLoading, 350); }
+  else { window.addEventListener('load', function(){ setTimeout(esconderLoading, 350); }); }
+  setTimeout(esconderLoading, 2600); // rede de seguranca
+
+  /* ---- barra de progresso de rolagem ---- */
+  var barraProgresso = document.getElementById('scroll-progress');
+  function atualizarProgresso(){
+    var h = document.documentElement;
+    var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    if (barraProgresso) barraProgresso.style.width = (pct||0) + '%';
+  }
+  window.addEventListener('scroll', atualizarProgresso, {passive:true});
+  atualizarProgresso();
+
+  /* ---- veu de transicao ao clicar em links do menu ---- */
+  var veu = document.getElementById('veu');
+  document.querySelectorAll('.nav-links a, .hero-cta a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var alvo = document.querySelector(a.getAttribute('href'));
+      if (!alvo || !veu) return;
+      e.preventDefault();
+      var r = a.getBoundingClientRect();
+      veu.style.setProperty('--vx', (r.left + r.width/2) + 'px');
+      veu.style.setProperty('--vy', (r.top + r.height/2) + 'px');
+      veu.classList.add('on');
+      setTimeout(function(){
+        alvo.scrollIntoView({behavior:'instant', block:'start'});
+        requestAnimationFrame(function(){ veu.classList.remove('on'); });
+      }, 260);
+    });
+  });
+
+  /* ---- botoes magneticos ---- */
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('pointermove', function(e){
+      var r = btn.getBoundingClientRect();
+      var mx = e.clientX - r.left - r.width/2;
+      var my = e.clientY - r.top - r.height/2;
+      btn.style.transform = 'translate(' + (mx*0.28) + 'px,' + (my*0.5) + 'px)';
+    });
+    btn.addEventListener('pointerleave', function(){ btn.style.transform = ''; });
+  });
+
+  /* ---- cursor customizado ---- */
+  var cd = document.getElementById('cursor-dot'), cr = document.getElementById('cursor-ring');
+  if (cd && cr && matchMedia('(hover:hover)').matches){
+    var rx=0, ry=0, dx=0, dy=0;
+    window.addEventListener('pointermove', function(e){
+      dx = e.clientX; dy = e.clientY;
+      cd.style.transform = 'translate(' + dx + 'px,' + dy + 'px) translate(-50%,-50%)';
+    });
+    (function anelLoop(){
+      rx += (dx-rx)*0.16; ry += (dy-ry)*0.16;
+      cr.style.transform = 'translate(' + rx + 'px,' + ry + 'px) translate(-50%,-50%)';
+      requestAnimationFrame(anelLoop);
+    })();
+    document.querySelectorAll('a, button, .roda-cargo, .obj-card, .irma-card').forEach(function(el){
+      el.addEventListener('pointerenter', function(){ cr.style.transform += ' scale(1.7)'; cr.style.borderColor='var(--barro)'; cd.style.background='var(--barro)'; });
+      el.addEventListener('pointerleave', function(){ cr.style.borderColor='var(--folha)'; cd.style.background='var(--barro)'; });
+    });
+  }
+
+  /* ---- contadores animados ---- */
+  var contadores = document.querySelectorAll('.fato-n[data-count]');
+  function animarContador(el){
+    var alvo = parseFloat(el.getAttribute('data-count'));
+    var sufixo = el.getAttribute('data-suffix') || '';
+    var inicio = null, duracao = 1400;
+    function passo(ts){
+      if(!inicio) inicio = ts;
+      var p = Math.min((ts-inicio)/duracao, 1);
+      var facil = 1 - Math.pow(1-p, 3);
+      var valor = Math.round(alvo * facil);
+      el.textContent = valor + sufixo;
+      if (p < 1) requestAnimationFrame(passo);
+    }
+    requestAnimationFrame(passo);
+  }
+  if (contadores.length && 'IntersectionObserver' in window){
+    var ioContador = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ animarContador(en.target); ioContador.unobserve(en.target); }
+      });
+    }, {threshold:.5});
+    contadores.forEach(function(el){ ioContador.observe(el); });
+  }
+
+  /* ---- parallax sutil no hero ---- */
+  var rodaWrap = document.querySelector('.roda-wrap');
+  window.addEventListener('scroll', function(){
+    if (!rodaWrap) return;
+    var y = window.scrollY;
+    if (y < window.innerHeight){ rodaWrap.style.transform = 'translateY(' + (y*0.18) + 'px)'; rodaWrap.style.opacity = Math.max(1 - y/700, 0); }
+  }, {passive:true});
+
+  /* ---- sparkle canvas (particulas suaves no hero) ---- */
+  var canvas = document.getElementById('sparkle-canvas');
+  if (canvas && canvas.getContext){
+    var ctx = canvas.getContext('2d');
+    var pts = [], corParticula = ['47,125,66','29,122,147','181,96,42','201,151,63'];
+    function redimensionar(){
+      var hero = document.getElementById('top');
+      canvas.width = hero.clientWidth; canvas.height = hero.clientHeight;
+    }
+    function criarParticulas(){
+      pts = [];
+      var n = Math.round((canvas.width*canvas.height)/38000);
+      for (var i=0;i<n;i++){
+        pts.push({
+          x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+          r: Math.random()*1.6+.6, vy: Math.random()*.25+.06,
+          o: Math.random()*.5+.15, cor: corParticula[i%4]
+        });
+      }
+    }
+    function desenhar(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      pts.forEach(function(p){
+        p.y -= p.vy; if (p.y < -5){ p.y = canvas.height+5; p.x = Math.random()*canvas.width; }
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle = 'rgba(' + p.cor + ',' + p.o + ')';
+        ctx.fill();
+      });
+      requestAnimationFrame(desenhar);
+    }
+    redimensionar(); criarParticulas(); desenhar();
+    window.addEventListener('resize', function(){ redimensionar(); criarParticulas(); });
   }
 })();
 </script>
