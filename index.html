@@ -2546,7 +2546,10 @@ textarea.nt-in{resize:vertical;line-height:1.55}
    "ts": 1791740942094,
    "leg_en": "The IFMS rector and pro-rectors with the presidents of the institutions at the meeting on the agreement among CMDDI, ICET, FOCAMS, IFMS and MPE/MS.",
    "leg_es": "La rectora y los prorrectores del IFMS con los presidentes de las instituciones en el encuentro para el convenio entre CMDDI, ICET, FOCAMS, IFMS y MPE/MS.",
-   "leg_fr": "La rectrice et les pro-recteurs de l’IFMS avec les présidents des institutions lors de la rencontre pour la convention entre CMDDI, ICET, FOCAMS, IFMS et MPE/MS."
+   "leg_fr": "La rectrice et les pro-recteurs de l’IFMS avec les présidents des institutions lors de la rencontre pour la convention entre CMDDI, ICET, FOCAMS, IFMS et MPE/MS.",
+   "ocasiao_en": "Meeting on the Agreement among CMDDI, ICET, FOCAMS, IFMS and MPE/MS",
+   "ocasiao_es": "Encuentro para el Convenio entre CMDDI, ICET, FOCAMS, IFMS y MPE/MS",
+   "ocasiao_fr": "Rencontre pour la convention entre le CMDDI, l’ICET, le FOCAMS, l’IFMS et le MPE/MS"
   },
   "k1791740942095_1": {
    "src": "imgs/galeria/convenio-ifms-02-reuniao.jpg",
@@ -2558,7 +2561,10 @@ textarea.nt-in{resize:vertical;line-height:1.55}
    "ts": 1791740942095,
    "leg_en": "Working meeting on the agreement, held at IFMS.",
    "leg_es": "Reunión de trabajo sobre el convenio, realizada en el IFMS.",
-   "leg_fr": "Réunion de travail sur la convention, tenue à l’IFMS."
+   "leg_fr": "Réunion de travail sur la convention, tenue à l’IFMS.",
+   "ocasiao_en": "Meeting on the Agreement among CMDDI, ICET, FOCAMS, IFMS and MPE/MS",
+   "ocasiao_es": "Encuentro para el Convenio entre CMDDI, ICET, FOCAMS, IFMS y MPE/MS",
+   "ocasiao_fr": "Rencontre pour la convention entre le CMDDI, l’ICET, le FOCAMS, l’IFMS et le MPE/MS"
   },
   "k1791740942096_2": {
    "src": "imgs/galeria/convenio-ifms-03-documento.jpg",
@@ -2570,7 +2576,10 @@ textarea.nt-in{resize:vertical;line-height:1.55}
    "ts": 1791740942096,
    "leg_en": "Handing over of a document during the meeting on the agreement.",
    "leg_es": "Entrega de un documento durante el encuentro para el convenio.",
-   "leg_fr": "Remise d’un document lors de la rencontre pour la convention."
+   "leg_fr": "Remise d’un document lors de la rencontre pour la convention.",
+   "ocasiao_en": "Meeting on the Agreement among CMDDI, ICET, FOCAMS, IFMS and MPE/MS",
+   "ocasiao_es": "Encuentro para el Convenio entre CMDDI, ICET, FOCAMS, IFMS y MPE/MS",
+   "ocasiao_fr": "Rencontre pour la convention entre le CMDDI, l’ICET, le FOCAMS, l’IFMS et le MPE/MS"
   }
  }
 }</script>
@@ -2743,6 +2752,12 @@ function posterVideo(src){
 
 /* ---------- utilidades de dados ---------- */
 function legDe(it){ var l = lang(); return (l !== 'pt' && it['leg_' + l]) ? it['leg_' + l] : (it.leg || ''); }
+function nomeOcasiao(oc){
+  var l = lang(); if (l === 'pt') return oc;
+  var ks = Object.keys(S.dados.itens);
+  for (var i = 0; i < ks.length; i++){ var it = S.dados.itens[ks[i]]; if (it.ocasiao === oc && it['ocasiao_' + l]) return it['ocasiao_' + l]; }
+  return oc;
+}
 function lista(){
   var o = [];
   Object.keys(S.dados.itens).forEach(function(k){
@@ -2834,10 +2849,10 @@ function cartaoAlbum(oc, itens){
   var nF = itens.filter(function(x){ return x.it.tipo !== 'video'; }).length, nV = itens.length - nF;
   var sub = t('n_fotos', { n: nF }) + (nV ? t('e_videos', { n: nV }) : '');
   return '<div class="vg-card vg-album-card" data-oc="' + esc(oc) + '">' +
-    '<button type="button" class="vg-abrir" data-vg="abrir-album" data-oc="' + esc(oc) + '" aria-label="' + esc(t('album_rotulo') + ': ' + oc) + '">' +
+    '<button type="button" class="vg-abrir" data-vg="abrir-album" data-oc="' + esc(oc) + '" aria-label="' + esc(t('album_rotulo') + ': ' + nomeOcasiao(oc)) + '">' +
       (src ? '<img class="vg-midia" loading="lazy" src="' + esc(src) + '" alt="">' : '<span class="vg-midia vg-video"></span>') +
       '<span class="vg-album-info"><span class="vg-album-tag">' + esc(t('album_rotulo')) + '</span>' +
-      '<span class="vg-album-nome">' + esc(oc) + '</span>' +
+      '<span class="vg-album-nome">' + esc(nomeOcasiao(oc)) + '</span>' +
       '<span class="vg-album-sub">' + esc(sub) + ' · ' + esc(t('abrir_album')) + '</span></span>' +
     '</button>' +
     '<span class="vg-badge">' + itens.length + '</span>' +
@@ -2883,7 +2898,7 @@ function render(){
       return '<button type="button" class="vg-ind-linha" data-vg="abrir-indice" data-key="' + esc(x.key) + '">' +
         (th ? '<img src="' + esc(th) + '" alt="" loading="lazy">' : '<span class="vg-ind-sem"></span>') +
         '<span class="vg-ind-txt"><span class="vg-ind-leg">' + esc(r || '-') + '</span>' +
-        '<span class="vg-ind-alb">' + esc(x.it.ocasiao ? x.it.ocasiao : nomeAlbum(x.it.album)) + '</span></span>' +
+        '<span class="vg-ind-alb">' + esc(x.it.ocasiao ? nomeOcasiao(x.it.ocasiao) : nomeAlbum(x.it.album)) + '</span></span>' +
         '<span class="vg-ind-ir">' + esc(t('abrir')) + '</span></button>';
     }).join('');
 
@@ -2894,7 +2909,7 @@ function renderAlbum(oc){
   if (!itens.length){ S.albumAberto = null; fecharModal('vg-album'); return; }
   var capa = capaDe(itens);
   var nF = itens.filter(function(x){ return x.it.tipo !== 'video'; }).length, nV = itens.length - nF;
-  $('vg-album-titulo').textContent = oc;
+  $('vg-album-titulo').textContent = nomeOcasiao(oc);
   $('vg-album-sub').textContent = t('n_fotos', { n: nF }) + (nV ? t('e_videos', { n: nV }) : '') + ' · ' + t('clique_ampliar');
   $('vg-album-grid').innerHTML = itens.map(function(x){
     return cartao(x, { album: true, capa: capa && x.key === capa.key });
