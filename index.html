@@ -2583,6 +2583,143 @@ textarea.nt-in{resize:vertical;line-height:1.55}
   }
  }
 }</script>
+<script>
+/* ===== Tradução automática (português -> inglês, espanhol e francês) =====
+   Usada quando o ADM insere ou altera um texto no site.
+   1) Se este navegador tiver a chave do Claude configurada (Sala de Imprensa ->
+      Configurações), traduz pelo Claude.
+   2) Sem chave, ou se o Claude falhar, usa o serviço gratuito MyMemory.
+   Se nenhum dos dois responder, devolve null e o texto fica em português. */
+(function(){
+if (window.TRAD_AUTO) return;
+var LINGUAS = ['en', 'es', 'fr'];
+var MM_LANG = {en:'en-GB', es:'es-ES', fr:'fr-FR'};
+
+function chaveClaude(){
+  try{
+    var direta = localStorage.getItem('trad_claude_key'); if (direta) return direta.trim();
+    var cfgs = ['cmddi_si_cfg', 'icet_si_cfg', 'aldeiaxp_si_cfg', 'focams_si_cfg'];
+    for (var i = 0; i < cfgs.length; i++){
+      var c = JSON.parse(localStorage.getItem(cfgs[i]) || '{}');
+      if (c && c.claude) return String(c.claude).trim();
+    }
+  }catch(e){}
+  return '';
+}
+
+function viaClaude(textos, chave){
+  var schema = {type:'object', additionalProperties:false, required:LINGUAS, properties:{}};
+  LINGUAS.forEach(function(l){ schema.properties[l] = {type:'array', items:{type:'string'}}; });
+  var corpo = {
+    model: 'claude-opus-5-5',
+    max_tokens: 16000,
+    fallbacks: 'default',
+    output_config: {effort: 'low', format: {type: 'json_schema', schema: schema}},
+    system: 'Você traduz textos de sites institucionais de organizações indígenas de Mato Grosso do Sul (Brasil) do português para inglês (en), espanhol latino-americano (es) e francês (fr). ' +
+      'Preserve intactos nomes próprios de pessoas, organizações, etnias, aldeias e lugares, siglas (ICET, CMDDI, FOCAMS, UNIPBRAS, IFMS, MPE/MS, COOPIMS, INPI, FUNAI etc.), números, datas e links. ' +
+      'Use tom formal e respeitoso. Cada lista de saída deve ter exatamente um item por texto de entrada, na mesma ordem; quebras de linha devem ser mantidas.',
+    messages: [{role: 'user', content: JSON.stringify({textos: textos})}]
+  };
+  return fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': chave,
+      'anthropic-version': '2023-06-01',
+      'anthropic-beta': 'server-side-fallback-2026-07-01',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify(corpo)
+  }).then(function(r){
+    return r.json().then(function(j){
+      if (!r.ok) throw new Error((j && j.error && j.error.message) || ('HTTP ' + r.status));
+      if (j.stop_reason === 'refusal') throw new Error('recusado');
+      var bloco = (j.content || []).filter(function(b){ return b.type === 'text'; })[0];
+      if (!bloco) throw new Error('resposta vazia');
+      var out = JSON.parse(bloco.text);
+      LINGUAS.forEach(function(l){ if (!Array.isArray(out[l]) || out[l].length !== textos.length) throw new Error('resposta incompleta'); });
+      return out;
+    });
+  });
+}
+
+/* MyMemory aceita até ~500 caracteres por pedido: divide por parágrafo e frase */
+function pedacos(t){
+  var out = [];
+  String(t).split(/(\n+)/).forEach(function(par){
+    if (par.length <= 450){ out.push(par); return; }
+    var atual = '';
+    par.split(/(?<=[.!?;:])\s+/).forEach(function(fr){
+      while (fr.length > 450){ if (atual){ out.push(atual); atual = ''; } out.push(fr.slice(0, 450)); fr = fr.slice(450); }
+      if ((atual + ' ' + fr).trim().length > 450){ out.push(atual); atual = fr; }
+      else atual = atual ? atual + ' ' + fr : fr;
+    });
+    if (atual) out.push(atual);
+  });
+  return out;
+}
+function mmUm(trecho, l){
+  if (!trecho.trim()) return Promise.resolve(trecho);
+  var url = 'https://api.mymemory.translated.net/get?q=' + encodeURIComponent(trecho) + '&langpair=' + encodeURIComponent('pt-BR|' + MM_LANG[l]);
+  return fetch(url).then(function(r){ return r.json(); }).then(function(j){
+    if (!j || j.responseStatus != 200 || !j.responseData) throw new Error((j && j.responseDetails) || 'MyMemory');
+    var t = j.responseData.translatedText || '';
+    if (/MYMEMORY WARNING|QUERY LENGTH LIMIT/i.test(t)) throw new Error(t.slice(0, 80));
+    var tmp = document.createElement('textarea'); tmp.innerHTML = t; return tmp.value;
+  });
+}
+function viaMyMemory(textos){
+  var out = {en: [], es: [], fr: []}, fila = Promise.resolve();
+  textos.forEach(function(texto, i){
+    LINGUAS.forEach(function(l){
+      fila = fila.then(function(){
+        var p = pedacos(texto), res = [], f2 = Promise.resolve();
+        p.forEach(function(tr){ f2 = f2.then(function(){ return mmUm(tr, l).then(function(x){ res.push(x); }); }); });
+        return f2.then(function(){ out[l][i] = res.join(''); });
+      });
+    });
+  });
+  return fila.then(function(){ return out; });
+}
+
+/* textos: lista de strings em português. Devolve {en:[...], es:[...], fr:[...]} ou null. */
+function traduzir(textos){
+  textos = (textos || []).map(function(t){ return String(t == null ? '' : t); });
+  if (!textos.some(function(t){ return t.trim(); })) return Promise.resolve({en: textos.slice(), es: textos.slice(), fr: textos.slice()});
+  var chave = chaveClaude();
+  var tentativa = chave ? viaClaude(textos, chave).catch(function(e){ console.warn('Tradução pelo Claude falhou, usando MyMemory:', e && e.message); return viaMyMemory(textos); })
+                        : viaMyMemory(textos);
+  return tentativa.catch(function(e){ console.warn('Tradução automática indisponível:', e && e.message); return null; });
+}
+
+/* Preenche campo_en / campo_es / campo_fr de um objeto a partir de campo (pt).
+   Só traduz o que falta ou o que mudou desde a última tradução automática
+   (traduções feitas à mão, sem registro em trad_src, não são sobrescritas). */
+function pendentes(item, campos){
+  return campos.filter(function(c){
+    var pt = item[c]; if (typeof pt !== 'string' || !pt.trim()) return false;
+    var src = item.trad_src && item.trad_src[c];
+    var falta = LINGUAS.some(function(l){ return !item[c + '_' + l]; });
+    return falta || (src != null && src !== pt);
+  });
+}
+function traduzirCampos(item, campos){
+  var cs = pendentes(item, campos); if (!cs.length) return Promise.resolve(false);
+  return traduzir(cs.map(function(c){ return item[c]; })).then(function(t){
+    if (!t) return false;
+    item.trad_src = item.trad_src || {};
+    cs.forEach(function(c, i){
+      var mudou = item.trad_src[c] != null && item.trad_src[c] !== item[c];
+      LINGUAS.forEach(function(l){ if (mudou || !item[c + '_' + l]) item[c + '_' + l] = t[l][i]; });
+      item.trad_src[c] = item[c];
+    });
+    return true;
+  });
+}
+
+window.TRAD_AUTO = {traduzir: traduzir, traduzirCampos: traduzirCampos, pendentes: pendentes, chaveClaude: chaveClaude, linguas: LINGUAS};
+})();
+</script>
 <script>window.VG_CFG={"cloud": {"nome": "dn1ubybc0", "preset": "cmddi_galeria"}, "repo": "germanocoelho/focams.github.io", "arquivo": "galeria.json", "chaveCache": "focams_galeria_cache", "chaveToken": "focams_gh_token", "senhaSal": "focams-vg-1", "senhaHash": "aae467f1e0cf1cf30ecafc818ca87b2cba4c43fa83fdf6a102983f6139a7c24d", "idiomas": ["pt", "en", "es", "fr"], "legPadrao": "FOCAMS", "textos": {"pt": {"todos": "Todos", "vazio": "Nenhuma foto nesta categoria ainda.", "indice": "Índice de registros", "indice_cab": "{n} registro(s) em {a}", "abrir": "Abrir ›", "album_rotulo": "Álbum", "n_fotos": "{n} foto(s)", "e_videos": " e {n} vídeo(s)", "abrir_album": "clique para abrir", "clique_ampliar": "clique para ampliar", "lb_orig": "Abrir original", "restrito": "Restrito", "video": "Vídeo", "capa": "Capa", "adm_link": "Administrar galeria", "adm_titulo": "Adicionar fotos e vídeos à galeria", "backup": "Baixar cópia de segurança", "sair": "Sair do modo administrador", "dica_arrastar": "Arraste os cartões para reordenar. Clique duas vezes na legenda para editá-la.", "f_leg": "Legenda padrão (usada quando o arquivo não tem legenda própria)", "f_data": "Data ou evento", "ph_data": "Ex.: 15 de jun. de 2026", "f_album": "Álbum", "f_visib": "Visibilidade", "v_pub": "Público", "v_res": "Somente administradores", "f_ocasiao": "Nome do evento ou reunião (agrupa as fotos em um álbum, opcional)", "f_ocasiao_dica": "Com o nome preenchido, todas as fotos do lote formam um álbum com capa e contador. Sem o nome, entram soltas na galeria.", "f_arquivos": "Selecionar várias fotos ou vídeos de uma vez (Ctrl ou Shift)", "lote_titulo": "{n} arquivo(s) selecionado(s). Escreva a legenda de cada um:", "ph_leg": "Legenda do arquivo {n}", "publicar_n": "Publicar {n} arquivo(s)", "cancelar": "Cancelar", "ou_link": "ou informe o link direto de uma imagem", "f_href": "Link externo ao clicar (opcional)", "add_link": "Adicionar pelo link", "enviando": "Enviando {i} de {n}...", "publicado": "{n} item(ns) publicado(s) e salvo(s).", "nenhum": "Nenhum arquivo foi enviado. Verifique a conexão.", "falha_envio": "Falha no envio ({m}).", "login_titulo": "Acesso administrativo", "login_dica": "Digite a senha de administrador. Na primeira vez em cada navegador, informe também o token do GitHub com permissão de escrita neste repositório. Ele fica guardado apenas neste navegador.", "senha_rot": "Senha de administrador", "token_rot": "Token do GitHub (só na primeira vez neste navegador)", "senha_errada": "Senha incorreta.", "token_falta": "Informe também o token do GitHub (primeira vez neste navegador).", "entrar": "Entrar", "token_invalido": "Token inválido ou sem permissão de escrita.", "conectado": "Conectado: tudo que você publicar é salvo permanentemente.", "verificando": "Verificando a conexão...", "falha_salvar": "Falha ao salvar ({m}). Nada foi gravado permanentemente.", "falha_rede": "Falha de rede ao salvar.", "salvo": "Salvo na nuvem.", "ed_titulo": "Editar legenda", "ed_pt": "Legenda (Português)", "ed_en": "Legenda (English)", "ed_es": "Legenda (Español)", "ed_fr": "Legenda (Français)", "ed_dica": "Idiomas em branco usam a legenda em português.", "salvar": "Salvar", "t_editar": "Editar legenda", "t_substituir": "Substituir foto", "t_atras": "Mover para trás", "t_frente": "Mover para frente", "t_capa": "Definir como capa do álbum", "t_excluir": "Excluir", "t_renomear": "Renomear álbum", "conf_excluir": "Remover este item da galeria?", "ren_prompt": "Novo nome do álbum (corrige em todas as fotos do grupo):", "add_fotos": "Adicionar fotos ao álbum", "add_video": "Adicionar vídeo ao álbum", "na_ponta": "O item já está na ponta.", "ordem_ok": "Ordem atualizada e salva.", "capa_ok": "Foto definida como capa do álbum.", "leg_ok": "Legenda atualizada.", "subst_ok": "Foto substituída e salva.", "excl_ok": "Item removido.", "ren_ok": "Álbum renomeado.", "alert_selecione": "Selecione os arquivos primeiro.", "alert_link": "Informe o link da imagem.", "rotulo": "Memória visual", "titulo": "Galeria de fotos.", "lead": "Registros de encontros, reuniões e articulações do FOCAMS. Escolha um álbum para ver as fotos e abra cada imagem para ampliar."}, "en": {"todos": "All", "vazio": "No photos in this category yet.", "indice": "Index of records", "indice_cab": "{n} record(s) in {a}", "abrir": "Open ›", "album_rotulo": "Album", "n_fotos": "{n} photo(s)", "e_videos": " and {n} video(s)", "abrir_album": "click to open", "clique_ampliar": "click to enlarge", "lb_orig": "Open original", "restrito": "Restricted", "video": "Video", "capa": "Cover", "adm_link": "Manage gallery", "rotulo": "Visual memory", "titulo": "Photo gallery.", "lead": "Records of meetings and partnerships involving FOCAMS. Choose an album to see the photos and open any image to enlarge it."}, "es": {"todos": "Todos", "vazio": "Aún no hay fotos en esta categoría.", "indice": "Índice de registros", "indice_cab": "{n} registro(s) en {a}", "abrir": "Abrir ›", "album_rotulo": "Álbum", "n_fotos": "{n} foto(s)", "e_videos": " y {n} video(s)", "abrir_album": "haga clic para abrir", "clique_ampliar": "haga clic para ampliar", "lb_orig": "Abrir original", "restrito": "Restringido", "video": "Video", "capa": "Portada", "adm_link": "Administrar galería", "rotulo": "Memoria visual", "titulo": "Galería de fotos.", "lead": "Registros de encuentros, reuniones y articulaciones del FOCAMS. Elija un álbum para ver las fotos y abra cada imagen para ampliarla."}, "fr": {"todos": "Tous", "vazio": "Aucune photo dans cette catégorie pour l’instant.", "indice": "Index des enregistrements", "indice_cab": "{n} enregistrement(s) dans {a}", "abrir": "Ouvrir ›", "album_rotulo": "Album", "n_fotos": "{n} photo(s)", "e_videos": " et {n} vidéo(s)", "abrir_album": "cliquez pour ouvrir", "clique_ampliar": "cliquez pour agrandir", "lb_orig": "Ouvrir l’original", "restrito": "Restreint", "video": "Vidéo", "capa": "Couverture", "adm_link": "Gérer la galerie", "rotulo": "Mémoire visuelle", "titulo": "Galerie de photos.", "lead": "Archives des rencontres, réunions et partenariats du FOCAMS. Choisissez un album pour voir les photos et ouvrez chaque image pour l’agrandir."}}, "albuns": [{"id": "eventos", "nome": {"pt": "Eventos", "en": "Events", "es": "Eventos", "fr": "Événements"}}, {"id": "reunioes", "nome": {"pt": "Reuniões", "en": "Meetings", "es": "Reuniones", "fr": "Réunions"}}, {"id": "liderancas", "nome": {"pt": "Lideranças", "en": "Leaders", "es": "Liderazgos", "fr": "Dirigeants"}}, {"id": "aldeias", "nome": {"pt": "Aldeias", "en": "Villages", "es": "Aldeas", "fr": "Villages"}}, {"id": "institucional", "nome": {"pt": "Institucional", "en": "Institutional", "es": "Institucional", "fr": "Institutionnel"}}], "idioma": function(){return window.FOCAMS_getLang?window.FOCAMS_getLang():'pt';}};</script>
 <script>
 /* VG: galeria de fotos e videos com albuns, edicao e publicacao (GitHub + Cloudinary).
@@ -2685,10 +2822,26 @@ function _salvar(msg){
       });
   }
   return tentar(0).then(function(x){
-    if (x.ok && x.j && x.j.content){ banner('ok', t('salvo')); toast(t('salvo')); return true; }
+    if (x.ok && x.j && x.j.content){ banner('ok', t('salvo')); toast(t('salvo')); setTimeout(traduzirPendentes, 50); return true; }
     banner('erro', t('falha_salvar', { m: (x.j && x.j.message) || x.st }));
     return false;
   }).catch(function(){ banner('erro', t('falha_rede')); return false; });
+}
+
+/* ---------- tradução automática das legendas e dos nomes de álbum ---------- */
+function traduzirPendentes(){
+  if (S.traduzindo || !window.TRAD_AUTO || !S.token || (CFG.idiomas || []).length < 2) return;
+  var lista = Object.keys(S.dados.itens).map(function(k){ return S.dados.itens[k]; })
+    .filter(function(it){ return TRAD_AUTO.pendentes(it, ['leg', 'ocasiao']).length; });
+  if (!lista.length) return;
+  S.traduzindo = true; banner('espera', '🌐 Traduzindo ' + lista.length + ' legenda(s) para inglês, espanhol e francês...');
+  var fila = Promise.resolve(), mudou = false;
+  lista.forEach(function(it){ fila = fila.then(function(){ return TRAD_AUTO.traduzirCampos(it, ['leg', 'ocasiao']).then(function(ok){ if (ok) mudou = true; }); }); });
+  fila.then(function(){
+    S.traduzindo = false; render();
+    if (mudou) return salvar('Galeria: tradução automática das legendas');
+    banner('erro', 'Tradução automática indisponível agora; as legendas ficam em português até a próxima gravação.');
+  }).catch(function(){ S.traduzindo = false; });
 }
 
 /* ---------- Cloudinary e envio ---------- */
@@ -3022,11 +3175,16 @@ function salvarLegenda(){
   var x = acharItem(S.editando); if (!x) return;
   var pt = $('vg-ed-pt').value.trim();
   if (!pt){ $('vg-ed-pt').focus(); return; }
+  var ptMudou = pt !== x.it.leg, manual = false;
   x.it.leg = pt;
   ['en', 'es', 'fr'].forEach(function(l){
-    var el = $('vg-ed-' + l), v = el ? el.value.trim() : '';
-    if (v) x.it['leg_' + l] = v; else delete x.it['leg_' + l];
+    var el = $('vg-ed-' + l), v = el ? el.value.trim() : '', antes = x.it['leg_' + l] || '';
+    if (v && v !== antes) manual = true;                   // escrita à mão: mantém
+    if (!v || (ptMudou && v === antes)) delete x.it['leg_' + l]; // vazia ou desatualizada: tradução automática
+    else x.it['leg_' + l] = v;
   });
+  x.it.trad_src = x.it.trad_src || {};
+  if (manual || !ptMudou) x.it.trad_src.leg = pt; else delete x.it.trad_src.leg;
   fecharModal('vg-ed'); render();
   salvar('Legenda da galeria').then(function(ok){ if (ok) toast(t('leg_ok')); });
 }
@@ -3398,6 +3556,17 @@ function u(k, v){ var d = UI[lang()], s = d[k] != null ? d[k] : UI.pt[k]; if (v)
 function tx(v){ if (v == null) return ''; if (typeof v === 'string') return v; var l = lang(); return v[l] != null ? v[l] : (v.pt || ''); }
 function esc(s){ return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function urlSegura(s){ s = String(s || '').trim(); return /^(https?:\/\/|imgs\/)/i.test(s) ? s : ''; }
+function ptDe(v){ return (v && typeof v === 'object' && !Array.isArray(v)) ? (v.pt || '') : (v || ''); }
+function paragrafosPt(it){ var t = ptDe(it.texto); if (Array.isArray(t)) return t; return String(t || '').split(/\n\s*\n/).map(function(p){ return p.trim(); }).filter(Boolean); }
+function traduzirNoticia(it){
+  var campos = ['titulo', 'resumo', 'texto'].filter(function(c){ return typeof it[c] === 'string' && it[c].trim(); });
+  if (!campos.length || !window.TRAD_AUTO) return Promise.resolve();
+  status('espera', '🌐 Traduzindo para inglês, espanhol e francês...');
+  return TRAD_AUTO.traduzir(campos.map(function(c){ return it[c]; })).then(function(t){
+    if (!t){ status('espera', '⚠️ Tradução automática indisponível agora; a notícia será publicada em português.'); return; }
+    campos.forEach(function(c, i){ var o = {pt: it[c]}; TRAD_AUTO.linguas.forEach(function(l){ o[l] = t[l][i]; }); it[c] = o; });
+  });
+}
 function normalizar(j){ var d = (j && typeof j === 'object') ? j : {}; if (!d.itens || typeof d.itens !== 'object') d.itens = {}; d.versao = 1; return d; }
 function dataFmt(iso){
   var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || ''); if (!m) return '';
@@ -3572,11 +3741,11 @@ function editar(k){
   editando = k; capaNova = null;
   $('nt-f-tipo').value = it.tipo; $('nt-form').setAttribute('data-tipo', it.tipo);
   $('nt-f-data').value = it.data || '';
-  $('nt-f-titulo').value = tx(it.titulo);
+  $('nt-f-titulo').value = ptDe(it.titulo);
   $('nt-f-veiculo').value = it.veiculo || '';
   $('nt-f-link').value = it.link || '';
-  $('nt-f-resumo').value = tx(it.resumo) || tx(it.fina);
-  $('nt-f-texto').value = paragrafos(it).join('\n\n');
+  $('nt-f-resumo').value = ptDe(it.resumo) || ptDe(it.fina);
+  $('nt-f-texto').value = paragrafosPt(it).join('\n\n');
   $('nt-f-assina').value = it.assinatura || '';
   $('nt-f-capa').value = '';
   var p = $('nt-f-capa-previa'); if (urlSegura(it.capa)){ p.src = it.capa; p.hidden = false; } else p.hidden = true;
@@ -3611,17 +3780,23 @@ function publicar(){
     // preserva o que o formulário não edita (fotos, logo, legendas, traduções intactas)
     ['fotos', 'assinaturaLogo', 'capaLeg', 'local', 'ts'].forEach(function(c){ if (antigo[c] != null) it[c] = antigo[c]; });
     if (antigo.tipo === 'release' && tipo === 'release'){
-      if (typeof antigo.titulo === 'object' && it.titulo === tx(antigo.titulo)) it.titulo = antigo.titulo;
-      if (typeof antigo.fina === 'object' && it.resumo === tx(antigo.fina)){ it.fina = antigo.fina; delete it.resumo; }
-      if (typeof antigo.texto === 'object' && !Array.isArray(antigo.texto) && it.texto === paragrafos(antigo).join('\n\n')) it.texto = antigo.texto;
+      if (typeof antigo.fina === 'object' && it.resumo === ptDe(antigo.fina)){ it.fina = antigo.fina; delete it.resumo; }
     }
     it.capa = antigo.capa;
+    // o que não mudou em português mantém as traduções que já tinha
+    ['titulo', 'resumo', 'texto'].forEach(function(c){
+      var a = antigo[c]; if (!a || typeof a !== 'object' || Array.isArray(a) || typeof it[c] !== 'string') return;
+      var igual = c === 'texto' ? it.texto === paragrafosPt(antigo).join('\n\n') : it[c] === ptDe(a);
+      if (igual) it[c] = a;
+    });
   }
   if (!it.ts) it.ts = Date.now();
   var btn = $('nt-f-publicar'); btn.disabled = true;
   status('espera', '⏳ Publicando...');
   var passo = capaNova ? enviarCapa(capaNova).then(function(url){ it.capa = url; }) : Promise.resolve();
   passo.then(function(){
+    return traduzirNoticia(it);
+  }).then(function(){
     return lerRemoto();
   }).then(function(){
     var k = editando || ((tipo === 'midia' ? 'mid_' : 'rel_') + Date.now());
