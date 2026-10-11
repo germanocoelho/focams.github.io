@@ -1,0 +1,41 @@
+{
+ "versao": 1,
+ "itens": {
+  "k1791737462724_0": {
+   "src": "imgs/galeria/convenio-ifms-01-grupo.jpg",
+   "leg": "Reitora e pró-reitores do IFMS e presidentes das instituições no encontro para o convênio entre CMDDI, ICET, FOCAMS, IFMS e MPE/MS.",
+   "album": "reunioes",
+   "ocasiao": "Encontro para o Convênio entre CMDDI, ICET, FOCAMS, IFMS e MPE/MS",
+   "tipo": "foto",
+   "visib": "publico",
+   "ts": 1791737462724,
+   "leg_en": "The IFMS rector and pro-rectors with the presidents of the institutions at the meeting on the agreement among CMDDI, ICET, FOCAMS, IFMS and MPE/MS.",
+   "leg_es": "La rectora y los prorrectores del IFMS con los presidentes de las instituciones en el encuentro para el convenio entre CMDDI, ICET, FOCAMS, IFMS y MPE/MS.",
+   "leg_fr": "La rectrice et les pro-recteurs de l’IFMS avec les présidents des institutions lors de la rencontre pour la convention entre CMDDI, ICET, FOCAMS, IFMS et MPE/MS."
+  },
+  "k1791737462725_1": {
+   "src": "imgs/galeria/convenio-ifms-02-reuniao.jpg",
+   "leg": "Reunião de trabalho sobre o convênio, realizada no IFMS.",
+   "album": "reunioes",
+   "ocasiao": "Encontro para o Convênio entre CMDDI, ICET, FOCAMS, IFMS e MPE/MS",
+   "tipo": "foto",
+   "visib": "publico",
+   "ts": 1791737462725,
+   "leg_en": "Working meeting on the agreement, held at IFMS.",
+   "leg_es": "Reunión de trabajo sobre el convenio, realizada en el IFMS.",
+   "leg_fr": "Réunion de travail sur la convention, tenue à l’IFMS."
+  },
+  "k1791737462726_2": {
+   "src": "imgs/galeria/convenio-ifms-03-documento.jpg",
+   "leg": "Entrega de documento durante o encontro para o convênio.",
+   "album": "reunioes",
+   "ocasiao": "Encontro para o Convênio entre CMDDI, ICET, FOCAMS, IFMS e MPE/MS",
+   "tipo": "foto",
+   "visib": "publico",
+   "ts": 1791737462726,
+   "leg_en": "Handing over of a document during the meeting on the agreement.",
+   "leg_es": "Entrega de un documento durante el encuentro para el convenio.",
+   "leg_fr": "Remise d’un document lors de la rencontre pour la convention."
+  }
+ }
+}
