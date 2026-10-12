@@ -973,6 +973,13 @@ textarea.nt-in{resize:vertical;line-height:1.55}
 .nt-form[data-tipo="midia"] .nt-so-release{display:none}
 .nt-form[data-tipo="release"] .nt-so-midia{display:none}
 </style>
+<meta property="og:locale" content="pt_BR">
+<meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="fr_FR">
+<link rel="alternate" hreflang="pt-BR" href="https://www.focams.com.br/">
+<link rel="alternate" hreflang="en" href="https://www.focams.com.br/?lang=en">
+<link rel="alternate" hreflang="es" href="https://www.focams.com.br/?lang=es">
+<link rel="alternate" hreflang="fr" href="https://www.focams.com.br/?lang=fr">
+<link rel="alternate" hreflang="x-default" href="https://www.focams.com.br/">
 </head>
 <body>
 
@@ -3860,6 +3867,338 @@ fetch(ARQ + '?t=' + Date.now(), {cache:'no-store'})
   .then(function(r){ if (!r.ok) throw new Error('sem arquivo'); return r.json(); })
   .then(function(j){ if (!admAtivo()){ DADOS = normalizar(j); render(); } })
   .catch(function(){});
+})();
+</script>
+<script type="application/json" id="i18n-dic">{"versao": 1, "textos": {"Lisio Lili<0>Terena · Clã Xumono<\/0>": {"en": "Lisio Lili<0>Terena · Xumono clan<\/0>", "es": "Lisio Lili<0>Terena · Clan Xumono<\/0>", "fr": "Lisio Lili<0>Terena · Clan Xumono<\/0>"}, "Rosemiro Pereira<0>Clã Xumono · Nação Txané/Terena<\/0>": {"en": "Rosemiro Pereira<0>Xumono clan · Txané/Terena Nation<\/0>", "es": "Rosemiro Pereira<0>Clan Xumono · Nación Txané/Terena<\/0>", "fr": "Rosemiro Pereira<0>Clan Xumono · Nation Txané/Terena<\/0>"}, ", Livro A38, fls. 111": {"en": ", Book A38, sheet 111", "es": ", Libro A38, fs. 111", "fr": ", Registre A38, f. 111"}, "Créditos de desenvolvimento": {"en": "Development credits", "es": "Créditos de desarrollo", "fr": "Crédits de développement"}, "Abrir menu": {"en": "Open menu", "es": "Abrir menú", "fr": "Ouvrir le menu"}, "Emblema do FOCAMS": {"en": "FOCAMS emblem", "es": "Emblema del FOCAMS", "fr": "Emblème du FOCAMS"}, "Logomarca oficial do FOCAMS": {"en": "Official FOCAMS logo", "es": "Logotipo oficial del FOCAMS", "fr": "Logo officiel du FOCAMS"}, "Logomarca oficial do FOCAMS, ampliada": {"en": "Official FOCAMS logo, enlarged", "es": "Logotipo oficial del FOCAMS, ampliado", "fr": "Logo officiel du FOCAMS, agrandi"}, "Verde-mata": {"en": "Forest green", "es": "Verde selva", "fr": "Vert forêt"}, "Azul-água": {"en": "Water blue", "es": "Azul agua", "fr": "Bleu eau"}, "Terracota": {"en": "Terracotta", "es": "Terracota", "fr": "Terre cuite"}, "Dourado": {"en": "Gold", "es": "Dorado", "fr": "Doré"}, "Verde-profundo": {"en": "Deep green", "es": "Verde profundo", "fr": "Vert profond"}, "divisor decorativo": {"en": "decorative divider", "es": "divisor decorativo", "fr": "séparateur décoratif"}, "Fechar": {"en": "Close", "es": "Cerrar", "fr": "Fermer"}, "FOCAMS · Fórum dos Caciques de Mato Grosso do Sul": {"en": "FOCAMS · Forum of Chiefs of Mato Grosso do Sul", "es": "FOCAMS · Foro de los Caciques de Mato Grosso do Sul", "fr": "FOCAMS · Forum des caciques du Mato Grosso do Sul"}, "FOCAMS: Organização Indígena Fórum dos Caciques de Mato Grosso do Sul. Fundada em 2017, em Aquidauana/MS, reúne caciques e lideranças de todas as etnias do Estado em torno de um mesmo círculo de decisão.": {"en": "FOCAMS: Indigenous Organization Forum of Chiefs of Mato Grosso do Sul. Founded in 2017 in Aquidauana/MS, it brings together chiefs and leaders of every people in the state around a single circle of decision-making.", "es": "FOCAMS: Organización Indígena Foro de los Caciques de Mato Grosso do Sul. Fundada en 2017, en Aquidauana/MS, reúne a caciques y liderazgos de todas las etnias del estado en torno a un mismo círculo de decisión.", "fr": "FOCAMS : Organisation autochtone Forum des caciques du Mato Grosso do Sul. Fondée en 2017 à Aquidauana/MS, elle réunit les caciques et les dirigeants de tous les peuples de l'État autour d'un même cercle de décision."}}}</script>
+<script>
+/* Motor de tradução da página: cobre o que o sistema de idiomas do site (data-i18n) não alcança,
+   traduz datas, título da aba e descrição, detecta o idioma do navegador e aceita ?lang=en.
+   Usa o seletor de idiomas do próprio site. */
+window.I18N_SITE_CFG = {
+  chave: 'focams_lang',
+  seletorProprio: true,
+  definirNoSite: function(l){ window.FOCAMS_setLang(l); },
+  ignorar: '[data-i18n],[data-i18n-html],[data-nt],#nt-grid,#nt-tabs,#nt-vazio,#nt-modal,#nt-lb,#nt-painel,#nt-adm-link,#vg-raiz,.vg-modal,.vg-lb,[id^=vg-],.vg-so-adm,#lang-switch'
+};
+</script>
+<script>
+/* ===== Tradução do site: português, inglês, espanhol e francês =====
+   Percorre a página inteira e traduz cada frase visível (com negritos e links
+   preservados dentro dela), além de legendas de imagem, dicas e campos.
+   As traduções ficam no dicionário #i18n-dic (revisado à mão, com glossário).
+   O conteúdo publicado pelo ADM já vem traduzido pelos próprios módulos.
+   Configuração em window.I18N_SITE_CFG. */
+(function(){
+var CFG = window.I18N_SITE_CFG || {};
+var IDIOMAS = ['pt', 'en', 'es', 'fr'];
+var ROTULOS = {pt: 'PT', en: 'EN', es: 'ES', fr: 'FR'};
+var NOMES = {pt: 'Português', en: 'English', es: 'Español', fr: 'Français'};
+var HTML_LANG = {pt: 'pt-BR', en: 'en', es: 'es', fr: 'fr'};
+var CHAVE = CFG.chave || 'site_lang';
+var INLINE = {A:1, ABBR:1, B:1, BDI:1, BDO:1, BR:1, CITE:1, DFN:1, EM:1, I:1, KBD:1, MARK:1, Q:1, S:1, SMALL:1, SPAN:1, STRONG:1, SUB:1, SUP:1, TIME:1, U:1, WBR:1};
+var PULAR = 'script,style,noscript,template,textarea,code,pre,svg,math,iframe,[translate="no"],.notranslate,[data-i18n-ignorar],.i18n-seletor' + (CFG.ignorar ? ',' + CFG.ignorar : '');
+var ATRS = ['alt', 'title', 'placeholder', 'aria-label'];
+var LETRA = /[A-Za-zÀ-ÿ]/;
+var DIC = {};
+try{ DIC = JSON.parse(document.getElementById('i18n-dic').textContent).textos || {}; }catch(e){}
+
+var atual = 'pt', aplicando = false;
+var unidades = [];            // {tipo:'el'|'txt', no, orig, chave, els}
+var regEl = new WeakMap(), regTxt = new WeakMap(), regAtr = new WeakMap();
+var meta = null;
+
+function norm(s){ return String(s).replace(/\s+/g, ' ').trim(); }
+function esc(s){ return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+function desesc(s){ return s.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&'); }
+function pular(el){ return !el || (el.closest && el.closest(PULAR)); }
+function temLetra(el){ return LETRA.test(el.textContent || ''); }
+
+/* elemento cujo conteúdo é só texto e elementos de linha (negrito, link...) */
+function soLinha(el){
+  for (var c = el.firstChild; c; c = c.nextSibling){
+    if (c.nodeType === 1){ if (!INLINE[c.tagName] || c.matches(PULAR) || !soLinha(c)) return false; }
+  }
+  return true;
+}
+function temTextoDireto(el){
+  for (var c = el.firstChild; c; c = c.nextSibling) if (c.nodeType === 3 && LETRA.test(c.nodeValue)) return true;
+  return false;
+}
+/* molde da frase: texto com marcadores <0>..</0> no lugar dos elementos de linha */
+function molde(el, els){
+  var out = '';
+  for (var c = el.firstChild; c; c = c.nextSibling){
+    if (c.nodeType === 3) out += esc(c.nodeValue);
+    else if (c.nodeType === 1){
+      var i = els.length; els.push(c);
+      if (!c.firstChild || c.tagName === 'BR' || c.tagName === 'WBR' || !LETRA.test(c.textContent)) out += '<' + i + '/>';
+      else out += '<' + i + '>' + molde(c, els) + '</' + i + '>';
+    }
+  }
+  return out;
+}
+function montar(trad, els){
+  var frag = document.createDocumentFragment(), pilha = [frag], m, re = /<(\d+)\/>|<(\d+)>|<\/(\d+)>|([^<]+)/g;
+  while ((m = re.exec(trad))){
+    var topo = pilha[pilha.length - 1];
+    if (m[1] != null){ if (!els[+m[1]]) return null; topo.appendChild(els[+m[1]].cloneNode(true)); }
+    else if (m[2] != null){ if (!els[+m[2]]) return null; var n = els[+m[2]].cloneNode(false); topo.appendChild(n); pilha.push(n); }
+    else if (m[3] != null){ if (pilha.length < 2) return null; pilha.pop(); }
+    else topo.appendChild(document.createTextNode(desesc(m[4])));
+  }
+  return pilha.length === 1 ? frag : null;
+}
+
+/* ---------- registro das frases da página ---------- */
+function registrarEl(el){
+  var els = [], ch = norm(molde(el, els));
+  var u = {tipo: 'el', no: el, orig: Array.prototype.slice.call(el.childNodes), chave: ch, els: els, estado: 'pt'};
+  regEl.set(el, u); unidades.push(u); return u;
+}
+function registrarTxt(t){
+  var u = {tipo: 'txt', no: t, orig: t.nodeValue, chave: norm(t.nodeValue), estado: 'pt'};
+  regTxt.set(t, u); unidades.push(u); return u;
+}
+function registrarAtrs(el){
+  var r = regAtr.get(el) || {};
+  ATRS.forEach(function(a){ var v = el.getAttribute(a); if (v && LETRA.test(v) && !(a in r)) r[a] = v; });
+  regAtr.set(el, r);
+}
+function varrer(raiz){
+  var novas = [];
+  (function andar(el){
+    if (el.nodeType !== 1 || pular(el)) return;
+    if (el.hasAttribute && ATRS.some(function(a){ return el.hasAttribute(a); })) registrarAtrs(el);
+    if (temTextoDireto(el) && soLinha(el) && el !== document.body){
+      if (!regEl.has(el)) novas.push(registrarEl(el));
+      el.querySelectorAll('[alt],[title],[placeholder],[aria-label]').forEach(registrarAtrs);
+      return;
+    }
+    for (var c = el.firstChild; c; c = c.nextSibling){
+      if (c.nodeType === 3 && LETRA.test(c.nodeValue) && !regTxt.has(c)) novas.push(registrarTxt(c));
+      else if (c.nodeType === 1) andar(c);
+    }
+  })(raiz);
+  return novas;
+}
+
+/* ---------- datas: meses e dias da semana em português -> idioma escolhido ---------- */
+var MESES = {
+  pt: ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'],
+  en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+  es: ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'],
+  fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre']
+};
+var MESES_ABR = {
+  pt: ['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'],
+  en: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  es: ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'],
+  fr: ['janv','févr','mars','avr','mai','juin','juil','août','sept','oct','nov','déc']
+};
+var DIAS_ABR = {
+  pt: ['dom','seg','ter','qua','qui','sex','sáb'],
+  en: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+  es: ['dom','lun','mar','mié','jue','vie','sáb'],
+  fr: ['dim','lun','mar','mer','jeu','ven','sam']
+};
+function semAcento(s){ return s.normalize ? s.normalize('NFD').replace(/[̀-ͯ]/g, '') : s; }
+function capitalizar(modelo, s){ return /^[A-ZÀ-Ý]/.test(modelo) ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+function traduzirData(t, l){
+  if (l === 'pt' || t.length > 80 || /[<>]/.test(t)) return null;
+  var partes = t.split(/(\s+|[·,\/()\-–])/), achou = false, out = [];
+  for (var i = 0; i < partes.length; i++){
+    var p = partes[i]; if (!p) continue;
+    if (/^(\s+|[·,\/()\-–])$/.test(p) || /^\d+(º|ª)?\.?$/.test(p)){ out.push(p); continue; }
+    var base = semAcento(p.toLowerCase()), ponto = /\.$/.test(base); base = base.replace(/\.$/, '');
+    var m = MESES.pt.map(semAcento).indexOf(base), a = MESES_ABR.pt.indexOf(base), d = DIAS_ABR.pt.map(semAcento).indexOf(base);
+    if (m > -1){ out.push(capitalizar(p, MESES[l][m])); achou = true; }
+    else if (a > -1){ var ab = MESES_ABR[l][a]; out.push(capitalizar(p, (ponto && MESES[l][a] !== ab ? ab + '.' : ab))); achou = true; }
+    else if (d > -1){ out.push(capitalizar(p, DIAS_ABR[l][d]) + (ponto ? '.' : '')); achou = true; }
+    else if (base === 'de'){ if (l === 'es') out.push(p); else { if (out.length && /^\s+$/.test(out[out.length - 1])) out.pop(); } }
+    else return null;                                   // não é uma data
+  }
+  return achou ? out.join('').replace(/\s{2,}/g, ' ').trim() : null;
+}
+
+/* ---------- aplicar um idioma ---------- */
+function traduzirChave(ch, l){
+  var e = DIC[ch]; if (e && e[l]) return e[l];
+  return CFG.datas === false ? null : traduzirData(ch, l);
+}
+function aplicarUnidade(u, l){
+  if (!u.no.isConnected || u.estado === l) return;
+  u.estado = l;
+  // sem tradução no dicionário: só desfaz o que o próprio motor traduziu (o site pode ter traduzido por conta própria)
+  if (u.tipo === 'txt'){
+    var t = l === 'pt' ? null : traduzirChave(u.chave, l);
+    var base = u.orig, ini = base.match(/^\s*/)[0], fim = base.match(/\s*$/)[0];
+    if (t){ var novo = ini + t + fim; if (u.no.nodeValue !== novo) u.no.nodeValue = novo; u.aplicado = true; }
+    else if (u.aplicado){ u.no.nodeValue = base; u.aplicado = false; }
+    return;
+  }
+  var el = u.no, tr = l === 'pt' ? null : traduzirChave(u.chave, l), frag = tr ? montar(tr, u.els) : null;
+  if (frag){ while (el.firstChild) el.removeChild(el.firstChild); el.appendChild(frag); u.aplicado = true; }
+  else if (u.aplicado){ while (el.firstChild) el.removeChild(el.firstChild); u.orig.forEach(function(n){ el.appendChild(n); }); u.aplicado = false; }
+}
+function aplicarAtrs(el, l){
+  var r = regAtr.get(el); if (!r) return;
+  Object.keys(r).forEach(function(a){ var t = l === 'pt' ? null : traduzirChave(norm(r[a]), l); el.setAttribute(a, t || r[a]); });
+}
+function aplicarMeta(l){
+  if (!meta){
+    meta = {titulo: document.title, itens: []};
+    document.querySelectorAll('meta[name="description"],meta[property="og:title"],meta[property="og:description"],meta[name="twitter:title"],meta[name="twitter:description"]').forEach(function(m){ meta.itens.push({m: m, v: m.getAttribute('content') || ''}); });
+  }
+  document.title = (l !== 'pt' && traduzirChave(norm(meta.titulo), l)) || meta.titulo;
+  meta.itens.forEach(function(x){ x.m.setAttribute('content', (l !== 'pt' && traduzirChave(norm(x.v), l)) || x.v); });
+  var og = document.querySelector('meta[property="og:locale"]');
+  if (og) og.setAttribute('content', {pt: 'pt_BR', en: 'en_US', es: 'es_ES', fr: 'fr_FR'}[l]);
+}
+function aplicarTudo(l){
+  tratar(obs.takeRecords()); if (pendente.length) processarPendentes();
+  aplicando = true;
+  try{
+    unidades = unidades.filter(function(u){ return u.no.isConnected; });
+    unidades.forEach(function(u){ aplicarUnidade(u, l); });
+    document.querySelectorAll('[alt],[title],[placeholder],[aria-label]').forEach(function(el){ aplicarAtrs(el, l); });
+    aplicarMeta(l);
+  } finally { obs.takeRecords(); aplicando = false; }
+}
+
+/* ---------- conteúdo que entra depois (módulos, janelas, listas) ---------- */
+var pendente = [], agendado = false;
+function processarPendentes(){
+  agendado = false; var lista = pendente; pendente = [];
+  aplicando = true;
+  try{
+    lista.forEach(function(item){
+      if (item.tipo === 'reg'){                       // uma frase registrada mudou por fora
+        var u = item.u; if (!u.no.isConnected) return;
+        u.estado = null; u.aplicado = false;
+        if (u.tipo === 'txt'){ u.orig = u.no.nodeValue; u.chave = norm(u.orig); }
+        else { var els = []; u.chave = norm(molde(u.no, els)); u.els = els; u.orig = Array.prototype.slice.call(u.no.childNodes); }
+        if (atual !== 'pt') aplicarUnidade(u, atual);
+      } else if (item.no.isConnected){
+        var novas = varrer(item.no.nodeType === 3 ? item.no.parentElement : item.no);
+        if (atual !== 'pt') novas.forEach(function(u){ aplicarUnidade(u, atual); });
+        var raiz = item.no.nodeType === 1 ? item.no : item.no.parentElement;
+        if (raiz && atual !== 'pt'){ aplicarAtrs(raiz, atual); raiz.querySelectorAll && raiz.querySelectorAll('[alt],[title],[placeholder],[aria-label]').forEach(function(el){ aplicarAtrs(el, atual); }); }
+      }
+    });
+  } finally { obs.takeRecords(); aplicando = false; }
+}
+function agendar(item){ pendente.push(item); if (!agendado){ agendado = true; (window.queueMicrotask || setTimeout)(processarPendentes); } }
+function unidadeDe(no){
+  for (var n = no; n && n !== document.body; n = n.parentNode){
+    if (n.nodeType === 3 && regTxt.has(n)) return regTxt.get(n);
+    if (n.nodeType === 1 && regEl.has(n)) return regEl.get(n);
+  }
+  return null;
+}
+function tratar(muts){
+  if (aplicando || !muts) return;
+  muts.forEach(function(m){
+    if (m.type === 'attributes'){
+      var r = regAtr.get(m.target) || {}, v = m.target.getAttribute(m.attributeName);
+      if (v && LETRA.test(v)){ r[m.attributeName] = v; regAtr.set(m.target, r); if (atual !== 'pt') agendar({tipo: 'atr', no: m.target}); }
+      return;
+    }
+    var alvo = m.type === 'characterData' ? m.target : m.target;
+    if (pular(alvo.nodeType === 3 ? alvo.parentElement : alvo)) return;
+    var u = unidadeDe(alvo);
+    if (u){ agendar({tipo: 'reg', u: u}); return; }
+    if (m.type === 'childList') m.addedNodes.forEach(function(n){ if (n.nodeType === 1 || n.nodeType === 3) agendar({tipo: 'novo', no: n}); });
+  });
+}
+var obs = new MutationObserver(tratar);
+
+/* ---------- escolha do idioma ---------- */
+function idiomaInicial(){
+  try{ var q = new URLSearchParams(location.search).get('lang'); if (q && IDIOMAS.indexOf(q) > -1) return q; }catch(e){}
+  try{ var s = localStorage.getItem(CHAVE); if (s && IDIOMAS.indexOf(s) > -1) return s; }catch(e){}
+  var nav = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'pt']);
+  for (var i = 0; i < nav.length; i++){ var c = String(nav[i]).slice(0, 2).toLowerCase(); if (c === 'pt') return 'pt'; if (IDIOMAS.indexOf(c) > -1) return c; }
+  return 'pt';
+}
+function definir(l, opcoes){
+  if (IDIOMAS.indexOf(l) < 0) l = 'pt';
+  atual = l;
+  try{ localStorage.setItem(CHAVE, l); }catch(e){}
+  sincronizando = true;
+  if (!(opcoes && opcoes.doSite) && idiomaDoHtml() !== l) document.documentElement.setAttribute('lang', HTML_LANG[l]);
+  setTimeout(function(){ sincronizando = false; }, 0);
+  aplicarTudo(l);
+  document.querySelectorAll('.i18n-seletor button').forEach(function(b){ var on = b.getAttribute('data-lang') === l; b.setAttribute('aria-pressed', on); b.classList.toggle('on', on); });
+  if (!(opcoes && opcoes.inicial)){
+    try{ var u = new URL(location.href); if (l === 'pt') u.searchParams.delete('lang'); else u.searchParams.set('lang', l); history.replaceState(history.state, '', u); }catch(e){}
+  }
+  if (CFG.seletorProprio && !(opcoes && (opcoes.doSite || opcoes.inicial))) pedirAoSite(l);
+  if (typeof CFG.aoTrocar === 'function'){ try{ CFG.aoTrocar(l); }catch(e){ console.warn(e); } }
+  try{ document.dispatchEvent(new CustomEvent('i18n:idioma', {detail: {idioma: l}})); }catch(e){}
+}
+function montarSeletor(){
+  if (CFG.seletorProprio || document.querySelector('.i18n-seletor')) return;
+  var box = document.createElement('div');
+  box.className = 'i18n-seletor' + (CFG.seletorFixo === false ? '' : ' i18n-fixo');
+  box.setAttribute('role', 'group'); box.setAttribute('aria-label', 'Idioma · Language · Idioma · Langue');
+  IDIOMAS.forEach(function(l){
+    var b = document.createElement('button'); b.type = 'button'; b.setAttribute('data-lang', l); b.setAttribute('lang', HTML_LANG[l]);
+    b.title = NOMES[l]; b.setAttribute('aria-label', NOMES[l]); b.textContent = ROTULOS[l];
+    b.addEventListener('click', function(){ definir(l); });
+    box.appendChild(b);
+  });
+  var alvo = CFG.seletorEm ? document.querySelector(CFG.seletorEm) : null;
+  (alvo || document.body).appendChild(box);
+}
+
+/* o seletor do próprio site muda o atributo lang do <html>: o motor acompanha */
+function idiomaDoHtml(){ var v = String(document.documentElement.getAttribute('lang') || 'pt').slice(0, 2).toLowerCase(); return IDIOMAS.indexOf(v) > -1 ? v : 'pt'; }
+var sincronizando = false;
+function acompanharSite(){
+  new MutationObserver(function(){
+    if (sincronizando) return;
+    var l = idiomaDoHtml(); if (l !== atual) definir(l, {doSite: true});
+  }).observe(document.documentElement, {attributes: true, attributeFilter: ['lang']});
+}
+function pedirAoSite(l, tentativas){
+  if (typeof CFG.definirNoSite !== 'function') return;
+  try{ CFG.definirNoSite(l); }catch(e){ if ((tentativas || 0) < 10) setTimeout(function(){ pedirAoSite(l, (tentativas || 0) + 1); }, 300); }
+}
+function iniciar(){
+  montarSeletor();
+  varrer(document.body);
+  obs.observe(document.body, {subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ATRS});
+  var l = idiomaInicial();
+  if (CFG.seletorProprio){
+    acompanharSite();
+    if (l !== idiomaDoHtml()) pedirAoSite(l);          // ?lang= ou idioma do navegador: o site troca e o motor acompanha
+  }
+  definir(l, {inicial: true});
+}
+
+window.I18N_SITE = {
+  idioma: function(){ return atual; },
+  definir: definir,
+  /* frases da página que ainda não têm tradução (manutenção) */
+  faltando: function(l){
+    l = l || (atual === 'pt' ? 'en' : atual); var s = {};
+    unidades.forEach(function(u){ if (u.no.isConnected && u.chave && LETRA.test(u.chave) && !traduzirChave(u.chave, l)) s[u.chave] = 1; });
+    document.querySelectorAll('[alt],[title],[placeholder],[aria-label]').forEach(function(el){ var r = regAtr.get(el); if (r) Object.keys(r).forEach(function(a){ var k = norm(r[a]); if (!traduzirChave(k, l)) s[k] = 1; }); });
+    return Object.keys(s);
+  },
+  /* todas as frases e atributos da página, no formato das chaves do dicionário */
+  coletar: function(){
+    var s = {};
+    unidades.forEach(function(u){ if (u.no.isConnected && u.chave && LETRA.test(u.chave)) s[u.chave] = 1; });
+    document.querySelectorAll('[alt],[title],[placeholder],[aria-label]').forEach(function(el){ var r = regAtr.get(el); if (r) Object.keys(r).forEach(function(a){ s[norm(r[a])] = 1; }); });
+    if (meta){ s[norm(meta.titulo)] = 1; meta.itens.forEach(function(x){ if (x.v) s[norm(x.v)] = 1; }); }
+    return Object.keys(s);
+  },
+  varrer: function(){ varrer(document.body); if (atual !== 'pt') aplicarTudo(atual); }
+};
+
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(iniciar, 0); });
+else setTimeout(iniciar, 0);
 })();
 </script>
 </body>
