@@ -714,6 +714,82 @@ footer a:hover{color:var(--ouro)}
 .focams-roda-fundo canvas{width:100%; height:100%; display:block}
 #contato .wrap{ position:relative; z-index:1 }
 @media (max-width:640px){ .focams-roda-fundo{width:min(280px, 78vw); height:min(280px, 78vw); opacity:.35} }
+
+/* ===== PROGRAMAS ===== */
+#programas{background:linear-gradient(180deg,var(--areia) 0%,var(--areia-2) 100%); overflow:hidden}
+.prg-titulo{max-width:26ch}
+.prg-faixa{display:grid; grid-template-columns:repeat(4,1fr); margin-top:46px; background:var(--mata); border-radius:var(--raio); overflow:hidden; box-shadow:0 18px 40px -24px rgba(14,42,31,.6)}
+.prg-faixa div{padding:26px 22px; text-align:center; border-left:1px solid rgba(242,233,216,.12); position:relative}
+.prg-faixa div:first-child{border-left:none}
+.prg-faixa b{display:block; font-family:var(--disp); font-size:clamp(2rem,4.2vw,3rem); font-weight:600; color:var(--ouro); line-height:1}
+.prg-faixa span{display:block; margin-top:8px; font-family:var(--dado); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:rgba(242,233,216,.8); line-height:1.5}
+.prg-estante{display:grid; grid-template-columns:auto 1fr; gap:18px 34px; margin-top:52px; align-items:start}
+.prg-grupo-t{display:block; font-family:var(--dado); font-size:.66rem; letter-spacing:.14em; text-transform:uppercase; color:var(--carvao-suave); margin-bottom:10px}
+.prg-tabs{display:flex; flex-wrap:wrap; gap:8px}
+.prg-tab{display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-family:var(--corpo); font-size:.9rem; font-weight:600; color:var(--mata);
+  background:var(--marfim); border:1px solid rgba(22,60,44,.16); border-radius:999px; padding:9px 16px; transition:background .25s, color .25s, border-color .25s, transform .2s}
+.prg-tab:hover{transform:translateY(-2px); border-color:var(--c)}
+.prg-tab:focus-visible{outline:2px solid var(--ouro); outline-offset:2px}
+.prg-tab[aria-selected="true"]{background:var(--c); border-color:var(--c); color:var(--marfim); box-shadow:0 10px 22px -14px var(--c)}
+.prg-tab-num{display:inline-grid; place-items:center; min-width:26px; height:26px; padding:0 5px; border-radius:50%; font-family:var(--disp); font-size:.78rem; background:var(--c); color:var(--marfim)}
+.prg-tab[aria-selected="true"] .prg-tab-num{background:var(--marfim); color:var(--c)}
+.prg-paineis{margin-top:30px}
+.prg-painel{position:relative; background:var(--marfim); border:var(--anel); border-radius:var(--raio); padding:42px; overflow:hidden; animation:prgEntra .5s cubic-bezier(.2,.7,.2,1)}
+.prg-painel::before{content:""; position:absolute; left:0; top:0; bottom:0; width:6px; background:var(--c)}
+.prg-painel::after{content:""; position:absolute; right:-80px; top:-80px; width:260px; height:260px; border-radius:50%; border:28px solid var(--c); opacity:.06; pointer-events:none}
+@keyframes prgEntra{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+.prg-grid{display:grid; grid-template-columns:minmax(220px,300px) 1fr; gap:46px; align-items:start}
+.prg-capa{position:relative; display:block; border-radius:10px; overflow:visible; transform:rotate(-2.2deg); transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.prg-capa img{display:block; width:100%; height:auto; border-radius:10px; box-shadow:0 2px 0 rgba(0,0,0,.05), 0 26px 46px -22px rgba(14,42,31,.55), 14px 14px 0 -6px var(--c)}
+.prg-capa:hover{transform:rotate(0) translateY(-4px)}
+.prg-capa-larga{transform:rotate(-1.2deg)}
+.prg-pags{position:absolute; left:50%; bottom:-14px; transform:translateX(-50%); white-space:nowrap; background:var(--mata); color:var(--areia); font-family:var(--dado); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; padding:6px 12px; border-radius:999px}
+.prg-pags b{color:var(--ouro)}
+.prg-kicker{display:inline-block; font-family:var(--dado); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--c); margin-bottom:10px}
+.prg-h{font-size:clamp(1.5rem,2.8vw,2.1rem); line-height:1.15; margin-bottom:14px}
+.prg-tema{font-size:1.02rem; line-height:1.75; color:var(--carvao-suave); max-width:64ch}
+.prg-nums{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:24px}
+.prg-nums-3{grid-template-columns:repeat(3,1fr)}
+.prg-num{background:var(--areia); border-radius:14px; padding:14px 14px 12px; border-top:3px solid var(--c)}
+.prg-num b{display:block; font-family:var(--disp); font-size:1.45rem; font-weight:600; color:var(--mata); line-height:1.05}
+.prg-num span{display:block; margin-top:6px; font-size:.78rem; line-height:1.45; color:var(--carvao-suave)}
+.prg-mini{display:block; font-family:var(--dado); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--barro); margin-bottom:8px}
+.prg-dest{margin-top:24px}
+.prg-dest ul{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.prg-dest li{position:relative; padding-left:24px; line-height:1.6; color:var(--carvao)}
+.prg-dest li::before{content:""; position:absolute; left:2px; top:.55em; width:9px; height:9px; transform:rotate(45deg); background:var(--c); border-radius:2px}
+.prg-para{margin-top:22px; padding-top:18px; border-top:1px dashed rgba(22,60,44,.2)}
+.prg-para p{font-size:.92rem; line-height:1.65; color:var(--carvao-suave)}
+.prg-acoes{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
+.prg-btn{display:inline-flex; align-items:center; gap:8px; cursor:pointer; font-family:var(--dado); font-size:.76rem; font-weight:700; letter-spacing:.02em; text-decoration:none;
+  padding:11px 18px; border-radius:999px; border:1.5px solid var(--mata); background:var(--mata); color:var(--marfim); transition:transform .2s, background .2s, color .2s}
+.prg-btn:hover{transform:translateY(-2px); background:var(--c); border-color:var(--c)}
+.prg-btn-linha{background:transparent; color:var(--mata)}
+.prg-btn-linha:hover{color:var(--marfim)}
+.prg-leitor{margin-top:34px; border-radius:14px; overflow:hidden; border:var(--anel); background:#2b2b2b}
+.prg-leitor iframe{display:block; width:100%; height:min(82vh,900px); border:0}
+.prg-rodape{margin-top:34px; display:grid; gap:8px}
+.prg-rodape p{font-size:.88rem; line-height:1.7; color:var(--carvao-suave); max-width:90ch}
+.prg-rodape .prg-nota{font-family:var(--dado); font-size:.72rem; letter-spacing:.02em}
+@media (max-width:900px){
+  .prg-estante{grid-template-columns:1fr}
+  .prg-grid{grid-template-columns:1fr; gap:34px}
+  .prg-capa{max-width:250px; margin:0 auto}
+  .prg-capa-larga{max-width:340px}
+  .prg-nums{grid-template-columns:repeat(2,1fr)}
+  .prg-nums-3{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:600px){
+  .prg-faixa{grid-template-columns:repeat(2,1fr)}
+  .prg-faixa div:nth-child(3){border-left:none}
+  .prg-faixa div:nth-child(n+3){border-top:1px solid rgba(242,233,216,.12)}
+  .prg-painel{padding:28px 20px 26px 24px}
+  .prg-tab{font-size:.84rem; padding:8px 13px}
+  .prg-nums-3{grid-template-columns:1fr 1fr 1fr; gap:8px}
+  .prg-num b{font-size:1.2rem}
+  .prg-leitor iframe{height:70vh}
+}
+@media (prefers-reduced-motion:reduce){.prg-painel{animation:none}.prg-capa,.prg-capa:hover{transform:none}}
 </style>
 <style id="vg-css">
 .vg-root{--vg-texto:var(--carvao);--vg-suave:var(--carvao-suave);--vg-acento:var(--barro);--vg-destaque:var(--ouro);--vg-azul:var(--agua);--vg-cartao:#fff;--vg-linha:rgba(33,24,18,.16);}
@@ -1029,6 +1105,7 @@ textarea.nt-in{resize:vertical;line-height:1.55}
     <a href="#objetivos" data-i18n="nav_objetivos">Objetivos</a>
     <a href="#historia" data-i18n="nav_historia">História</a>
     <a href="#irmas" data-i18n="nav_rede">Rede</a>
+    <a href="#programas" data-i18n="nav_programas">Programas</a>
     <a href="#noticias" data-i18n="nav_noticias">Notícias</a>
     <a href="#galeria" data-i18n="nav_galeria">Galeria</a>
     <a href="#documentos" data-i18n="nav_documentos">Documentos</a>
@@ -1370,6 +1447,255 @@ textarea.nt-in{resize:vertical;line-height:1.55}
         <img class="irma-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAnmElEQVR42u28eZweVZX//z733nq2XtPpJGQjCSEsIRCWgLJIEkXEUWRUulUEFUUQEFFUwLXTgsIgoqgjAooIymg/riDIahIgCUsSspCEhITse9J7P0tV3Xt+f3T4zXxnVNABdXxx/nn+qXqq6lPn3HPO53NuwWv2mr1m/4fN/l+9cVUVwMydO1dfe42vDJiv2cuxtrY2oyCbb7lvzM7fzj4QeA28v8Q6aLE4y9Kj3/HgkhkffIDIos8/P/Y1ZF5OqLa0WIBtX73pzPVNJ+ryxhMqu2779b8k/d2nalubUVXzGkp/CjyQDrCq6lZPPm3NSg4PK7NH6fKT3r1w3yF/l1D+v/PGWlpMK/jlZ3zovGjDhkmVKA0Vjb1buemYJed9/gOq6rbf8UDNawD+Me9razNSLIbOex6Z6pZv/E5v2QdjjLFBJOmuBH3sqasqMHq/fce+Fq//I3FgJROxYsa75q3iAJ1nD0kfYpI+zsG6MDfFL8qN1Q3tX31AVce+mKlf88D/kjhawa8774tnRMvWndAf4ZfSb5+mwpOSsNUG41PxvR0Pnbr76acP0O7uplmvhfCLiUNlVrGom1Tz8aPPfMd0JapkpRyUCEMFWJuUIVOQZMULYc8Nt32VhobPdp1+ep2qyt+iwP6HBnDO9Bm23UiovvGDswor14ytEvu8D2YcWYJAI8IBMaRxaqQmr3bRkhO3/ernzzZNm9ZDa9GIyKve5sk/cuhKsei33vCzo0vXf29hacfWgKgRr4IU2GOU2iBEGuNNwBYywVRiSQ8/dNnRi++ZhkgAVeHVBfEf1wOLoKqm96Y7bnTbdgvGIgEZ5D8C+wVDjoCKwYlgq1WjuNC8esfULede/mmBwM23uFc7jM0/rPdR9Fve97lPDN+x86Rg07SQBpvF4IzDqqKaYglkrGJRTKJk1EqSVLU8b9HluvW5ZrngguTVDuN/OADb2trMrGJRBx5+ZnR4fNkXe/rjoCrWEgYBE09WPFkgQsigRAQEQUJqjDG+dnup6Q8X3zhLVU8cWLNmzKvJ2PzDAThjzhzTLhLunXXtV/t2bBsKEmKCVCRQMZ4qKSmBVFJSialqhQpVKhLTq1UyKfa5dCA88tRjH1r96LzmQibjdeHCCGb98wPY0dJiZ86dm8676ttv2fXc6g88mnZ6ITiDkBoG/UyFiAxZIgoaoSgxgT5RIiK8D/K4CZrtLtdsufzqC2X8+O0ybVoi0h7+qQFUVPYljsza3/z+30t7umR3FMkaEnIhQzBCbDyRGgY0sE6qlERw1LINKBtLMwUWEbOtUrbjfMaPW9P1lmUfa/uwanpu/8qFI1+NUP6HAXDO9Fm2laJf+/6Pf7R2xdqJZVEfpYlZImWq1lBQQ6yeXkkpEdijMb3EbKNMlyjNmqNbDEuoMiTEHBiM6e3tCXbFM9/3vvcGN2xowyB4s/75ANS2NjNzbrvfvuS5CSxZfc1BcRSGW2tiTejRhOW2nwIRNji6NCGH5QjqMHh2U6IpWIZoxGIpU0aZgqM+DRJqM/Q/+WS09qpv9mSbx28YzMiz9J8KQAGK7SvF5LK6+7Iv3pquXleXMU5n+DppxJGq8lyo0ClKPY4MSkwZSBmgSgGYJDk2kbBaSzQjTCJPooqUSsZLIez8xp37bbz9jnNU9TQR0VeSeP27A/jzlhbbStEv+/DHz8w9vfxNj4QB/7zvtXnjeJvbj+Fi2OtjlmqJAlnqiAh4+imRURgpeTJkWMwAsaYcLBkyxpLgCUkVZzPklOzenxa/DKxpG3xm/acAUFFZUSzqdtUaeWzVjbv7Ut3lcrIwVFnJADmrTDcFmhWe9VV2q1JHFiOKwWONYTg5VhOzUxMmSoYJOHpIqJISUCRJjIhN84vWjHnurE+d3g5hzowZ9p8CwDnTZ9h2a0L/Oy++umnl5lF7Hd6rNw7HIh1gie+kSSynSxMNKszXflBDXiOCCDVkqGhgqZaowXA0BRyQ1UCEYHBEPiHjve0fqChPL/qcPrupaebcuekrRbz+3QDUfTXfnu/eeZxZvOKT/Vr2XSF26j3BQAI8oQM8RYmCWN4ljaTARirkiYgkTyM5llClk5RDyTJUDapKgzqGiMMJ9IWE7ZWKbM7b4PZ0j1jz8c/fJLksxfZ2Uf3ryZR95ZCYv0/oInN27RJVtetu+o8bdfNeYhfRhxJUaTDKGLGkKizxVZ6iTJ3JcprUs5GEkgQaNGKHeFZQZRSOKZIjiFArgkPZQ8pqEp7DswdPbeJtOYnT3IoNravOufyiFtUMrS3mrwGuTdWIiGZt9PeRAYstLWbm3LnpHe/8wAeTtetfn0jwZe/tAAYnhnHqeLPU8XpToIBlhcbM1j4aiThM8mwhBg0sC2WsKidJnhoBJGYDFR6REvO0TBVhgq1lpMnRWI4hEdvb0+cHHp577Za77hojxWL4S0NZRLRdJKjq9770m2/Pc3+Pmk/a20Pn5p1Tbzv13d9oKvWlw02t7Q4JCUqNWIapZbtUGS0RToTFocJzGhNLL2+ggGJ4QVM68cywtexnLGtCmaUk7FbIqGEyeQ7ULFbAaUqsSkhSsTV5wvZdddtu6Pge2cybi+0rzb5qSl/C84y0imiHjuorVae9/+sXv/3edQ+P/Zt74Kw5c4xYq8X3X3hFz9pNjRWbRdRIjypePQWFRJX7tcIjYYADJOI4k6cByxYNPEKJIeros15rjWo1JPzCD3CvVtgZwCocRIYp5FhOmYfCAAMaY41DJZApV2yfD2m8YeMpi8/91IWtFP3s6dPtSzreDDEU8b+cd89x7/r2R35519PFUUMOrvV/UwA7Wjps+9y56TOfufqNrHzuffm0ko5WcRU8PXbQD6woDWKYphmO0RwxgdSAsUIByy4N/IEyeJHh3so2Ap0hxodAKmDFslECz0tgtGSZqI5aDMYIQsD7hMhFtrfcGyqzn7yu64klE2bOnev/VCi3tbUZ2pDsvEz6kVuv/Pild37lR4+smK2jTh5taLDW/e0Sh8qsoqiqZhdNffu3julOiTNDTX01pUxKDwoIQyUij2OEBLZrylxK9AVFsCRRIIvTKClr9uApXZrBTVq+ou7EbJOsjRNZHVI6AUVYS4UDxHAwFiNCqlUgEAM1FRGTi0Jhc1fthiu/+QPJZd80Zw5WVZHB9S0HuNZisdze2uqzLuIt1374znsXzT67s9zFflOHqY1i2bNwz99OE9GWDiu/fI9f9eHLr4l+dv+VfeWKFxWbCcI241lIBVBGWktA2elTShrwVsl7aCbDyKjAUA3p/jXO1cw4+V+ePmb8fltu+NFtTT0D6VQKjiBsNsoOTelWj6I0ilIvgWaBrICow3iHN44kk0+H1NY7+65TL5xwyxe//+JaB+y/YteGypQRE3bs0v6RrVdd/NOnVi+dqb7km4+uNVIfS+czeyjv8n8bAPclDl39wOypvZd8YXH0/KagJm/FG7KS4VlTYa2WyYpQMUISAiZ4ckYZgWOcdwwnIpet8U6qZu+Yhjnjn19wa01cmvWz085m/exHDhrqasPUNGtGS4GyKP0a6MRTloQsKcNIyRpB1IHPEuOIXL1m8Qkj8pL9xNlvHXf5BZtFZM0+ICffdP9PDvzWAz+5fuuePZNEy2njUc5lhhr2Lu6jvKkKGa9/kxCeM2eOwdn04S/+2yz/wmY52ua0IRVACChdkoAqFREMMAbHKHEMDYY6iTBiCCL4pAqj6yXMPPGKPMQJ8uVJ//LOp3av3rJ867atuR0m1WNDSSZrjlpjqVUhUUssCRkCVoWAGyRmBZxPQsbaTGe+dr3k8mlS6n/r7u5t9c0NIyfe/cx9d15/9/ei7Z29kEt8w9SCyw7NsHvJLnq3l4hydQSv4l79xNFiZxaLafH9F71vzT33n9Hnyz6R2E03Q6jXiC4Gwy2PpVks+6tjmDpyOJSABk8JKBvx2Si13ZP3/8XJt1y/SEQCsBTg5lPOvtL39Xynu9STzpOSi9VzpNaTIDgCDgtSg6oSgmKNVQlJmmuoiXrGjbn30Hk//w+pDZsykp87kPQuvnHurUd96t+/rGKc2pzTIYcPsTXDatizfC8DG2Myzmqc9nHoAYd3v6pZuK2tzRSLRXbvHhh10NNrbxzbXw3WIH3BM19KJFaIBA4jy0nkODJEDFUhkLJDYlZS5VFK/N5V9VemRx6ZWD8w/tufvUJEQhzHx3jVmztaWjLnP3TnvdHY4c+4gLNE/hkSlmiMYBAxeDXEXgjB4mxWTahSP6Ixqhx72HVTl/76X7cPrH64VmrW79nTO7nlux8zn7zlcp+JIo1yTuoOqTH52oiuJ3bTt2wvRoW05HVIU52cdcpbr35VAZwxZ44pgt/1vkvaGtfvGnaUrQ+Hkjdg6QvKo/QT4TgoZMkBqXpiEkSUVVrhAUosQtkSYl+oy5qmY4/82riDj3uhra3NhCjqV3istViMgS0Ht7zrvNywpkQEzZqMrpIyPaI4IrwqKh5vUx+FipgxI9Wf2/LpyY/97Ipp00Qm7nfEzhv/cOvr3v3rDzy0YMviqfl0iGjWm5pDsxSa8sS7ylR7q2T3z1M4uCnI1FpOmHbcqi+e+ukfyasZuq3Fol/8jTumLr/m2gUH7S1l6iUyisgSqqwPHrA0GsOJWiAjKSkxKkqWDLt9ygNUSKL6YEPZjJi8/8pPLnv02FaRaodqeFHvVdWa4qxZSetVX4nvfu95N7/wy/vP70pSb4KzpzCUZlIGGECyEXU+wJhRL2Qv+9hHx37irD8wqNL7z913zdkPb5p/x6bKJvG74rBnWZdpmJSn7pAakliwasEKIVL6fb8/aP9J9tojrzzt1NHTHzCvVs1HsYiqRkt/cfdtm7v78o9FVekNiSDK0a7ABBvhUXoCLJAysQ72UwYlEBiKYz9jUS1pY1N9OOyMt39WREotLS28yCqrqgXqT7n00nxLUHv6T2+5ouHASWtDMKbW1YQCHi+QNZnEV3sqlYMPfHT0E7/4+X6XvNNectqBWVUd+cmHrv7Sr174/Z1b+7cR2Sh4F4xkYGB7lfLOBOcMqMcEg40j74zK4ZmxN7951MkP0tJiX50QbimaVvBLPvbVy/uXP390nEpaTtQsMGWqElBNOUrzHCAZAkJXgKepAmCDoiEg4phkC2mjje2oKQf8/tSvXXlf2/TprrVY9Pua+iAiXkS2NzU19ewDtnv0qaeeM3RYsxyVes0br4nGIddYGzV/+bN+4tJf90jBjt29Yt3Wm+/fWL3s4a987YE9s7/Sp/0+ygmxLxmyBpOLwEHX2gEqXSkSDfJW/b7MGYecYW4/5eafiYhqR8crzwe20WZmFVu1t1eb3cNPfvbw/mrIGG+dwoBYHqOfso9RPEdqnjH79vrsRlkoMaKCVUFNRvcPVqaNHFk68RPnf64tqJk1Y0b4E7wcrcWinz19unvLd7/4xAGTJvxwjBFrQqzZprxJzv3Xu8a1f/phv3PPplz90HNGHnbYupm3v/sHv1l3/zm9O/cmatVUfFUcEZIXyA5SpZoqnat7SUtKsHGorbP2xJHHXAMU2rTNAEFe+fBtsSJF/+RbL/lx88NPfqCiSboj6XNP0IcYSyKeJpQTtYFIs6CGxTLAZhK8KGMVTtA6NGPSoTXO9bzlhBsn/ex7n3xxWuulsj7t7cxSrVk15YxVDT19w5Oz3/6Z8ddf/m3SwVMXLFpw6Gcf/7c7N+W2HdO7uTctr/MuWzDUTs6R5gb76b6lfYT+lGA8mkK2Jh8ajirIcaMOX3X/OzsOS/GD/aLwyvKBHYNDQWHh17970rwnHz9rVdznRVM7ylpOtAWC8TgMXTjmUSVVxYkwTWoYiUWDslFhQSbVCG/7xgzbfuC1l/9bB1g6Ol5ysqC9vT3MamtDRPrq3n/Gu83FHz51/LWf/japR1XtDb+96YwL725bsLj3+WMqcZqmXd5Vd5bp21YhThVbk0H7Fd+XEgBEkYxS7ezT7J56efsxb7swFU/Hsx0ZZJD+euUL6cjqoz+79xu9Pb1ugQvepkYmRo79jOP1aZZ5Uibj8/SoZQEl3kANzhiODwVS7WKrCC/42DcNaXRT3vzGL8v48dsXnn9+JCL+ZRGe7e1BQeTzH3kSYO5Tc8eefOzJEy/5Sfuxdz/9++s27dlOw4ENIfiKy46wBJ8n1ArR8CxhR4W+J/ZicoaQM2jscBJ8UqjYI4dMuu8T4z/8aMuZLbZ1Smv8imsiuq9s2faetg+MWd19XEWNr/XGPkOFrZqABkYZy/FaIEggg6ELYYGWSINHRDmeOoYDTlKzordTH3hi3rtVtXbaLbckf8lIhoDOnj07B3DysSdPv3/N3Nm333/XdVt27VYrQcud/SYKWTLD89S/rpbmI+upru1l96O7MI0ZRpw0DJMNCEaTsjCxeXL4TMuFH49DzJBTTjGvuKikbW2GYlEHnlk9emD+4zce3VfSiSYynkBExHwtsSlUUWC0RBxHDm88GSy7EOZriaqmOGs5iSzNvmJSVS0vW3/arad/5B5VrSuKmJcLYktHi505c2ZFVetOue79p//rVef6kh9ITZSKL6vY2JKrddjIEAVD7zM9dC7pxo3KM+T4JsikSKWCJpWQb6y3px3zlm+eOvbk9S0dLfaWCy5I+C+Tva+MB65cKWIkbL7ya9+JNm1urJoQTkysjMZSMYqo43HKbNYEERhjLMdqhtSk5DDsUeFprZIQkxXLdG1gREhNb3lv0v+HBTPuOP28H7QK/gIRp39mLFkQzl94flRsLfoFa1dMOvW69zz1+KoFrXgrxjmXximIoXFCDZJXjELXM330ralQM66OpmkNSCahZ2U30u+CamoOHTV+7XfP/vKXqmlsOlo6wu8ef+BII0bZp+jZVyJ0pVj06z//jdOSXz90VbkUB2uMFWC0RnSZhE5SIrVsloRGNTRiaZSIerVsNikZtfRIoJMqY8SRtRGjvGWXprbLp4nfsuuID731jNznn3/mwZWKXflH9IvZs2e72zfcbhZ9YVH6/eW3nX7VPdffP3/pktEG42OqFq+QGhoPraV2Yo60P6V7YT/lzTH5CTmGHt2IzXg6l+ygvKlCkIzfb/T+9oI3tpx74qTXrQC0b2L+hDtW/PLJ088644mFR89b2za7zf2vPFAVKQ6OpOX77r73etfdLUGExKeoKGoDx2ueMeJIRcj4iCe0whZSRGB/k2GaZqnahKwadirMo58YT85kmcEQmkWinnjAdz6x9Mp7P3XVNb/M53zHvk2H/9VmzpyZ6hzlu0/d/O3r5n7/V+t7NtcbsT4msTYIoarUTCjQdHAd8Y4qe+d1U9pWoX5SnqFHNoBA5xM9lF+IkSyeWnVH7H9Qx+ffdtndLR0tVlXt/M7Hb3y6tEjmdy+5WbdrTfvM9v+dJjJnxnTbStE/f/Yll9Zv2nPYOifpPKna+VTZoDFGPULgRPKME0sQIdIMC6iyWRMCKeOMY1rIUZVBL90WhHlaJhglb5WTfI7GoHbLzg3Jrt/89spHPvix81qLRd/R0mEBOjo6rKpmVPWSK2Z/5eZblv/8klKcOBtlVENqTVA0UbJj8jROqWNg0wB75vdQ6YypOzRP/ZRaxCu75++gf2M/Ub5OQ2zkoP0O6H/g07dcEofEFFuL/iPFyy/YnNs+bcTQ4fE2t3vcWbMv/amq/vXC+uBI2lzf/dv7D6zOferznT39Ya0RWw6GGMtm8cTqUVIUz+tCgbGSIYjBBDeYWLSMSsKBEjFN86Si5NWxIwTmST8xQo4c030d+7m8eWHdqrBp/lO3bn7wwUmtxVbf1tGWaW1t9UD91+Z/54b/WHvfh3f1dKVEqrGWJVKLpBbT6Gg6to7K5hJ7F/bg1TPkmHpqJxdIY8/epzqp7qxg6wxp6n3DsDHmHUe+7YtG6nbRgixZsmT4U7uXfK1UKgfxxlXKA/7pgUVnXP3IDV/8q9fAw4YPN798YW04p1M77DOrDknEhihg+kXJiuEAtdQreBnsTxyGERrRJYESg9KlkcCEEJGKMgSHU9gpCVm1dKmlU2GkcRQs6QQV13fA/sl+b3vLRcdc+JFHO5s63XUfuS5e2rfq8Pf89oK7fvPcQ6OiYENFKlHwQaKqodqZkgQoHJ4n7EroXdQPGaV5WgO143P4cmDv4i4qu2Js1oDBB0ndcZOOXn7XRd+5YNacdjH3ie86IblpZbriOBvEl33FGlEp7erT55ZvmCH/m8Sx+tJrTta7fj233NnlUawLhgoRxhhyeMBjNFDF04myXpQ9KD4oiaTMJMcoyVBFWa8VGtWyS2CZpOSCoSzKaEtyistEydRJa4Z/4eKLhrzjXx5hOo65pLcvu+uIHz/6q4cWrV0+PHjU1CK5JodmwJc9vcsqBAdRjZJsSnE1loZpDeRGZyBWulb0UulJyAyJCHuCVvaUwugxo7T9rEuPP++kDy4E5Nqf/GTK7etvfabXdkn3xgGT+DKaKCbJEpf1L+9ElP8/cWSWHnrq9fndnYhhcD+QWGoxODUYgQHxrKPCelK6EDxCBKhRhmIYrllEDVsp85xWOEByGM1wiAprTFWtptpfUxetO2TKL4742R2XDJlQuwOgMC+fXnFP+zuve/ymmzet2DmssjFOfabqbB1km5swkYNEUBHEB+JtMa7B0XB0E9kmR3VnTO+GEtVeT924AnUH5ihvSIKWxB41duo15530wYXHnH9MtPJHzyYPP/fg93dIpy2EyJe2lCGriBOClHCR/OW98KLzz3etFP2SlvPPrd+569hqFLwNwRo1RGJQPHup8IyUeIQyi/F0q2ARMvv2GXlgAhmcGFICL5iELoRV6umSlKlRJpxoM5JvKJim0974nTcv/33LiAm1O9Zvfe4QVX3de2/7aNtdm3//q24fD6sfUQiZUeoKwyIaDqzF1Bl8JTDwfIKNQWMlMzzLkOOaiBqEpLNC94Ju0o0ldG8ZUU9GMlquic20ow7rvOfK2/6N6bhFtyxKvnDnrNOX9i46wdQkvprEVpzDRhGyTwyrOajhLxOV9smTyeala8bseufHr+3vir11kThSqqJslCob8ezCk6A4lKwMeh4KAcWrUhBlDA5B6ZSYHaJksHRS4hBT652oHTVmdGXIqSdedtRNX9s1/YkPjp9w/PEbxo+aeMV359/2oV+tf4h8bUGDDZhmNU3DG0htgkQQ74rpXV4l9Cuu4LBA82F1UAM+ScELLrKk3mMiId+UI47Vj99vnHvvxNMvE5EepuNUNTft4rf++0C1XxsK9dK/uzw43RAUFBqnNJAbmXv5IayqUmxtFVUdtuTMS4uFDRsaE0voCbHZaZWtBLqAIIJDyACpKlWBRhUGRDFAVQLjiShg8AjrUOI0JSuGOgrpWBu53nFNm0f94NrfHXLSsecsmzOn9YgZM/bu6tvz9elfPvOIxzc8FeoOawxB1Jl4kFPyOUWMUF5fZmB1gi8ZshMK1IzO0LO0j+5V/TQcUUBEkFqh9nU1xOUcLmuhJvhQSN3rmo+4+1Ov+9iPJ7dNzqxsXxmf8fWL2lfsfGFsJpKUNHZiU8QHJGOom1JPZpjDV/xfsAYWi6a1WPQbbr+/1T62/PWbNU23kbodVKkawakhq0JAeJGqGGIMh2gWI8ICqRApBKMcEBwGoUs9GzQmK1mtauyn5LJu+BtPXlp729W/HDpi5G07li4dM3XmzC3znpv3pmvvvekzj69dSI3Uq+lXp0MTxDgkA2ma0reqj8r2KlK11E6opXBoDfiEKAvVPSldKwdonFoHXsEFMvWWjNRoX7WP/fN1669/0ycvXt+20M1lbvrgxkWjLvzGJz7pzUCopmKjssED5IXCtFpcU0SoBsSalwegojKrVVRVC8VjWz7fuWtT2JsXk1ZTMgp5BU8gViEnllFEjFXHcLXkcTwkA4gPpBIYLo5hRPgAm4kZMD5Eocro5hFu1DFHfWvcvT+8vAihdZC+2jqr4/r3f+DfP3Pzum2bQ7aQ0f6439b2FqgZXoAMlLvK9K7uwZdTMJA/OE/tuALqhaAWsRbJpFT2lulZoQyZXI96wAsDWvbjxx3grj38svubZeyWwd7W8P2aW2/c2ddVcLmsL6cl4zd5jI2QRkNpQ5nS8yVEDEbNyyMTii2tph3CT05578U7li8btdsENZWKyaIECzGefICDNOIkzXNsyDAci6hhg6TsJiWzL3mMD3msRqR4nndV75wxNaNGypi3veVTM+Z2fEpE0lYRr6rROTd9+qs/euw3P1m3e3uNzRtJQsWaAGkihMhS2hTTu6yfECuagdrJtdRNrIVEMIlg1CA5QxDFZgzlnWW6nutGXBbB+ZBL5Ii68fecdsDMb8xbO2+4qo67bf6d0xfuWHFmpeJ9SmRxlrQEaZ8n7YlJtpVI9lSJd8dU98Qv7YE6SJOHBbf++ND5bd+aVU3TYIwYnw6yycMlYlQQmsVRKxFWhViUoOAU1pBAEAKGWsnQ7B2IsqfGhF0qttAw5PnJHz73k6df/cn7AFHVhtgnt7Te+IkRD6968uTuni7vMsb4UBYRA2IQq3Su6CPemmCiwbqv7rBacsMitBIQBQmKzYArGEInGATJKKXtvUTZGo0m1MjxI19vbn7jdZeIyMZn1z+7H2B++PivbtjevxXnjMQhgIkwxoMqJi+YegfJoGAvyEt7YHGQqlJ/++++WbOzr1BF1KQiSMShkuV4jRiNI4+lj8B6GZw0jRC6SOgOgZxmKInQHISCsZAx/umkW3NTD1l85l0/uOj0ay6771Ofasmraqart+vki3/yxZZfP3XfyeWBPm9zwaZaFaMRYAgZT7mzSrIjwSKoM9RNqSE31KLVlMFcHwaBxuJqB5stP1gGEDlH7wt7NFu25t2HvO36PPktHc92ZKZMmLLjlkd/MWlz356jTZx4kdggKUYGwQJQA/VT6hlyXBNDjhpC45GNfx7AF8XxJ9uuecuQVRtPnRayvkG9TUgxGFZKlV2a4BBK6nmCAR7XMoslIcKx1Q56XsAQqWWUsZpof9Jdk9gpV1y446r5D5530HGH1XT8x81N3/xmsfzQ0j+0nnrdWbf94Ld3JM7ZtErZahyw6gjWE6zfp9oZTFCkYGiaWku+zqJVj4aA+kHGUAyYIES5DMYa0ARFUK0JaoNMTsY8d+mUcz4rImHFYS1pS0eLPf/kM58anx8+21tjCc4bIhQhBIMYQaspA8/3DdazAu7PeaCCrCgWVVXtkgfnfuuFvr00ZiKmhwJDUAIe7y0LSNktgYwIWQ24kBAFpaSwTQWnjiop+1kTGqmK7D8kysy68OlTv/KlntKW7RNzNTW/Pfs9F3Z+9HufPeei277ww6Ubnh2ar6t1iU+cCQKiqPGDoCiIDBbHUW3EsKOHkK3f95BWUCOIBX3xQAwmG2GcQTTF2qCpT8KB+0+V82d+6PxSXJaOjg7TLhImr5isItJ9/Tvazp884uBq1WMinJoQBtNoEIwzVDqr9G7sx0YGwp8BsNjSYtqNhN9d8tkv9yx77pB5oT88lw7YIWJ4gxSoxxNQkhDxGFUGCLze1DDd1nCC1rADZSAoEBBj0omhZOLmXKnmonMvPvyST5w+TeTI69au/k3OZXjnNz/6zfvWzLlj7Z7tVmxWK1oWJQVRggQCAUURgZAqmaYcQ6c2k81FlJ+P6V1Wou/ZfnqX99K/sYLYwfUJBZxiMg4bIiSEYAqJe+MRx99+5jFv39zW1iYtLS3hRUWvpaPDHjNlytqZhx7X2tBYRxriEAVRCUoQHRyLiwy9m/qp7omxWfvH6XFtazOz2tuZtWXLpJ+9/T3PLlm+2mTJSfCxvMHUMdFk6AoJc6nQrwZvFGuqnEINIyVHkhr+EKp0iaDGpyOsd6+bNGFTdP6HPnTopR+ava8w3x9wp1z9wW8t2LDk9DiuejVV430sLjhUDMHoPuA8Rjw+CWSbaxh64HAywSE20LW+n+51XZhClRAnuCE1DD9yBFGSBQn4KKVzVS9xlw9e+s0xk6Zsf/rLj0ySVqlox3/O2Lxo09umu7ntc9M3XXPWdx5fu+jjDKRp6lLnjd+XOAL4QCbKM2xK0x/3wDlz5ph2I2HFZVd9YfyaLhdFhWC9FUOWBZRZS5VaiXi91JEzgipUvOUPlFmvMWu0zA5TUTRNsy5yDUdNvvfwJ+457tBLPzT7mfkPj1bVSXt79v7kXV+/4Kl5zy8+PfjUB1u1wQcxOIIdXLBRBr9eQiCkgZrReZoOrkcYHP/wiRKNjDD1imgAC6JKCEJQCF5ADdZa0nJFGxpHVN8/8z0XicjAizM2/+PZZ83xtGAfvvKnVxw6cvy6aqQuUhdcMEgwoALWUK0m7F3d8z8BfHHb/bof/fKkyvxF7/HlruTA1EsicZrBpj7Y9PF0IF3nS+nQIOkJmvUF4uBUfdWH9NFkd7rclDwhCnUjRrjRp5z4g9bFD71d6up2AnLk8TOv3tK/bdUZ3zj3hLsX3j9UxVervqrqQ4pRL0YDokEleBWfoj7VNElz++fSwgG1qfqQapqmafBp4tNUs2maH2e8iRIsMfgkaPCpDz5NSVKjpBkhFhvbc6efseqKGR//DW2YYusfn3IQEW3raFMRKZ0x5Y2tQ2ub42oiPgrZBPVpIE1DCCkS0ri3kpr/3u+2FIuq3d1D9tzw/e/Jll0ZQxQdnAY7xhpnI3UFhzPGuKds1e2wiRsF9g1BTJOp2FpRV5Otc5isbdx/P9v8puMue9/vfnhZW5Kajo62jKpmvv3ozclbv32Wnbduia2vG44Ek81o1uVMjcuQsb6SmFANxnhjszbvjORc7YRhrmF8szNknER5J9msk1zkpOCcmMjRXLDJGLwfQZoMsSbYyJF1zmYzztlal2YzmWnjj6x8/cwrfvC5L33e6Cz9s5tq2qU9TG9rc+3vvWLxO6ac/JWm5qGR12yUlVqXJe8yJuMyJusim3X/TyFdbG01reBX/fR3R2YPPGBoGDd6k9m5d490lwZqt23dutWmYr1qSpaqQZ62ovX7Txzd3DRkxIFrVqxZ2ren39laHX3EERPGzjjpe2+ademdq5PtmcM6OqS1tTX+8YLDTlq4adkJo93wlf1NybJSXyoFaVRxQbyJtTbfkJ869Q3HVJJqdW9fz451OzZvzg+tkbrhOU36YrCCMREWh2CxRiQOiQ6rGTfypLedPT2TdazeuG7rM5vXPZaTOmNEgsWFuhH15vX1h/7ISd2DtGHapf0l9wvPbW/3tGBvu+jrXzv+8nflN5Z3TTQ+hGCqxthB5w3+z2xr2ifUZExdDRRyf/pK+ezg1gD3n+qALeQHBe4/Ipuqqv1TO8Ytwr7rukKUe9k8R21UQFUvVNUvqOpU+OPi8avxWbyXS+lL238DYw4wA5g1KHtoC9jJ+/6vHXxHS4tp/XPTVNOn/xfvn/vij+5rmQfvbfq+a86Y/hJTRXP9/7PXrW2647C5yorp8p9jdzNCe/tf9+mT6dOnu7nMBab/572+FIAvjlG8nE8nqaq83E8svdT//iXX/W/nvfhCwr4J/tfsNXvNXrOXsv8PNz3LPKk9s2YAAAAASUVORK5CYII=" alt="Aldeia XP">
         <div class="irma-info"><strong>Aldeia XP</strong><span data-i18n="irma5_desc">Comunicação e audiovisual para povos indígenas</span></div>
       </a>
+    </div>
+  </div>
+</section>
+
+<div class="zig" aria-hidden="true"><svg viewBox="0 0 640 26" preserveAspectRatio="none"><path d="M0,13 L20,2 L40,24 L60,2 L80,24 L100,2 L120,24 L140,2 L160,24 L180,2 L200,24 L220,2 L240,24 L260,2 L280,24 L300,2 L320,24 L340,2 L360,24 L380,2 L400,24 L420,2 L440,24 L460,2 L480,24 L500,2 L520,24 L540,2 L560,24 L580,2 L600,24 L620,2 L640,24"/></svg></div>
+<div class="focams-friso" aria-hidden="true"><svg viewBox="0 0 640 40" preserveAspectRatio="xMidYMid meet">
+  <g fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M215 20 C215 8,233 8,233 20 C233 30,221 30,221 22 C221 16,227 16,227 20" stroke-width="2"/>
+    <path d="M425 20 C425 8,407 8,407 20 C407 30,419 30,419 22 C419 16,413 16,413 20" stroke-width="2"/>
+    <path d="M0 20 H195 M445 20 H640" stroke-width="1" opacity=".5"/>
+    <g stroke-width="2">
+      <ellipse cx="320" cy="10" rx="5" ry="10"/>
+      <ellipse cx="320" cy="30" rx="5" ry="10"/>
+      <ellipse cx="310" cy="20" rx="10" ry="5"/>
+      <ellipse cx="330" cy="20" rx="10" ry="5"/>
+    </g>
+    <circle cx="320" cy="20" r="3" fill="currentColor" stroke="none"/>
+  </g>
+</svg></div>
+<section class="sec" id="programas">
+  <svg class="focams-marca-dagua" viewBox="0 0 120 120" aria-hidden="true"><use href="#focams-grafismo"/></svg>
+  <svg class="focams-orn focams-orn-tl" viewBox="0 0 120 120" aria-hidden="true"><use href="#focams-grafismo"/></svg>
+  <svg class="focams-orn focams-orn-br" viewBox="0 0 120 120" aria-hidden="true"><use href="#focams-grafismo"/></svg>
+  <div class="wrap">
+    <p class="rotulo reveal" data-i18n="prg_rotulo">Programas e projetos do FOCAMS</p>
+    <h2 class="titulo-sec prg-titulo reveal" data-i18n="prg_titulo">Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030.</h2>
+    <p class="lead reveal" data-i18n="prg_lead">Seis planos nacionais construídos a partir das demandas das aldeias e comunidades de Mato Grosso do Sul e dirigidos ao governo federal, seus ministérios e órgãos. O Programa foi aprovado por unanimidade e por aclamação em 31 de outubro de 2026, em Campo Grande, com a participação de 32 lideranças, caciques e instituições indígenas de todo o estado.</p>
+    <div class="prg-faixa reveal">
+      <div><b>6</b><span data-i18n="prg_n1">planos nacionais</span></div>
+      <div><b>61</b><span data-i18n="prg_n2">eixos de execução</span></div>
+      <div><b>155</b><span data-i18n="prg_n3">metas verificáveis</span></div>
+      <div><b>32</b><span data-i18n="prg_n4">lideranças e instituições na aprovação</span></div>
+    </div>
+    <div class="prg-estante reveal" role="tablist" aria-label="Programa Integrado">
+      <div class="prg-grupo"><span class="prg-grupo-t" data-i18n="prg_grupo1">O Programa</span><div class="prg-tabs"><button class="prg-tab" role="tab" id="prg-tab-integral" aria-controls="prg-p-integral" aria-selected="true" tabindex="0" style="--c:var(--mata)"><span data-i18n="prg_integral_aba">Programa completo</span></button><button class="prg-tab" role="tab" id="prg-tab-resumo" aria-controls="prg-p-resumo" aria-selected="false" tabindex="-1" style="--c:var(--agua)"><span data-i18n="prg_resumo_aba">Resumo executivo</span></button><button class="prg-tab" role="tab" id="prg-tab-palestra" aria-controls="prg-p-palestra" aria-selected="false" tabindex="-1" style="--c:var(--barro)"><span data-i18n="prg_palestra_aba">Palestra</span></button></div></div>
+      <div class="prg-grupo"><span class="prg-grupo-t" data-i18n="prg_grupo2">Os seis planos nacionais</span><div class="prg-tabs"><button class="prg-tab" role="tab" id="prg-tab-saude" aria-controls="prg-p-saude" aria-selected="false" tabindex="-1" style="--c:var(--agua)"><b class="prg-tab-num">I</b><span data-i18n="prg_saude_aba">Saúde</span></button><button class="prg-tab" role="tab" id="prg-tab-educacao" aria-controls="prg-p-educacao" aria-selected="false" tabindex="-1" style="--c:var(--folha)"><b class="prg-tab-num">II</b><span data-i18n="prg_educacao_aba">Educação</span></button><button class="prg-tab" role="tab" id="prg-tab-saberes" aria-controls="prg-p-saberes" aria-selected="false" tabindex="-1" style="--c:var(--ouro)"><b class="prg-tab-num">III</b><span data-i18n="prg_saberes_aba">Conhecimentos tradicionais</span></button><button class="prg-tab" role="tab" id="prg-tab-empreendedorismo" aria-controls="prg-p-empreendedorismo" aria-selected="false" tabindex="-1" style="--c:var(--barro)"><b class="prg-tab-num">IV</b><span data-i18n="prg_empreendedorismo_aba">Empreendedorismo</span></button><button class="prg-tab" role="tab" id="prg-tab-agro" aria-controls="prg-p-agro" aria-selected="false" tabindex="-1" style="--c:#6E8B2E"><b class="prg-tab-num">V</b><span data-i18n="prg_agro_aba">Produção agropecuária</span></button><button class="prg-tab" role="tab" id="prg-tab-mineracao" aria-controls="prg-p-mineracao" aria-selected="false" tabindex="-1" style="--c:#5B4E40"><b class="prg-tab-num">VI</b><span data-i18n="prg_mineracao_aba">Mineração</span></button></div></div>
+    </div>
+    <div class="prg-paineis reveal">
+      <article class="prg-painel" role="tabpanel" id="prg-p-integral" aria-labelledby="prg-tab-integral" style="--c:var(--mata)">
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/programa-integrado-2027-2030-texto-integral.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/programa-integrado-texto-integral.jpg" alt="Texto integral do Programa" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>213</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_integral_kicker">Programa Integrado 2027 a 2030</span>
+            <h3 class="prg-h" data-i18n="prg_integral_titulo">Texto integral do Programa</h3>
+            <p class="prg-tema" data-i18n="prg_integral_tema">A apresentação do Programa, o alinhamento com o programa de governo, o modelo de integração dos planos, a governança, as regras de adesão das instituições indígenas e os seis planos nacionais completos, com fichas técnicas, diagnósticos, metas, cronogramas, riscos e minutas de decretos e projetos de lei.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b>6</b><span data-i18n="prg_integral_n0">planos nacionais</span></div><div class="prg-num"><b>61</b><span data-i18n="prg_integral_n1">eixos de execução</span></div><div class="prg-num"><b>155</b><span data-i18n="prg_integral_n2">metas verificáveis</span></div><div class="prg-num"><b>0</b><span data-i18n="prg_integral_n3">cargos novos</span></div></div>
+            
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_integral_para">Presidência da República, Casa Civil, Ministério dos Povos Indígenas, Funai e os ministérios responsáveis por cada plano</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/programa-integrado-2027-2030-texto-integral.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/programa-integrado-2027-2030-texto-integral.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/programa-integrado-2027-2030-texto-integral.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Texto integral do Programa" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-resumo" aria-labelledby="prg-tab-resumo" style="--c:var(--agua)" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/resumo-executivo-programa-integrado-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/resumo-executivo.jpg" alt="Resumo executivo ilustrado" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>9</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_resumo_kicker">Para conhecer em poucos minutos</span>
+            <h3 class="prg-h" data-i18n="prg_resumo_titulo">Resumo executivo ilustrado</h3>
+            <p class="prg-tema" data-i18n="prg_resumo_tema">O que é o Programa, o que cada plano propõe, as metas, os órgãos federais envolvidos e os próximos passos, em linguagem direta e com ilustrações. Versão de 31 de outubro de 2026.</p>
+            <div class="prg-nums prg-nums-3"><div class="prg-num"><b>9</b><span data-i18n="prg_resumo_n0">páginas</span></div><div class="prg-num"><b>6</b><span data-i18n="prg_resumo_n1">planos</span></div><div class="prg-num"><b>155</b><span data-i18n="prg_resumo_n2">metas</span></div></div>
+            
+            
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/resumo-executivo-programa-integrado-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/resumo-executivo-programa-integrado-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/resumo-executivo-programa-integrado-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Resumo executivo ilustrado" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-palestra" aria-labelledby="prg-tab-palestra" style="--c:var(--barro)" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa prg-capa-larga" href="docs/programas/palestra-programa-integrado-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/palestra.jpg" alt="Palestra para lideranças e anciãos" loading="lazy" width="640" height="637">
+            <span class="prg-pags"><b>13</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_palestra_kicker">Para as reuniões nas comunidades</span>
+            <h3 class="prg-h" data-i18n="prg_palestra_titulo">Palestra para lideranças e anciãos</h3>
+            <p class="prg-tema" data-i18n="prg_palestra_tema">Apresentação de 20 minutos, plano por plano, preparada para caciques, lideranças e anciãos, com a iconografia Terena. Está disponível em PDF e em PowerPoint, para ser usada e adaptada nas reuniões das aldeias e das instituições indígenas.</p>
+            <div class="prg-nums prg-nums-3"><div class="prg-num"><b>20</b><span data-i18n="prg_palestra_n0">minutos</span></div><div class="prg-num"><b>13</b><span data-i18n="prg_palestra_n1">lâminas</span></div><div class="prg-num"><b>6</b><span data-i18n="prg_palestra_n2">planos</span></div></div>
+            
+            
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/palestra-programa-integrado-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/palestra-programa-integrado-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/palestra-programa-integrado-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/palestra-programa-integrado-2027-2030.pptx" download data-i18n="prg_pptx">Baixar PowerPoint</a>
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Palestra para lideranças e anciãos" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-saude" aria-labelledby="prg-tab-saude" style="--c:var(--agua)" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/plano-saude-povos-indigenas-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/plano-saude-povos-indigenas.jpg" alt="Saúde dos Povos Indígenas" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>42</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_saude_kicker">Parte I | Plano Nacional</span>
+            <h3 class="prg-h" data-i18n="prg_saude_titulo">Saúde dos Povos Indígenas</h3>
+            <p class="prg-tema" data-i18n="prg_saude_tema">Plano de execução para a saúde dos povos indígenas, nas aldeias e nas cidades, com metas mensuráveis, governança por resultados e base nas políticas públicas em vigor do Ministério da Saúde e da SESAI.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b data-i18n="prg_saude_v0">1,69 mi</b><span data-i18n="prg_saude_n0">pessoas indígenas no Censo 2022</span></div><div class="prg-num"><b data-i18n="prg_saude_v1">53,97%</b><span data-i18n="prg_saude_n1">vivem em áreas urbanas</span></div><div class="prg-num"><b data-i18n="prg_saude_v2">2,4×</b><span data-i18n="prg_saude_n2">a mortalidade de menores de 5 anos</span></div><div class="prg-num"><b>31</b><span data-i18n="prg_saude_n3">metas em 11 eixos</span></div></div>
+            <div class="prg-dest"><span class="prg-mini" data-i18n="prg_destaques">O que propõe</span><ul><li><span data-i18n="prg_saude_d0">Atenção diferenciada aos indígenas que vivem nas cidades, com piloto em Campo Grande</span></li><li><span data-i18n="prg_saude_d1">Formação de técnicos de enfermagem e profissionais de saúde indígenas</span></li><li><span data-i18n="prg_saude_d2">Minutas de decreto presidencial e de projeto de lei da saúde indígena na cidade</span></li></ul></div>
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_saude_para">Presidência da República, Casa Civil, Ministério da Saúde, SESAI e Ministério dos Povos Indígenas</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/plano-saude-povos-indigenas-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-saude-povos-indigenas-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-saude-povos-indigenas-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Saúde dos Povos Indígenas" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-educacao" aria-labelledby="prg-tab-educacao" style="--c:var(--folha)" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/plano-educacao-escolar-indigena-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/plano-educacao-escolar-indigena.jpg" alt="Educação Escolar Indígena" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>39</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_educacao_kicker">Parte II | Plano Nacional</span>
+            <h3 class="prg-h" data-i18n="prg_educacao_titulo">Educação Escolar Indígena</h3>
+            <p class="prg-tema" data-i18n="prg_educacao_tema">Plano para a educação escolar dos povos indígenas, com alfabetização bilíngue, formação de professores em escala nacional, escolas piloto enraizadas na cultura de cada povo e empreendedorismo.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b data-i18n="prg_educacao_v0">3.572</b><span data-i18n="prg_educacao_n0">escolas indígenas no Censo Escolar 2024</span></div><div class="prg-num"><b data-i18n="prg_educacao_v1">289 mil</b><span data-i18n="prg_educacao_n1">estudantes matriculados</span></div><div class="prg-num"><b>78%</b><span data-i18n="prg_educacao_n2">dos professores com contrato temporário</span></div><div class="prg-num"><b>28</b><span data-i18n="prg_educacao_n3">metas e 16 escolas piloto</span></div></div>
+            <div class="prg-dest"><span class="prg-mini" data-i18n="prg_destaques">O que propõe</span><ul><li><span data-i18n="prg_educacao_d0">Alfabetização na língua de cada povo e em português</span></li><li><span data-i18n="prg_educacao_d1">Formação de professores indígenas em escala nacional</span></li><li><span data-i18n="prg_educacao_d2">Universidade Federal Indígena, com seleção própria</span></li></ul></div>
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_educacao_para">Presidência da República, Casa Civil, Ministério da Educação, SECADI e Ministério dos Povos Indígenas</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/plano-educacao-escolar-indigena-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-educacao-escolar-indigena-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-educacao-escolar-indigena-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Educação Escolar Indígena" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-saberes" aria-labelledby="prg-tab-saberes" style="--c:var(--ouro)" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/plano-conhecimentos-tradicionais-indigenas-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/plano-conhecimentos-tradicionais-indigenas.jpg" alt="Conhecimentos Tradicionais Indígenas" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>28</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_saberes_kicker">Parte III | Plano Nacional</span>
+            <h3 class="prg-h" data-i18n="prg_saberes_titulo">Conhecimentos Tradicionais Indígenas</h3>
+            <p class="prg-tema" data-i18n="prg_saberes_tema">Plano Nacional de Proteção e Valorização dos Conhecimentos Tradicionais Indígenas, da Medicina Indígena e da Biodiversidade Associada, em consonância com a Estratégia Nacional de Bioeconomia.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b>391</b><span data-i18n="prg_saberes_n0">povos indígenas recenseados em 2022</span></div><div class="prg-num"><b>295</b><span data-i18n="prg_saberes_n1">línguas indígenas faladas no país</span></div><div class="prg-num"><b>1%</b><span data-i18n="prg_saberes_n2">da receita líquida: repartição legal de benefícios</span></div><div class="prg-num"><b>24</b><span data-i18n="prg_saberes_n3">metas em 10 eixos</span></div></div>
+            <div class="prg-dest"><span class="prg-mini" data-i18n="prg_destaques">O que propõe</span><ul><li><span data-i18n="prg_saberes_d0">Proteção dos saberes tradicionais contra a biopirataria</span></li><li><span data-i18n="prg_saberes_d1">Valorização da medicina indígena e da biodiversidade associada</span></li><li><span data-i18n="prg_saberes_d2">Experiência de referência: Programa Saberes Originários de Mato Grosso do Sul</span></li></ul></div>
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_saberes_para">Presidência da República, Casa Civil, Ministério dos Povos Indígenas, Ministério do Meio Ambiente e Mudança do Clima e Ministério da Cultura</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/plano-conhecimentos-tradicionais-indigenas-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-conhecimentos-tradicionais-indigenas-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-conhecimentos-tradicionais-indigenas-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Conhecimentos Tradicionais Indígenas" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-empreendedorismo" aria-labelledby="prg-tab-empreendedorismo" style="--c:var(--barro)" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/plano-empreendedorismo-indigena-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/plano-empreendedorismo-indigena.jpg" alt="Empreendedorismo Indígena" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>27</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_empreendedorismo_kicker">Parte IV | Plano Nacional</span>
+            <h3 class="prg-h" data-i18n="prg_empreendedorismo_titulo">Empreendedorismo Indígena</h3>
+            <p class="prg-tema" data-i18n="prg_empreendedorismo_tema">Atividades econômicas rentáveis e sustentáveis na aldeia e na cidade, em consonância com o Acredita, a Nova Indústria Brasil e as políticas do Ministério dos Povos Indígenas.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b data-i18n="prg_empreendedorismo_v0">914 mil</b><span data-i18n="prg_empreendedorismo_n0">indígenas vivem em áreas urbanas</span></div><div class="prg-num"><b>12</b><span data-i18n="prg_empreendedorismo_n1">setores econômicos com vocação indígena</span></div><div class="prg-num"><b data-i18n="prg_empreendedorismo_v2">10 mil</b><span data-i18n="prg_empreendedorismo_n2">empreendimentos formalizados até 2030</span></div><div class="prg-num"><b>24</b><span data-i18n="prg_empreendedorismo_n3">metas em 10 eixos</span></div></div>
+            <div class="prg-dest"><span class="prg-mini" data-i18n="prg_destaques">O que propõe</span><ul><li><span data-i18n="prg_empreendedorismo_d0">Apoio às cooperativas e aos pequenos negócios indígenas</span></li><li><span data-i18n="prg_empreendedorismo_d1">Acordos com o Sebrae, o Sistema S e os bancos públicos</span></li><li><span data-i18n="prg_empreendedorismo_d2">Atividades na aldeia e na cidade</span></li></ul></div>
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_empreendedorismo_para">Presidência da República, Casa Civil, Ministério do Empreendedorismo, da Microempresa e da Empresa de Pequeno Porte, MDIC e Ministério dos Povos Indígenas</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/plano-empreendedorismo-indigena-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-empreendedorismo-indigena-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-empreendedorismo-indigena-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Empreendedorismo Indígena" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-agro" aria-labelledby="prg-tab-agro" style="--c:#6E8B2E" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/plano-producao-agropecuaria-indigena-cooperativa-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/plano-producao-agropecuaria-indigena-cooperativa.jpg" alt="Produção Agropecuária Indígena Cooperativa" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>27</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_agro_kicker">Parte V | Plano Nacional</span>
+            <h3 class="prg-h" data-i18n="prg_agro_titulo">Produção Agropecuária Indígena Cooperativa</h3>
+            <p class="prg-tema" data-i18n="prg_agro_tema">Do roçado familiar à lavoura em escala comercial, com segurança jurídica, crédito e conservação dos territórios, em consonância com o Plano Safra da Agricultura Familiar e com a PNGATI.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b data-i18n="prg_agro_v0">1,12%</b><span data-i18n="prg_agro_n0">dos produtores rurais do país são indígenas</span></div><div class="prg-num"><b>88%</b><span data-i18n="prg_agro_n1">dos estabelecimentos indígenas não usam agrotóxicos</span></div><div class="prg-num"><b>4</b><span data-i18n="prg_agro_n2">escalas, do roçado à lavoura cooperativa</span></div><div class="prg-num"><b>24</b><span data-i18n="prg_agro_n3">metas em 10 eixos</span></div></div>
+            <div class="prg-dest"><span class="prg-mini" data-i18n="prg_destaques">O que propõe</span><ul><li><span data-i18n="prg_agro_d0">Segurança jurídica para a produção cooperativa nas terras indígenas</span></li><li><span data-i18n="prg_agro_d1">Crédito adequado a cada escala de produção</span></li><li><span data-i18n="prg_agro_d2">Conservação dos territórios</span></li></ul></div>
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_agro_para">Presidência da República, Casa Civil, Ministério do Desenvolvimento Agrário e Agricultura Familiar, Ministério da Agricultura e Pecuária e Ministério dos Povos Indígenas</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/plano-producao-agropecuaria-indigena-cooperativa-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-producao-agropecuaria-indigena-cooperativa-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-producao-agropecuaria-indigena-cooperativa-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Produção Agropecuária Indígena Cooperativa" loading="lazy"></iframe></div>
+      </article>
+      <article class="prg-painel" role="tabpanel" id="prg-p-mineracao" aria-labelledby="prg-tab-mineracao" style="--c:#5B4E40" hidden>
+        <div class="prg-grid">
+          <a class="prg-capa" href="docs/programas/plano-mineracao-terras-indigenas-2027-2030.pdf" target="_blank" rel="noopener">
+            <img src="imgs/programas/plano-mineracao-terras-indigenas.jpg" alt="Mineração em Terras Indígenas" loading="lazy" width="640" height="906">
+            <span class="prg-pags"><b>30</b> <span data-i18n="prg_pags">páginas</span></span>
+          </a>
+          <div class="prg-info">
+            <span class="prg-kicker" data-i18n="prg_mineracao_kicker">Parte VI | Plano Nacional</span>
+            <h3 class="prg-h" data-i18n="prg_mineracao_titulo">Mineração em Terras Indígenas</h3>
+            <p class="prg-tema" data-i18n="prg_mineracao_tema">Decisão das comunidades, proteção dos territórios, participação nos resultados e fim do garimpo ilegal, em consonância com a Política Nacional de Minerais Críticos e Estratégicos e com as decisões do Supremo Tribunal Federal.</p>
+            <div class="prg-nums prg-nums-4"><div class="prg-num"><b data-i18n="prg_mineracao_v0">37 anos</b><span data-i18n="prg_mineracao_n0">sem a lei exigida pela Constituição de 1988</span></div><div class="prg-num"><b data-i18n="prg_mineracao_v1">24 meses</b><span data-i18n="prg_mineracao_n1">prazo do STF ao Congresso para editar a lei</span></div><div class="prg-num"><b data-i18n="prg_mineracao_v2">5.564 ha</b><span data-i18n="prg_mineracao_n2">degradados pelo garimpo ilegal na Terra Yanomami</span></div><div class="prg-num"><b>24</b><span data-i18n="prg_mineracao_n3">metas em 10 eixos</span></div></div>
+            <div class="prg-dest"><span class="prg-mini" data-i18n="prg_destaques">O que propõe</span><ul><li><span data-i18n="prg_mineracao_d0">A comunidade decide, com consulta e o direito de dizer não</span></li><li><span data-i18n="prg_mineracao_d1">Fim do garimpo ilegal e proteção dos territórios</span></li><li><span data-i18n="prg_mineracao_d2">Minuta de projeto de lei que regulamenta os arts. 176, § 1º, e 231, § 3º, da Constituição</span></li></ul></div>
+            <div class="prg-para"><span class="prg-mini" data-i18n="prg_para">Dirigido a</span><p data-i18n="prg_mineracao_para">Presidência da República, Casa Civil, Ministério de Minas e Energia e Ministério dos Povos Indígenas</p></div>
+            <div class="prg-acoes">
+              <button type="button" class="prg-btn prg-ler" data-pdf="docs/programas/plano-mineracao-terras-indigenas-2027-2030.pdf"><span data-i18n="prg_ler">Ler aqui</span></button>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-mineracao-terras-indigenas-2027-2030.pdf" target="_blank" rel="noopener" data-i18n="prg_abrir">Abrir em nova aba</a>
+              <a class="prg-btn prg-btn-linha" href="docs/programas/plano-mineracao-terras-indigenas-2027-2030.pdf" download data-i18n="prg_baixar">Baixar PDF</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="prg-leitor" hidden><iframe title="Mineração em Terras Indígenas" loading="lazy"></iframe></div>
+      </article>
+    </div>
+    <div class="prg-rodape">
+      <p data-i18n="prg_credito">Proponente: Fórum dos Caciques de Mato Grosso do Sul (FOCAMS), presidido por Aguinaldo de Arruda Areco. Consultoria institucional técnica: Instituto Cacique Enir Terena (ICET). Responsáveis pelos projetos: Maria Auxiliadora Bezerra, Presidente do ICET, e Germano Coelho Ramos Rocha-Silva, indígena Terena, mestre em Propriedade Intelectual e Transferência de Tecnologia para a Inovação.</p>
+      <p class="prg-nota" data-i18n="prg_nota">Documentos públicos do FOCAMS. Podem ser compartilhados nas comunidades citando a fonte.</p>
     </div>
   </div>
 </section>
@@ -2298,6 +2624,132 @@ textarea.nt-in{resize:vertical;line-height:1.55}
 <script>
 (function(){
     var I18N = {
+      nav_programas: {pt:"Programas", en:"Programs", es:"Programas", fr:"Programmes"},
+      prg_rotulo: {pt:"Programas e projetos do FOCAMS", en:"FOCAMS programs and projects", es:"Programas y proyectos del FOCAMS", fr:"Programmes et projets du FOCAMS"},
+      prg_titulo: {pt:"Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030.", en:"Integrated Program of Policies for Indigenous Peoples 2027 to 2030.", es:"Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030.", fr:"Programme intégré de politiques pour les peuples autochtones 2027 à 2030."},
+      prg_lead: {pt:"Seis planos nacionais construídos a partir das demandas das aldeias e comunidades de Mato Grosso do Sul e dirigidos ao governo federal, seus ministérios e órgãos. O Programa foi aprovado por unanimidade e por aclamação em 31 de outubro de 2026, em Campo Grande, com a participação de 32 lideranças, caciques e instituições indígenas de todo o estado.", en:"Six national plans built from the demands of the villages and communities of Mato Grosso do Sul and addressed to the federal government, its ministries and agencies. The Program was approved unanimously and by acclamation on October 31, 2026, in Campo Grande, with the participation of 32 Indigenous leaders, chiefs and institutions from across the state.", es:"Seis planes nacionales construidos a partir de las demandas de las aldeas y comunidades de Mato Grosso do Sul y dirigidos al gobierno federal, sus ministerios y órganos. El Programa fue aprobado por unanimidad y por aclamación el 31 de octubre de 2026, en Campo Grande, con la participación de 32 liderazgos, caciques e instituciones indígenas de todo el estado.", fr:"Six plans nationaux construits à partir des demandes des villages et des communautés du Mato Grosso do Sul et adressés au gouvernement fédéral, à ses ministères et organismes. Le Programme a été approuvé à l’unanimité et par acclamation le 31 octobre 2026, à Campo Grande, avec la participation de 32 dirigeants, caciques et institutions autochtones de tout l’État."},
+      prg_n1: {pt:"planos nacionais", en:"national plans", es:"planes nacionales", fr:"plans nationaux"},
+      prg_n2: {pt:"eixos de execução", en:"lines of action", es:"ejes de ejecución", fr:"axes d’exécution"},
+      prg_n3: {pt:"metas verificáveis", en:"verifiable targets", es:"metas verificables", fr:"objectifs vérifiables"},
+      prg_n4: {pt:"lideranças e instituições na aprovação", en:"leaders and institutions at the approval", es:"liderazgos e instituciones en la aprobación", fr:"dirigeants et institutions à l’approbation"},
+      prg_grupo1: {pt:"O Programa", en:"The Program", es:"El Programa", fr:"Le Programme"},
+      prg_grupo2: {pt:"Os seis planos nacionais", en:"The six national plans", es:"Los seis planes nacionales", fr:"Les six plans nationaux"},
+      prg_para: {pt:"Dirigido a", en:"Addressed to", es:"Dirigido a", fr:"Adressé à"},
+      prg_destaques: {pt:"O que propõe", en:"What it proposes", es:"Qué propone", fr:"Ce qu’il propose"},
+      prg_pags: {pt:"páginas", en:"pages", es:"páginas", fr:"pages"},
+      prg_ler: {pt:"Ler aqui", en:"Read here", es:"Leer aquí", fr:"Lire ici"},
+      prg_fechar: {pt:"Fechar leitura", en:"Close reader", es:"Cerrar lectura", fr:"Fermer la lecture"},
+      prg_abrir: {pt:"Abrir em nova aba", en:"Open in a new tab", es:"Abrir en una nueva pestaña", fr:"Ouvrir dans un nouvel onglet"},
+      prg_baixar: {pt:"Baixar PDF", en:"Download PDF", es:"Descargar PDF", fr:"Télécharger le PDF"},
+      prg_pptx: {pt:"Baixar PowerPoint", en:"Download PowerPoint", es:"Descargar PowerPoint", fr:"Télécharger le PowerPoint"},
+      prg_credito: {pt:"Proponente: Fórum dos Caciques de Mato Grosso do Sul (FOCAMS), presidido por Aguinaldo de Arruda Areco. Consultoria institucional técnica: Instituto Cacique Enir Terena (ICET). Responsáveis pelos projetos: Maria Auxiliadora Bezerra, Presidente do ICET, e Germano Coelho Ramos Rocha-Silva, indígena Terena, mestre em Propriedade Intelectual e Transferência de Tecnologia para a Inovação.", en:"Proponent: Forum of Chiefs of Mato Grosso do Sul (FOCAMS), chaired by Aguinaldo de Arruda Areco. Institutional technical consultancy: Cacique Enir Terena Institute (ICET). Project leads: Maria Auxiliadora Bezerra, President of ICET, and Germano Coelho Ramos Rocha-Silva, Terena Indigenous, master in Intellectual Property and Technology Transfer for Innovation.", es:"Proponente: Foro de los Caciques de Mato Grosso do Sul (FOCAMS), presidido por Aguinaldo de Arruda Areco. Consultoría institucional técnica: Instituto Cacique Enir Terena (ICET). Responsables de los proyectos: Maria Auxiliadora Bezerra, Presidenta del ICET, y Germano Coelho Ramos Rocha-Silva, indígena Terena, máster en Propiedad Intelectual y Transferencia de Tecnología para la Innovación.", fr:"Porteur : Forum des Caciques du Mato Grosso do Sul (FOCAMS), présidé par Aguinaldo de Arruda Areco. Conseil institutionnel technique : Institut Cacique Enir Terena (ICET). Responsables des projets : Maria Auxiliadora Bezerra, présidente de l’ICET, et Germano Coelho Ramos Rocha-Silva, autochtone Terena, master en propriété intellectuelle et transfert de technologie pour l’innovation."},
+      prg_nota: {pt:"Documentos públicos do FOCAMS. Podem ser compartilhados nas comunidades citando a fonte.", en:"Public FOCAMS documents. They may be shared in the communities with credit to the source.", es:"Documentos públicos del FOCAMS. Pueden compartirse en las comunidades citando la fuente.", fr:"Documents publics du FOCAMS. Ils peuvent être partagés dans les communautés en citant la source."},
+      prg_integral_aba: {pt:"Programa completo", en:"Full Program", es:"Programa completo", fr:"Programme complet"},
+      prg_integral_n0: {pt:"planos nacionais", en:"national plans", es:"planes nacionales", fr:"plans nationaux"},
+      prg_integral_n1: {pt:"eixos de execução", en:"lines of action", es:"ejes de ejecución", fr:"axes d’exécution"},
+      prg_integral_n2: {pt:"metas verificáveis", en:"verifiable targets", es:"metas verificables", fr:"objectifs vérifiables"},
+      prg_integral_n3: {pt:"cargos novos", en:"new posts", es:"cargos nuevos", fr:"nouveaux postes"},
+      prg_integral_para: {pt:"Presidência da República, Casa Civil, Ministério dos Povos Indígenas, Funai e os ministérios responsáveis por cada plano", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Indigenous Peoples, Funai and the ministries responsible for each plan", es:"Presidencia de la República, Casa Civil, Ministerio de los Pueblos Indígenas, Funai y los ministerios responsables de cada plan", fr:"Présidence de la République, Casa Civil, ministère des Peuples autochtones, Funai et les ministères responsables de chaque plan"},
+      prg_integral_kicker: {pt:"Programa Integrado 2027 a 2030", en:"Integrated Program 2027 to 2030", es:"Programa Integrado 2027 a 2030", fr:"Programme intégré 2027 à 2030"},
+      prg_integral_titulo: {pt:"Texto integral do Programa", en:"Full text of the Program", es:"Texto íntegro del Programa", fr:"Texte intégral du Programme"},
+      prg_integral_tema: {pt:"A apresentação do Programa, o alinhamento com o programa de governo, o modelo de integração dos planos, a governança, as regras de adesão das instituições indígenas e os seis planos nacionais completos, com fichas técnicas, diagnósticos, metas, cronogramas, riscos e minutas de decretos e projetos de lei.", en:"The presentation of the Program, its alignment with the government program, the model for integrating the plans, governance, the rules for Indigenous institutions to join, and the six complete national plans, with technical sheets, diagnoses, targets, timelines, risks and draft decrees and bills.", es:"La presentación del Programa, la alineación con el programa de gobierno, el modelo de integración de los planes, la gobernanza, las reglas de adhesión de las instituciones indígenas y los seis planes nacionales completos, con fichas técnicas, diagnósticos, metas, cronogramas, riesgos y borradores de decretos y proyectos de ley.", fr:"La présentation du Programme, son alignement sur le programme de gouvernement, le modèle d’intégration des plans, la gouvernance, les règles d’adhésion des institutions autochtones et les six plans nationaux complets, avec fiches techniques, diagnostics, objectifs, calendriers, risques et projets de décrets et de lois."},
+      prg_resumo_aba: {pt:"Resumo executivo", en:"Executive summary", es:"Resumen ejecutivo", fr:"Résumé exécutif"},
+      prg_resumo_n0: {pt:"páginas", en:"pages", es:"páginas", fr:"pages"},
+      prg_resumo_n1: {pt:"planos", en:"plans", es:"planes", fr:"plans"},
+      prg_resumo_n2: {pt:"metas", en:"targets", es:"metas", fr:"objectifs"},
+      prg_resumo_kicker: {pt:"Para conhecer em poucos minutos", en:"To learn about it in a few minutes", es:"Para conocerlo en pocos minutos", fr:"Pour le découvrir en quelques minutes"},
+      prg_resumo_titulo: {pt:"Resumo executivo ilustrado", en:"Illustrated executive summary", es:"Resumen ejecutivo ilustrado", fr:"Résumé exécutif illustré"},
+      prg_resumo_tema: {pt:"O que é o Programa, o que cada plano propõe, as metas, os órgãos federais envolvidos e os próximos passos, em linguagem direta e com ilustrações. Versão de 31 de outubro de 2026.", en:"What the Program is, what each plan proposes, the targets, the federal bodies involved and the next steps, in plain language and with illustrations. Version of October 31, 2026.", es:"Qué es el Programa, qué propone cada plan, las metas, los órganos federales involucrados y los próximos pasos, en lenguaje directo y con ilustraciones. Versión del 31 de octubre de 2026.", fr:"Ce qu’est le Programme, ce que propose chaque plan, les objectifs, les organismes fédéraux concernés et les prochaines étapes, en langage simple et illustré. Version du 31 octobre 2026."},
+      prg_palestra_aba: {pt:"Palestra", en:"Talk", es:"Charla", fr:"Conférence"},
+      prg_palestra_n0: {pt:"minutos", en:"minutes", es:"minutos", fr:"minutes"},
+      prg_palestra_n1: {pt:"lâminas", en:"slides", es:"diapositivas", fr:"diapositives"},
+      prg_palestra_n2: {pt:"planos", en:"plans", es:"planes", fr:"plans"},
+      prg_palestra_kicker: {pt:"Para as reuniões nas comunidades", en:"For meetings in the communities", es:"Para las reuniones en las comunidades", fr:"Pour les réunions dans les communautés"},
+      prg_palestra_titulo: {pt:"Palestra para lideranças e anciãos", en:"Talk for leaders and elders", es:"Charla para liderazgos y ancianos", fr:"Conférence pour les dirigeants et les anciens"},
+      prg_palestra_tema: {pt:"Apresentação de 20 minutos, plano por plano, preparada para caciques, lideranças e anciãos, com a iconografia Terena. Está disponível em PDF e em PowerPoint, para ser usada e adaptada nas reuniões das aldeias e das instituições indígenas.", en:"A 20-minute presentation, plan by plan, prepared for chiefs, leaders and elders, with Terena iconography. It is available in PDF and PowerPoint, to be used and adapted in meetings of villages and Indigenous institutions.", es:"Presentación de 20 minutos, plan por plan, preparada para caciques, liderazgos y ancianos, con la iconografía Terena. Está disponible en PDF y en PowerPoint, para usarla y adaptarla en las reuniones de las aldeas y de las instituciones indígenas.", fr:"Présentation de 20 minutes, plan par plan, préparée pour les caciques, les dirigeants et les anciens, avec l’iconographie Terena. Elle est disponible en PDF et en PowerPoint, pour être utilisée et adaptée lors des réunions des villages et des institutions autochtones."},
+      prg_saude_aba: {pt:"Saúde", en:"Health", es:"Salud", fr:"Santé"},
+      prg_saude_v0: {pt:"1,69 mi", en:"1.69 M", es:"1,69 M", fr:"1,69 M"},
+      prg_saude_n0: {pt:"pessoas indígenas no Censo 2022", en:"Indigenous people in the 2022 Census", es:"personas indígenas en el Censo 2022", fr:"personnes autochtones au recensement 2022"},
+      prg_saude_v1: {pt:"53,97%", en:"53.97%", es:"53,97 %", fr:"53,97 %"},
+      prg_saude_n1: {pt:"vivem em áreas urbanas", en:"live in urban areas", es:"viven en áreas urbanas", fr:"vivent en zone urbaine"},
+      prg_saude_v2: {pt:"2,4×", en:"2.4×", es:"2,4×", fr:"2,4×"},
+      prg_saude_n2: {pt:"a mortalidade de menores de 5 anos", en:"the mortality of children under 5", es:"la mortalidad de menores de 5 años", fr:"la mortalité des moins de 5 ans"},
+      prg_saude_n3: {pt:"metas em 11 eixos", en:"targets in 11 lines", es:"metas en 11 ejes", fr:"objectifs en 11 axes"},
+      prg_saude_para: {pt:"Presidência da República, Casa Civil, Ministério da Saúde, SESAI e Ministério dos Povos Indígenas", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Health, SESAI and Ministry of Indigenous Peoples", es:"Presidencia de la República, Casa Civil, Ministerio de Salud, SESAI y Ministerio de los Pueblos Indígenas", fr:"Présidence de la République, Casa Civil, ministère de la Santé, SESAI et ministère des Peuples autochtones"},
+      prg_saude_d0: {pt:"Atenção diferenciada aos indígenas que vivem nas cidades, com piloto em Campo Grande", en:"Differentiated care for Indigenous people living in cities, with a pilot in Campo Grande", es:"Atención diferenciada a los indígenas que viven en las ciudades, con piloto en Campo Grande", fr:"Soins différenciés pour les autochtones vivant en ville, avec un projet pilote à Campo Grande"},
+      prg_saude_d1: {pt:"Formação de técnicos de enfermagem e profissionais de saúde indígenas", en:"Training of Indigenous nursing technicians and health professionals", es:"Formación de técnicos de enfermería y profesionales de salud indígenas", fr:"Formation de techniciens infirmiers et de professionnels de santé autochtones"},
+      prg_saude_d2: {pt:"Minutas de decreto presidencial e de projeto de lei da saúde indígena na cidade", en:"Draft presidential decree and bill on Indigenous health in the city", es:"Borradores de decreto presidencial y de proyecto de ley de salud indígena en la ciudad", fr:"Projets de décret présidentiel et de loi sur la santé autochtone en ville"},
+      prg_saude_kicker: {pt:"Parte I | Plano Nacional", en:"Part I | National Plan", es:"Parte I | Plan Nacional", fr:"Partie I | Plan national"},
+      prg_saude_titulo: {pt:"Saúde dos Povos Indígenas", en:"Health of Indigenous Peoples", es:"Salud de los Pueblos Indígenas", fr:"Santé des peuples autochtones"},
+      prg_saude_tema: {pt:"Plano de execução para a saúde dos povos indígenas, nas aldeias e nas cidades, com metas mensuráveis, governança por resultados e base nas políticas públicas em vigor do Ministério da Saúde e da SESAI.", en:"An implementation plan for the health of Indigenous peoples, in villages and in cities, with measurable targets, results-based governance and grounded in the current public policies of the Ministry of Health and SESAI.", es:"Plan de ejecución para la salud de los pueblos indígenas, en las aldeas y en las ciudades, con metas medibles, gobernanza por resultados y basado en las políticas públicas vigentes del Ministerio de Salud y de la SESAI.", fr:"Plan d’exécution pour la santé des peuples autochtones, dans les villages et dans les villes, avec des objectifs mesurables, une gouvernance par les résultats et fondé sur les politiques publiques en vigueur du ministère de la Santé et du SESAI."},
+      prg_educacao_aba: {pt:"Educação", en:"Education", es:"Educación", fr:"Éducation"},
+      prg_educacao_v0: {pt:"3.572", en:"3,572", es:"3.572", fr:"3 572"},
+      prg_educacao_n0: {pt:"escolas indígenas no Censo Escolar 2024", en:"Indigenous schools in the 2024 School Census", es:"escuelas indígenas en el Censo Escolar 2024", fr:"écoles autochtones au recensement scolaire 2024"},
+      prg_educacao_v1: {pt:"289 mil", en:"289k", es:"289 mil", fr:"289 000"},
+      prg_educacao_n1: {pt:"estudantes matriculados", en:"enrolled students", es:"estudiantes matriculados", fr:"élèves inscrits"},
+      prg_educacao_n2: {pt:"dos professores com contrato temporário", en:"of teachers on temporary contracts", es:"de los profesores con contrato temporal", fr:"des enseignants sous contrat temporaire"},
+      prg_educacao_n3: {pt:"metas e 16 escolas piloto", en:"targets and 16 pilot schools", es:"metas y 16 escuelas piloto", fr:"objectifs et 16 écoles pilotes"},
+      prg_educacao_para: {pt:"Presidência da República, Casa Civil, Ministério da Educação, SECADI e Ministério dos Povos Indígenas", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Education, SECADI and Ministry of Indigenous Peoples", es:"Presidencia de la República, Casa Civil, Ministerio de Educación, SECADI y Ministerio de los Pueblos Indígenas", fr:"Présidence de la République, Casa Civil, ministère de l’Éducation, SECADI et ministère des Peuples autochtones"},
+      prg_educacao_d0: {pt:"Alfabetização na língua de cada povo e em português", en:"Literacy in each people’s language and in Portuguese", es:"Alfabetización en la lengua de cada pueblo y en portugués", fr:"Alphabétisation dans la langue de chaque peuple et en portugais"},
+      prg_educacao_d1: {pt:"Formação de professores indígenas em escala nacional", en:"Training of Indigenous teachers on a national scale", es:"Formación de profesores indígenas a escala nacional", fr:"Formation d’enseignants autochtones à l’échelle nationale"},
+      prg_educacao_d2: {pt:"Universidade Federal Indígena, com seleção própria", en:"Federal Indigenous University, with its own admissions", es:"Universidad Federal Indígena, con selección propia", fr:"Université fédérale autochtone, avec sa propre sélection"},
+      prg_educacao_kicker: {pt:"Parte II | Plano Nacional", en:"Part II | National Plan", es:"Parte II | Plan Nacional", fr:"Partie II | Plan national"},
+      prg_educacao_titulo: {pt:"Educação Escolar Indígena", en:"Indigenous School Education", es:"Educación Escolar Indígena", fr:"Éducation scolaire autochtone"},
+      prg_educacao_tema: {pt:"Plano para a educação escolar dos povos indígenas, com alfabetização bilíngue, formação de professores em escala nacional, escolas piloto enraizadas na cultura de cada povo e empreendedorismo.", en:"A plan for the school education of Indigenous peoples, with bilingual literacy, teacher training on a national scale, pilot schools rooted in the culture of each people, and entrepreneurship.", es:"Plan para la educación escolar de los pueblos indígenas, con alfabetización bilingüe, formación de profesores a escala nacional, escuelas piloto enraizadas en la cultura de cada pueblo y emprendimiento.", fr:"Plan pour l’éducation scolaire des peuples autochtones, avec alphabétisation bilingue, formation des enseignants à l’échelle nationale, écoles pilotes ancrées dans la culture de chaque peuple et entrepreneuriat."},
+      prg_saberes_aba: {pt:"Conhecimentos tradicionais", en:"Traditional knowledge", es:"Conocimientos tradicionales", fr:"Savoirs traditionnels"},
+      prg_saberes_n0: {pt:"povos indígenas recenseados em 2022", en:"Indigenous peoples counted in 2022", es:"pueblos indígenas censados en 2022", fr:"peuples autochtones recensés en 2022"},
+      prg_saberes_n1: {pt:"línguas indígenas faladas no país", en:"Indigenous languages spoken in the country", es:"lenguas indígenas habladas en el país", fr:"langues autochtones parlées dans le pays"},
+      prg_saberes_n2: {pt:"da receita líquida: repartição legal de benefícios", en:"of net revenue: legal benefit sharing", es:"de los ingresos netos: reparto legal de beneficios", fr:"du revenu net : partage légal des avantages"},
+      prg_saberes_n3: {pt:"metas em 10 eixos", en:"targets in 10 lines", es:"metas en 10 ejes", fr:"objectifs en 10 axes"},
+      prg_saberes_para: {pt:"Presidência da República, Casa Civil, Ministério dos Povos Indígenas, Ministério do Meio Ambiente e Mudança do Clima e Ministério da Cultura", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Indigenous Peoples, Ministry of the Environment and Climate Change and Ministry of Culture", es:"Presidencia de la República, Casa Civil, Ministerio de los Pueblos Indígenas, Ministerio de Medio Ambiente y Cambio Climático y Ministerio de Cultura", fr:"Présidence de la République, Casa Civil, ministère des Peuples autochtones, ministère de l’Environnement et du Changement climatique et ministère de la Culture"},
+      prg_saberes_d0: {pt:"Proteção dos saberes tradicionais contra a biopirataria", en:"Protection of traditional knowledge against biopiracy", es:"Protección de los saberes tradicionales contra la biopiratería", fr:"Protection des savoirs traditionnels contre la biopiraterie"},
+      prg_saberes_d1: {pt:"Valorização da medicina indígena e da biodiversidade associada", en:"Valorization of Indigenous medicine and associated biodiversity", es:"Valorización de la medicina indígena y de la biodiversidad asociada", fr:"Valorisation de la médecine autochtone et de la biodiversité associée"},
+      prg_saberes_d2: {pt:"Experiência de referência: Programa Saberes Originários de Mato Grosso do Sul", en:"Reference experience: Saberes Originários Program of Mato Grosso do Sul", es:"Experiencia de referencia: Programa Saberes Originários de Mato Grosso do Sul", fr:"Expérience de référence : programme Saberes Originários du Mato Grosso do Sul"},
+      prg_saberes_kicker: {pt:"Parte III | Plano Nacional", en:"Part III | National Plan", es:"Parte III | Plan Nacional", fr:"Partie III | Plan national"},
+      prg_saberes_titulo: {pt:"Conhecimentos Tradicionais Indígenas", en:"Indigenous Traditional Knowledge", es:"Conocimientos Tradicionales Indígenas", fr:"Savoirs traditionnels autochtones"},
+      prg_saberes_tema: {pt:"Plano Nacional de Proteção e Valorização dos Conhecimentos Tradicionais Indígenas, da Medicina Indígena e da Biodiversidade Associada, em consonância com a Estratégia Nacional de Bioeconomia.", en:"National Plan for the Protection and Valorization of Indigenous Traditional Knowledge, Indigenous Medicine and Associated Biodiversity, in line with the National Bioeconomy Strategy.", es:"Plan Nacional de Protección y Valorización de los Conocimientos Tradicionales Indígenas, de la Medicina Indígena y de la Biodiversidad Asociada, en consonancia con la Estrategia Nacional de Bioeconomía.", fr:"Plan national de protection et de valorisation des savoirs traditionnels autochtones, de la médecine autochtone et de la biodiversité associée, en cohérence avec la Stratégie nationale de bioéconomie."},
+      prg_empreendedorismo_aba: {pt:"Empreendedorismo", en:"Entrepreneurship", es:"Emprendimiento", fr:"Entrepreneuriat"},
+      prg_empreendedorismo_v0: {pt:"914 mil", en:"914k", es:"914 mil", fr:"914 000"},
+      prg_empreendedorismo_n0: {pt:"indígenas vivem em áreas urbanas", en:"Indigenous people live in urban areas", es:"indígenas viven en áreas urbanas", fr:"autochtones vivent en zone urbaine"},
+      prg_empreendedorismo_n1: {pt:"setores econômicos com vocação indígena", en:"economic sectors with Indigenous vocation", es:"sectores económicos con vocación indígena", fr:"secteurs économiques à vocation autochtone"},
+      prg_empreendedorismo_v2: {pt:"10 mil", en:"10k", es:"10 mil", fr:"10 000"},
+      prg_empreendedorismo_n2: {pt:"empreendimentos formalizados até 2030", en:"businesses formalized by 2030", es:"emprendimientos formalizados hasta 2030", fr:"entreprises formalisées d’ici 2030"},
+      prg_empreendedorismo_n3: {pt:"metas em 10 eixos", en:"targets in 10 lines", es:"metas en 10 ejes", fr:"objectifs en 10 axes"},
+      prg_empreendedorismo_para: {pt:"Presidência da República, Casa Civil, Ministério do Empreendedorismo, da Microempresa e da Empresa de Pequeno Porte, MDIC e Ministério dos Povos Indígenas", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Entrepreneurship, Micro and Small Enterprises, MDIC and Ministry of Indigenous Peoples", es:"Presidencia de la República, Casa Civil, Ministerio del Emprendimiento, de la Microempresa y de la Pequeña Empresa, MDIC y Ministerio de los Pueblos Indígenas", fr:"Présidence de la République, Casa Civil, ministère de l’Entrepreneuriat, des Micro et Petites Entreprises, MDIC et ministère des Peuples autochtones"},
+      prg_empreendedorismo_d0: {pt:"Apoio às cooperativas e aos pequenos negócios indígenas", en:"Support for Indigenous cooperatives and small businesses", es:"Apoyo a las cooperativas y a los pequeños negocios indígenas", fr:"Soutien aux coopératives et aux petites entreprises autochtones"},
+      prg_empreendedorismo_d1: {pt:"Acordos com o Sebrae, o Sistema S e os bancos públicos", en:"Agreements with Sebrae, the S System and public banks", es:"Acuerdos con el Sebrae, el Sistema S y los bancos públicos", fr:"Accords avec le Sebrae, le Système S et les banques publiques"},
+      prg_empreendedorismo_d2: {pt:"Atividades na aldeia e na cidade", en:"Activities in the village and in the city", es:"Actividades en la aldea y en la ciudad", fr:"Activités au village et en ville"},
+      prg_empreendedorismo_kicker: {pt:"Parte IV | Plano Nacional", en:"Part IV | National Plan", es:"Parte IV | Plan Nacional", fr:"Partie IV | Plan national"},
+      prg_empreendedorismo_titulo: {pt:"Empreendedorismo Indígena", en:"Indigenous Entrepreneurship", es:"Emprendimiento Indígena", fr:"Entrepreneuriat autochtone"},
+      prg_empreendedorismo_tema: {pt:"Atividades econômicas rentáveis e sustentáveis na aldeia e na cidade, em consonância com o Acredita, a Nova Indústria Brasil e as políticas do Ministério dos Povos Indígenas.", en:"Profitable and sustainable economic activities in the village and in the city, in line with Acredita, Nova Indústria Brasil and the policies of the Ministry of Indigenous Peoples.", es:"Actividades económicas rentables y sostenibles en la aldea y en la ciudad, en consonancia con Acredita, Nova Indústria Brasil y las políticas del Ministerio de los Pueblos Indígenas.", fr:"Des activités économiques rentables et durables au village et en ville, en cohérence avec Acredita, Nova Indústria Brasil et les politiques du ministère des Peuples autochtones."},
+      prg_agro_aba: {pt:"Produção agropecuária", en:"Agricultural production", es:"Producción agropecuaria", fr:"Production agricole"},
+      prg_agro_v0: {pt:"1,12%", en:"1.12%", es:"1,12 %", fr:"1,12 %"},
+      prg_agro_n0: {pt:"dos produtores rurais do país são indígenas", en:"of the country’s farmers are Indigenous", es:"de los productores rurales del país son indígenas", fr:"des producteurs ruraux du pays sont autochtones"},
+      prg_agro_n1: {pt:"dos estabelecimentos indígenas não usam agrotóxicos", en:"of Indigenous farms use no pesticides", es:"de los establecimientos indígenas no usan agrotóxicos", fr:"des exploitations autochtones n’utilisent pas de pesticides"},
+      prg_agro_n2: {pt:"escalas, do roçado à lavoura cooperativa", en:"scales, from garden to cooperative farming", es:"escalas, del cultivo a la siembra cooperativa", fr:"échelles, du jardin à la culture coopérative"},
+      prg_agro_n3: {pt:"metas em 10 eixos", en:"targets in 10 lines", es:"metas en 10 ejes", fr:"objectifs en 10 axes"},
+      prg_agro_para: {pt:"Presidência da República, Casa Civil, Ministério do Desenvolvimento Agrário e Agricultura Familiar, Ministério da Agricultura e Pecuária e Ministério dos Povos Indígenas", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Agrarian Development and Family Farming, Ministry of Agriculture and Livestock and Ministry of Indigenous Peoples", es:"Presidencia de la República, Casa Civil, Ministerio de Desarrollo Agrario y Agricultura Familiar, Ministerio de Agricultura y Ganadería y Ministerio de los Pueblos Indígenas", fr:"Présidence de la République, Casa Civil, ministère du Développement agraire et de l’Agriculture familiale, ministère de l’Agriculture et de l’Élevage et ministère des Peuples autochtones"},
+      prg_agro_d0: {pt:"Segurança jurídica para a produção cooperativa nas terras indígenas", en:"Legal certainty for cooperative production on Indigenous lands", es:"Seguridad jurídica para la producción cooperativa en las tierras indígenas", fr:"Sécurité juridique pour la production coopérative sur les terres autochtones"},
+      prg_agro_d1: {pt:"Crédito adequado a cada escala de produção", en:"Credit suited to each scale of production", es:"Crédito adecuado a cada escala de producción", fr:"Crédit adapté à chaque échelle de production"},
+      prg_agro_d2: {pt:"Conservação dos territórios", en:"Conservation of territories", es:"Conservación de los territorios", fr:"Conservation des territoires"},
+      prg_agro_kicker: {pt:"Parte V | Plano Nacional", en:"Part V | National Plan", es:"Parte V | Plan Nacional", fr:"Partie V | Plan national"},
+      prg_agro_titulo: {pt:"Produção Agropecuária Indígena Cooperativa", en:"Indigenous Cooperative Agricultural Production", es:"Producción Agropecuaria Indígena Cooperativa", fr:"Production agricole autochtone coopérative"},
+      prg_agro_tema: {pt:"Do roçado familiar à lavoura em escala comercial, com segurança jurídica, crédito e conservação dos territórios, em consonância com o Plano Safra da Agricultura Familiar e com a PNGATI.", en:"From the family garden to commercial-scale farming, with legal certainty, credit and conservation of territories, in line with the Family Farming Harvest Plan and PNGATI.", es:"Del cultivo familiar a la siembra a escala comercial, con seguridad jurídica, crédito y conservación de los territorios, en consonancia con el Plan Safra de la Agricultura Familiar y con la PNGATI.", fr:"Du jardin familial à la culture à échelle commerciale, avec sécurité juridique, crédit et conservation des territoires, en cohérence avec le Plan Safra de l’agriculture familiale et la PNGATI."},
+      prg_mineracao_aba: {pt:"Mineração", en:"Mining", es:"Minería", fr:"Exploitation minière"},
+      prg_mineracao_v0: {pt:"37 anos", en:"37 years", es:"37 años", fr:"37 ans"},
+      prg_mineracao_n0: {pt:"sem a lei exigida pela Constituição de 1988", en:"without the law required by the 1988 Constitution", es:"sin la ley exigida por la Constitución de 1988", fr:"sans la loi exigée par la Constitution de 1988"},
+      prg_mineracao_v1: {pt:"24 meses", en:"24 months", es:"24 meses", fr:"24 mois"},
+      prg_mineracao_n1: {pt:"prazo do STF ao Congresso para editar a lei", en:"deadline set by the STF for Congress to pass the law", es:"plazo del STF al Congreso para dictar la ley", fr:"délai fixé par le STF au Congrès pour adopter la loi"},
+      prg_mineracao_v2: {pt:"5.564 ha", en:"5,564 ha", es:"5.564 ha", fr:"5 564 ha"},
+      prg_mineracao_n2: {pt:"degradados pelo garimpo ilegal na Terra Yanomami", en:"degraded by illegal mining in the Yanomami Land", es:"degradadas por la minería ilegal en la Tierra Yanomami", fr:"dégradés par l’orpaillage illégal en Terre Yanomami"},
+      prg_mineracao_n3: {pt:"metas em 10 eixos", en:"targets in 10 lines", es:"metas en 10 ejes", fr:"objectifs en 10 axes"},
+      prg_mineracao_para: {pt:"Presidência da República, Casa Civil, Ministério de Minas e Energia e Ministério dos Povos Indígenas", en:"Presidency of the Republic, Chief of Staff Office, Ministry of Mines and Energy and Ministry of Indigenous Peoples", es:"Presidencia de la República, Casa Civil, Ministerio de Minas y Energía y Ministerio de los Pueblos Indígenas", fr:"Présidence de la République, Casa Civil, ministère des Mines et de l’Énergie et ministère des Peuples autochtones"},
+      prg_mineracao_d0: {pt:"A comunidade decide, com consulta e o direito de dizer não", en:"The community decides, with consultation and the right to say no", es:"La comunidad decide, con consulta y el derecho a decir no", fr:"La communauté décide, avec consultation et le droit de dire non"},
+      prg_mineracao_d1: {pt:"Fim do garimpo ilegal e proteção dos territórios", en:"An end to illegal mining and protection of territories", es:"Fin de la minería ilegal y protección de los territorios", fr:"Fin de l’orpaillage illégal et protection des territoires"},
+      prg_mineracao_d2: {pt:"Minuta de projeto de lei que regulamenta os arts. 176, § 1º, e 231, § 3º, da Constituição", en:"Draft bill regulating Articles 176(1) and 231(3) of the Constitution", es:"Borrador de proyecto de ley que reglamenta los arts. 176, § 1º, y 231, § 3º, de la Constitución", fr:"Projet de loi réglementant les art. 176, § 1, et 231, § 3, de la Constitution"},
+      prg_mineracao_kicker: {pt:"Parte VI | Plano Nacional", en:"Part VI | National Plan", es:"Parte VI | Plan Nacional", fr:"Partie VI | Plan national"},
+      prg_mineracao_titulo: {pt:"Mineração em Terras Indígenas", en:"Mining on Indigenous Lands", es:"Minería en Tierras Indígenas", fr:"Exploitation minière en terres autochtones"},
+      prg_mineracao_tema: {pt:"Decisão das comunidades, proteção dos territórios, participação nos resultados e fim do garimpo ilegal, em consonância com a Política Nacional de Minerais Críticos e Estratégicos e com as decisões do Supremo Tribunal Federal.", en:"Community decision-making, protection of territories, a share in the results and an end to illegal mining, in line with the National Policy on Critical and Strategic Minerals and the decisions of the Supreme Federal Court.", es:"Decisión de las comunidades, protección de los territorios, participación en los resultados y fin de la minería ilegal, en consonancia con la Política Nacional de Minerales Críticos y Estratégicos y con las decisiones del Supremo Tribunal Federal.", fr:"Décision des communautés, protection des territoires, participation aux résultats et fin de l’orpaillage illégal, en cohérence avec la Politique nationale des minéraux critiques et stratégiques et avec les décisions du Tribunal suprême fédéral."},
       topbar_vertti_tip: {pt:'Site criado por <strong>VERTTI Consultoria</strong> (Germano Coelho Ramos Rocha-Silva). Clique para conhecer.', en:'Website created by <strong>VERTTI Consultoria</strong> (Germano Coelho Ramos Rocha-Silva). Click to learn more.', es:'Sitio creado por <strong>VERTTI Consultoria</strong> (Germano Coelho Ramos Rocha-Silva). Haga clic para conocer más.', fr:'Site créé par <strong>VERTTI Consultoria</strong> (Germano Coelho Ramos Rocha-Silva). Cliquez pour en savoir plus.'},
       topbar_icet_tip: {pt:'Em parceria com o <strong>Instituto Cacique Enir Terena (ICET)</strong> (Maria Auxiliadora Bezerra, Presidente). Clique para conhecer.', en:'In partnership with the <strong>Instituto Cacique Enir Terena (ICET)</strong> (Maria Auxiliadora Bezerra, President). Click to learn more.', es:'En colaboración con el <strong>Instituto Cacique Enir Terena (ICET)</strong> (Maria Auxiliadora Bezerra, Presidenta). Haga clic para conocer más.', fr:'En partenariat avec l\'<strong>Instituto Cacique Enir Terena (ICET)</strong> (Maria Auxiliadora Bezerra, Présidente). Cliquez pour en savoir plus.'},
       nav_marca: {pt:'Marca', en:'Brand', es:'Marca', fr:'Marque'},
@@ -4199,6 +4651,52 @@ window.I18N_SITE = {
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function(){ setTimeout(iniciar, 0); });
 else setTimeout(iniciar, 0);
+})();
+</script>
+<script>
+/* Programas: abas, leitor sob demanda e links diretos (#programa-saude etc.) */
+(function(){
+  var sec=document.getElementById('programas'); if(!sec) return;
+  var tabs=[].slice.call(sec.querySelectorAll('.prg-tab'));
+  function tr(k){ return window.FOCAMS_t ? window.FOCAMS_t(k) : k; }
+  function ativar(tab, foco){
+    tabs.forEach(function(t){
+      var on=(t===tab); t.setAttribute('aria-selected', on?'true':'false'); t.tabIndex=on?0:-1;
+      var p=document.getElementById(t.getAttribute('aria-controls')); if(p) p.hidden=!on;
+    });
+    if(foco) tab.focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click', function(){
+      ativar(t);
+      try{ history.replaceState(null,'','#programa-'+t.id.replace('prg-tab-','')); }catch(e){}
+    });
+    t.addEventListener('keydown', function(e){
+      var n=null;
+      if(e.key==='ArrowRight') n=tabs[(i+1)%tabs.length];
+      else if(e.key==='ArrowLeft') n=tabs[(i-1+tabs.length)%tabs.length];
+      else if(e.key==='Home') n=tabs[0]; else if(e.key==='End') n=tabs[tabs.length-1];
+      if(n){ e.preventDefault(); ativar(n,true); }
+    });
+  });
+  sec.querySelectorAll('.prg-ler').forEach(function(b){
+    b.addEventListener('click', function(){
+      var painel=b.closest('.prg-painel'), leitor=painel.querySelector('.prg-leitor'), fr=leitor.querySelector('iframe'), rot=b.querySelector('span');
+      if(leitor.hidden){
+        if(!fr.getAttribute('src')) fr.setAttribute('src', b.getAttribute('data-pdf')+'#view=FitH');
+        leitor.hidden=false; rot.setAttribute('data-i18n','prg_fechar'); rot.textContent=tr('prg_fechar');
+        leitor.scrollIntoView({behavior:'smooth', block:'start'});
+      } else {
+        leitor.hidden=true; rot.setAttribute('data-i18n','prg_ler'); rot.textContent=tr('prg_ler');
+      }
+    });
+  });
+  function doHash(){
+    var m=(location.hash||'').match(/^#programa-([\w-]+)$/); if(!m) return;
+    var t=document.getElementById('prg-tab-'+m[1]); if(!t) return;
+    ativar(t); setTimeout(function(){ sec.scrollIntoView({behavior:'smooth'}); }, 60);
+  }
+  window.addEventListener('hashchange', doHash); doHash();
 })();
 </script>
 </body>
