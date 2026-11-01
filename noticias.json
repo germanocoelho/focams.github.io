@@ -1,6 +1,50 @@
 {
  "versao": 1,
  "itens": {
+  "midia_redenews_programa_integrado_20261101": {
+   "tipo": "midia",
+   "data": "2026-11-01",
+   "ts": 1793548800000,
+   "titulo": {
+    "pt": "Lideranças indígenas de MS aprovam programa com 155 metas para apresentar ao governo federal",
+    "en": "Indigenous leaders of MS approve a program with 155 targets to present to the federal government",
+    "es": "Liderazgos indígenas de MS aprueban un programa con 155 metas para presentar al gobierno federal",
+    "fr": "Les dirigeants autochtones du MS approuvent un programme de 155 objectifs à présenter au gouvernement fédéral"
+   },
+   "resumo": {
+    "pt": "O portal Rede News MS noticiou a aprovação, pelas lideranças indígenas de Mato Grosso do Sul, do Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030, com 155 metas, que será apresentado ao governo federal.",
+    "en": "The Rede News MS portal reported the approval, by the Indigenous leaders of Mato Grosso do Sul, of the Integrated Program of Policies for Indigenous Peoples 2027 to 2030, with 155 targets, which will be presented to the federal government.",
+    "es": "El portal Rede News MS informó sobre la aprobación, por los liderazgos indígenas de Mato Grosso do Sul, del Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030, con 155 metas, que será presentado al gobierno federal.",
+    "fr": "Le portail Rede News MS a rendu compte de l’approbation, par les dirigeants autochtones du Mato Grosso do Sul, du Programme intégré de politiques pour les peuples autochtones 2027 à 2030, avec 155 objectifs, qui sera présenté au gouvernement fédéral."
+   },
+   "texto": {
+    "pt": [
+     "O portal Rede News MS noticiou a aprovação, pelas lideranças indígenas de Mato Grosso do Sul, do Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030, com 155 metas, que será apresentado ao governo federal.",
+     "O Programa foi aprovado por unanimidade e por aclamação em 31 de outubro de 2026, em Campo Grande, em reunião convocada pelo Fórum dos Caciques de Mato Grosso do Sul (FOCAMS). Reúne seis planos nacionais, com 61 eixos de execução, e foi elaborado pelo Instituto Cacique Enir Terena (ICET), a pedido do FOCAMS. A matéria completa está no site do Rede News MS."
+    ],
+    "en": [
+     "The Rede News MS portal reported the approval, by the Indigenous leaders of Mato Grosso do Sul, of the Integrated Program of Policies for Indigenous Peoples 2027 to 2030, with 155 targets, which will be presented to the federal government.",
+     "The Program was approved unanimously and by acclamation on October 31, 2026, in Campo Grande, at a meeting called by the Forum of Chiefs of Mato Grosso do Sul (FOCAMS). It brings together six national plans, with 61 lines of action, and was prepared by the Cacique Enir Terena Institute (ICET) at the request of FOCAMS. The full story is on the Rede News MS website."
+    ],
+    "es": [
+     "El portal Rede News MS informó sobre la aprobación, por los liderazgos indígenas de Mato Grosso do Sul, del Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030, con 155 metas, que será presentado al gobierno federal.",
+     "El Programa fue aprobado por unanimidad y por aclamación el 31 de octubre de 2026, en Campo Grande, en una reunión convocada por el Foro de los Caciques de Mato Grosso do Sul (FOCAMS). Reúne seis planes nacionales, con 61 ejes de ejecución, y fue elaborado por el Instituto Cacique Enir Terena (ICET), a pedido del FOCAMS. La nota completa está en el sitio de Rede News MS."
+    ],
+    "fr": [
+     "Le portail Rede News MS a rendu compte de l’approbation, par les dirigeants autochtones du Mato Grosso do Sul, du Programme intégré de politiques pour les peuples autochtones 2027 à 2030, avec 155 objectifs, qui sera présenté au gouvernement fédéral.",
+     "Le Programme a été approuvé à l’unanimité et par acclamation le 31 octobre 2026, à Campo Grande, lors d’une réunion convoquée par le Forum des Caciques du Mato Grosso do Sul (FOCAMS). Il réunit six plans nationaux, avec 61 axes d’exécution, et a été élaboré par l’Institut Cacique Enir Terena (ICET) à la demande du FOCAMS. L’article complet est disponible sur le site de Rede News MS."
+    ]
+   },
+   "veiculo": "Rede News MS",
+   "link": "https://redenewsms.com/noticia/85993-liderancas-indigenas-de-ms-aprovam-programa-com-155-metas-para-apresentar-ao-governo-federal",
+   "capa": "imgs/galeria/programa-integrado-00-aprovacao.jpg",
+   "capaLeg": {
+    "pt": "Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030.",
+    "en": "Integrated Program of Policies for Indigenous Peoples 2027 to 2030.",
+    "es": "Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030.",
+    "fr": "Programme intégré de politiques pour les peuples autochtones 2027 à 2030."
+   }
+  },
   "midia_cgn_programa_integrado_20261101": {
    "tipo": "midia",
    "data": "2026-11-01",
