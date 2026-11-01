@@ -1,6 +1,113 @@
 {
  "versao": 1,
  "itens": {
+  "rel_programa_integrado_20261031": {
+   "tipo": "release",
+   "data": "2026-10-31",
+   "ts": 1793484000000,
+   "titulo": {
+    "pt": "Caciques e lideranças aprovam por aclamação o Programa Integrado do FOCAMS para os povos indígenas",
+    "en": "Chiefs and leaders approve by acclamation the FOCAMS Integrated Program for Indigenous peoples",
+    "es": "Caciques y liderazgos aprueban por aclamación el Programa Integrado del FOCAMS para los pueblos indígenas",
+    "fr": "Caciques et dirigeants approuvent par acclamation le Programme intégré du FOCAMS pour les peuples autochtones"
+   },
+   "fina": {
+    "pt": "Em reunião convocada pelo Fórum em Campo Grande, 32 lideranças, caciques e instituições de todo o estado aprovaram seis planos nacionais que serão levados ao governo federal.",
+    "en": "At a meeting called by the Forum in Campo Grande, 32 leaders, chiefs and institutions from across the state approved six national plans that will be taken to the federal government.",
+    "es": "En una reunión convocada por el Foro en Campo Grande, 32 liderazgos, caciques e instituciones de todo el estado aprobaron seis planes nacionales que serán llevados al gobierno federal.",
+    "fr": "Lors d’une réunion convoquée par le Forum à Campo Grande, 32 dirigeants, caciques et institutions de tout l’État ont approuvé six plans nationaux qui seront portés au gouvernement fédéral."
+   },
+   "local": {
+    "pt": "Campo Grande (MS), 31 de outubro de 2026",
+    "en": "Campo Grande (MS), October 31, 2026",
+    "es": "Campo Grande (MS), 31 de octubre de 2026",
+    "fr": "Campo Grande (MS), 31 octobre 2026"
+   },
+   "texto": {
+    "pt": [
+     "O Fórum dos Caciques de Mato Grosso do Sul (FOCAMS) reuniu no sábado, 31 de outubro, em Campo Grande, caciques, lideranças e instituições indígenas de todo o estado para apresentar o Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030. Com a participação expressiva de 32 lideranças, caciques e instituições de diversas aldeias e comunidades, o Programa foi aprovado por unanimidade e por aclamação.",
+     "A história do Programa começa nas aldeias. O Fórum reuniu o que caciques e lideranças vêm pedindo há muitos anos: atendimento de saúde também para quem vive na cidade, escola na língua do povo, proteção dos saberes tradicionais, trabalho e renda nas comunidades e respeito ao território. Para transformar essas demandas em propostas que o governo federal possa executar, o FOCAMS pediu a elaboração técnica ao Instituto Cacique Enir Terena (ICET).",
+     "São seis planos nacionais: saúde dos povos indígenas, nas aldeias e nas cidades; educação escolar indígena; proteção dos conhecimentos tradicionais; empreendedorismo indígena; produção agropecuária indígena cooperativa; e mineração em terras indígenas. Ao todo, são 61 áreas de ação e 155 metas que qualquer cidadão pode acompanhar.",
+     "O Programa é dirigido ao governo federal e propõe ações concretas para a Casa Civil da Presidência da República, o Ministério dos Povos Indígenas, a Fundação Nacional dos Povos Indígenas (Funai), o Ministério da Saúde e a Secretaria de Saúde Indígena (SESAI), o Ministério da Educação e os ministérios ligados à produção, ao empreendedorismo, ao meio ambiente e à mineração. Organiza programas federais que já existem e não cria cargos.",
+     "“O Programa nasceu nas aldeias e hoje foi aprovado por quem vive nelas. Agora vamos levar ao governo federal a palavra das comunidades de Mato Grosso do Sul”, afirmou o Presidente do FOCAMS, Aguinaldo de Arruda Areco.",
+     "Para o Fórum, a aprovação por aclamação dá ao documento a força de quem vive nas aldeias. O FOCAMS reúne os caciques e as lideranças tradicionais das comunidades do estado, e a Constituição Federal, nos artigos 231 e 232, e a Convenção nº 169 da Organização Internacional do Trabalho garantem aos povos indígenas o direito de dizer ao governo o que querem.",
+     "A aprovação fortalece a Governança Indígena de Mato Grosso do Sul, que está se integrando em rede para reunir as instituições, aldeias e comunidades indígenas do estado, em busca de representatividade e união. O Programa será enviado às instituições indígenas constituídas que ainda não participaram, para que integrem suas propostas ao texto e subscrevam o Programa.",
+     "O Programa também será apresentado à plenária do Conselho Municipal dos Direitos e Defesa dos Povos Indígenas de Campo Grande (CMDDI). Em seguida, o documento será encaminhado à Presidência da República, à Casa Civil, ao Ministério dos Povos Indígenas, à Funai e aos ministérios responsáveis por cada plano, antes da posse presidencial de 5 de janeiro de 2027. Com a legitimidade das comunidades, o Fórum vai convidar as autoridades e as equipes técnicas do governo federal a conhecerem o Programa em Campo Grande.",
+     "O texto foi elaborado pelo ICET sob a responsabilidade de Maria Auxiliadora Bezerra, presidente do Instituto, e de Germano Coelho Ramos Rocha-Silva, indígena Terena, mestre em Propriedade Intelectual e Transferência de Tecnologia para a Inovação. A Diretoria Executiva do FOCAMS (gestão 2025 a 2029) é formada pelo Presidente Aguinaldo de Arruda Areco, pelo Vice-Presidente Leveson Vicente e pelo 1º Secretário Josias Costa França."
+    ],
+    "en": [
+     "On Saturday, October 31, the Forum of Chiefs of Mato Grosso do Sul (FOCAMS) gathered chiefs, leaders and Indigenous institutions from across the state in Campo Grande to present the Integrated Program of Policies for Indigenous Peoples 2027–2030. With the strong participation of 32 leaders, chiefs and institutions from many villages and communities, the Program was approved unanimously and by acclamation.",
+     "The Program’s story begins in the villages. The Forum gathered what chiefs and leaders have been asking for over many years: health care also for those who live in cities, schools in each people’s language, protection of traditional knowledge, work and income in the communities, and respect for the territory. To turn these demands into proposals the federal government can carry out, FOCAMS asked the Cacique Enir Terena Institute (ICET) to prepare the technical work.",
+     "It brings together six national plans: health for Indigenous peoples, in villages and in cities; Indigenous school education; protection of traditional knowledge; Indigenous entrepreneurship; cooperative Indigenous agricultural production; and mining on Indigenous lands. In all, there are 61 areas of action and 155 targets that any citizen can follow.",
+     "The Program is addressed to the federal government and proposes concrete actions for the Chief of Staff’s Office of the Presidency, the Ministry of Indigenous Peoples, the National Foundation of Indigenous Peoples (Funai), the Ministry of Health and its Indigenous Health Secretariat (SESAI), the Ministry of Education and the ministries responsible for production, entrepreneurship, the environment and mining. It builds on federal programs that already exist and creates no new posts.",
+     "“The Program was born in the villages, and today it was approved by the people who live in them. Now we will take the voice of the communities of Mato Grosso do Sul to the federal government,” said FOCAMS President Aguinaldo de Arruda Areco.",
+     "For the Forum, approval by acclamation gives the document the strength of those who live in the villages. FOCAMS brings together the chiefs and traditional leaders of the state’s communities, and the Federal Constitution, in Articles 231 and 232, and International Labour Organization Convention No. 169 guarantee Indigenous peoples the right to tell the government what they want.",
+     "The approval strengthens the Indigenous Governance of Mato Grosso do Sul, which is forming a network to bring together the state’s Indigenous institutions, villages and communities, seeking representativeness and unity. The Program will be sent to the established Indigenous institutions that have not yet taken part, so that they can add their proposals to the text and sign on to the Program.",
+     "The Program will also be presented to the plenary of the Municipal Council for the Rights and Defense of Indigenous Peoples of Campo Grande (CMDDI). The document will then be sent to the Presidency of the Republic, the Chief of Staff’s Office, the Ministry of Indigenous Peoples, Funai and the ministries responsible for each plan, before the presidential inauguration on January 5, 2027. With the legitimacy of the communities, the Forum will invite federal authorities and technical teams to get to know the Program in Campo Grande.",
+     "The text was prepared by ICET under the responsibility of Maria Auxiliadora Bezerra, the Institute’s president, and Germano Coelho Ramos Rocha-Silva, a Terena Indigenous man with a master’s degree in Intellectual Property and Technology Transfer for Innovation. The FOCAMS Executive Board (2025–2029 term) is made up of President Aguinaldo de Arruda Areco, Vice-President Leveson Vicente and First Secretary Josias Costa França."
+    ],
+    "es": [
+     "El Foro de los Caciques de Mato Grosso do Sul (FOCAMS) reunió el sábado 31 de octubre, en Campo Grande, a caciques, liderazgos e instituciones indígenas de todo el estado para presentar el Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030. Con la participación expresiva de 32 liderazgos, caciques e instituciones de diversas aldeas y comunidades, el Programa fue aprobado por unanimidad y por aclamación.",
+     "La historia del Programa comienza en las aldeas. El Foro reunió lo que caciques y liderazgos vienen pidiendo desde hace muchos años: atención de salud también para quienes viven en la ciudad, escuela en la lengua de cada pueblo, protección de los saberes tradicionales, trabajo e ingresos en las comunidades y respeto al territorio. Para transformar esas demandas en propuestas que el gobierno federal pueda ejecutar, el FOCAMS pidió la elaboración técnica al Instituto Cacique Enir Terena (ICET).",
+     "Son seis planes nacionales: salud de los pueblos indígenas, en las aldeas y en las ciudades; educación escolar indígena; protección de los conocimientos tradicionales; emprendimiento indígena; producción agropecuaria indígena cooperativa; y minería en tierras indígenas. En total, son 61 áreas de acción y 155 metas que cualquier ciudadano puede seguir.",
+     "El Programa está dirigido al gobierno federal y propone acciones concretas para la Casa Civil de la Presidencia de la República, el Ministerio de los Pueblos Indígenas, la Fundación Nacional de los Pueblos Indígenas (Funai), el Ministerio de Salud y la Secretaría de Salud Indígena (SESAI), el Ministerio de Educación y los ministerios vinculados a la producción, el emprendimiento, el medio ambiente y la minería. Organiza programas federales que ya existen y no crea cargos.",
+     "“El Programa nació en las aldeas y hoy fue aprobado por quienes viven en ellas. Ahora vamos a llevar al gobierno federal la palabra de las comunidades de Mato Grosso do Sul”, afirmó el presidente del FOCAMS, Aguinaldo de Arruda Areco.",
+     "Para el Foro, la aprobación por aclamación da al documento la fuerza de quienes viven en las aldeas. El FOCAMS reúne a los caciques y liderazgos tradicionales de las comunidades del estado, y la Constitución Federal, en los artículos 231 y 232, y el Convenio n.º 169 de la Organización Internacional del Trabajo garantizan a los pueblos indígenas el derecho a decir al gobierno lo que quieren.",
+     "La aprobación fortalece la Gobernanza Indígena de Mato Grosso do Sul, que se está integrando en red para reunir a las instituciones, aldeas y comunidades indígenas del estado, en busca de representatividad y unión. El Programa será enviado a las instituciones indígenas constituidas que aún no participaron, para que integren sus propuestas al texto y suscriban el Programa.",
+     "El Programa también será presentado al pleno del Consejo Municipal de los Derechos y Defensa de los Pueblos Indígenas de Campo Grande (CMDDI). Luego, el documento será enviado a la Presidencia de la República, a la Casa Civil, al Ministerio de los Pueblos Indígenas, a la Funai y a los ministerios responsables de cada plan, antes de la toma de posesión presidencial del 5 de enero de 2027. Con la legitimidad de las comunidades, el Foro invitará a las autoridades y a los equipos técnicos del gobierno federal a conocer el Programa en Campo Grande.",
+     "El texto fue elaborado por el ICET bajo la responsabilidad de Maria Auxiliadora Bezerra, presidenta del Instituto, y de Germano Coelho Ramos Rocha-Silva, indígena terena, magíster en Propiedad Intelectual y Transferencia de Tecnología para la Innovación. La Dirección Ejecutiva del FOCAMS (gestión 2025 a 2029) está formada por el presidente Aguinaldo de Arruda Areco, el vicepresidente Leveson Vicente y el primer secretario Josias Costa França."
+    ],
+    "fr": [
+     "Le samedi 31 octobre, à Campo Grande, le Forum des caciques du Mato Grosso do Sul (FOCAMS) a réuni des caciques, des dirigeants et des institutions autochtones de tout l’État pour présenter le Programme intégré de politiques pour les peuples autochtones 2027-2030. Avec la forte participation de 32 dirigeants, caciques et institutions de nombreux villages et communautés, le Programme a été approuvé à l’unanimité et par acclamation.",
+     "L’histoire du Programme commence dans les villages. Le Forum a rassemblé ce que caciques et dirigeants demandent depuis de nombreuses années : des soins de santé aussi pour ceux qui vivent en ville, une école dans la langue de chaque peuple, la protection des savoirs traditionnels, du travail et des revenus dans les communautés et le respect du territoire. Pour transformer ces demandes en propositions que le gouvernement fédéral puisse mettre en œuvre, le FOCAMS a confié l’élaboration technique à l’Institut Cacique Enir Terena (ICET).",
+     "Il réunit six plans nationaux : santé des peuples autochtones, dans les villages et dans les villes ; éducation scolaire autochtone ; protection des savoirs traditionnels ; entrepreneuriat autochtone ; production agricole autochtone coopérative ; et exploitation minière sur les terres autochtones. Au total, 61 domaines d’action et 155 objectifs que tout citoyen peut suivre.",
+     "Le Programme s’adresse au gouvernement fédéral et propose des actions concrètes à la Casa Civil de la Présidence de la République, au ministère des Peuples autochtones, à la Fondation nationale des peuples autochtones (Funai), au ministère de la Santé et à son Secrétariat à la santé autochtone (SESAI), au ministère de l’Éducation et aux ministères chargés de la production, de l’entrepreneuriat, de l’environnement et des mines. Il s’appuie sur des programmes fédéraux existants et ne crée aucun poste.",
+     "« Le Programme est né dans les villages et il a été approuvé aujourd’hui par ceux qui y vivent. Nous allons maintenant porter au gouvernement fédéral la parole des communautés du Mato Grosso do Sul », a déclaré le président du FOCAMS, Aguinaldo de Arruda Areco.",
+     "Pour le Forum, l’approbation par acclamation donne au document la force de ceux qui vivent dans les villages. Le FOCAMS rassemble les caciques et les dirigeants traditionnels des communautés de l’État, et la Constitution fédérale, en ses articles 231 et 232, ainsi que la Convention n° 169 de l’Organisation internationale du travail garantissent aux peuples autochtones le droit de dire au gouvernement ce qu’ils veulent.",
+     "Cette approbation renforce la Gouvernance autochtone du Mato Grosso do Sul, qui se constitue en réseau pour rassembler les institutions, les villages et les communautés autochtones de l’État, dans un esprit de représentativité et d’unité. Le Programme sera envoyé aux institutions autochtones constituées qui n’ont pas encore participé, afin qu’elles intègrent leurs propositions au texte et y apposent leur signature.",
+     "Le Programme sera également présenté en séance plénière du Conseil municipal des droits et de la défense des peuples autochtones de Campo Grande (CMDDI). Le document sera ensuite transmis à la Présidence de la République, à la Casa Civil, au ministère des Peuples autochtones, à la Funai et aux ministères chargés de chaque plan, avant l’investiture présidentielle du 5 janvier 2027. Fort de la légitimité des communautés, le Forum invitera les autorités et les équipes techniques du gouvernement fédéral à découvrir le Programme à Campo Grande.",
+     "Le texte a été élaboré par l’ICET sous la responsabilité de Maria Auxiliadora Bezerra, présidente de l’Institut, et de Germano Coelho Ramos Rocha-Silva, autochtone terena, titulaire d’un master en propriété intellectuelle et transfert de technologie pour l’innovation. Le bureau exécutif du FOCAMS (mandat 2025-2029) est composé du président Aguinaldo de Arruda Areco, du vice-président Leveson Vicente et du premier secrétaire Josias Costa França."
+    ]
+   },
+   "capa": "imgs/galeria/programa-integrado-00-aprovacao.jpg",
+   "capaLeg": {
+    "pt": "Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030, aprovado por aclamação em Campo Grande.",
+    "en": "Integrated Program of Policies for Indigenous Peoples 2027–2030, approved by acclamation in Campo Grande.",
+    "es": "Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030, aprobado por aclamación en Campo Grande.",
+    "fr": "Programme intégré de politiques pour les peuples autochtones 2027-2030, approuvé par acclamation à Campo Grande."
+   },
+   "fotos": [
+    {
+     "src": "imgs/galeria/programa-integrado-01-capa.jpg",
+     "leg": {
+      "pt": "Capa do resumo executivo do Programa Integrado, com a identidade visual Terena.",
+      "en": "Cover of the Integrated Program’s executive summary, with the Terena visual identity.",
+      "es": "Portada del resumen ejecutivo del Programa Integrado, con la identidad visual terena.",
+      "fr": "Couverture du résumé exécutif du Programme intégré, avec l’identité visuelle terena."
+     }
+    },
+    {
+     "src": "imgs/galeria/programa-integrado-02-roda.jpg",
+     "leg": {
+      "pt": "Os seis planos do Programa ligados em torno da decisão das comunidades.",
+      "en": "The Program’s six plans, linked around the communities’ decisions.",
+      "es": "Los seis planes del Programa, articulados en torno a la decisión de las comunidades.",
+      "fr": "Les six plans du Programme, reliés autour de la décision des communautés."
+     }
+    },
+    {
+     "src": "imgs/galeria/programa-integrado-03-planos.jpg",
+     "leg": {
+      "pt": "Metas dos planos de saúde, educação e conhecimentos tradicionais.",
+      "en": "Targets of the health, education and traditional knowledge plans.",
+      "es": "Metas de los planes de salud, educación y conocimientos tradicionales.",
+      "fr": "Objectifs des plans de santé, d’éducation et de savoirs traditionnels."
+     }
+    }
+   ],
+   "assinatura": "Aldeia XP Comunicação",
+   "assinaturaLogo": "imgs/aldeiaxp-logo-escura.png"
+  },
   "rel_convenio_ifms_20261011": {
    "tipo": "release",
    "data": "2026-10-11",
