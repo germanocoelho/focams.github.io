@@ -792,6 +792,9 @@ footer a:hover{color:var(--ouro)}
 @media (prefers-reduced-motion:reduce){.prg-painel{animation:none}.prg-capa,.prg-capa:hover{transform:none}}
 .nt-t a{color:inherit;text-decoration:none}.nt-t a:hover{text-decoration:underline}
 a.nt-capa{display:block}
+
+.prg-movel .prg-ler, .prg-movel .prg-leitor{display:none !important}
+.prg-movel .prg-acoes .prg-btn{flex:1 1 auto; justify-content:center; min-height:44px}
 </style>
 <style id="vg-css">
 .vg-root{--vg-texto:var(--carvao);--vg-suave:var(--carvao-suave);--vg-acento:var(--barro);--vg-destaque:var(--ouro);--vg-azul:var(--agua);--vg-cartao:#fff;--vg-linha:rgba(33,24,18,.16);}
@@ -1050,6 +1053,10 @@ textarea.nt-in{resize:vertical;line-height:1.55}
 .nt-so-release,.nt-so-midia{}
 .nt-form[data-tipo="midia"] .nt-so-release{display:none}
 .nt-form[data-tipo="release"] .nt-so-midia{display:none}
+
+/* notícia aberta no celular: botão fechar não cobre o selo e controles flutuantes saem da frente */
+#nt-art > .nt-selo{display:inline-block; max-width:calc(100% - 58px)}
+body:has(#nt-modal:not([hidden])) #lang-switch, body:has(#nt-modal:not([hidden])) .fab-stack, body:has(#nt-modal:not([hidden])) .adm-fab{display:none !important}
 </style>
 <meta property="og:locale" content="pt_BR">
 <meta property="og:locale:alternate" content="en_US"><meta property="og:locale:alternate" content="es_ES"><meta property="og:locale:alternate" content="fr_FR">
@@ -4660,6 +4667,8 @@ else setTimeout(iniciar, 0);
 /* Programas: abas, leitor sob demanda e links diretos (#programa-saude etc.) */
 (function(){
   var sec=document.getElementById('programas'); if(!sec) return;
+  var movel=/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||(window.matchMedia&&matchMedia('(max-width: 820px)').matches);
+  if(movel) sec.classList.add('prg-movel');
   var tabs=[].slice.call(sec.querySelectorAll('.prg-tab'));
   function tr(k){ return window.FOCAMS_t ? window.FOCAMS_t(k) : k; }
   function ativar(tab, foco){
