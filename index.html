@@ -790,6 +790,8 @@ footer a:hover{color:var(--ouro)}
   .prg-leitor iframe{height:70vh}
 }
 @media (prefers-reduced-motion:reduce){.prg-painel{animation:none}.prg-capa,.prg-capa:hover{transform:none}}
+.nt-t a{color:inherit;text-decoration:none}.nt-t a:hover{text-decoration:underline}
+a.nt-capa{display:block}
 </style>
 <style id="vg-css">
 .vg-root{--vg-texto:var(--carvao);--vg-suave:var(--carvao-suave);--vg-acento:var(--barro);--vg-destaque:var(--ouro);--vg-azul:var(--agua);--vg-cartao:#fff;--vg-linha:rgba(33,24,18,.16);}
@@ -4062,16 +4064,17 @@ function render(){
   var vis = todas.filter(function(x){ return filtro === 'todos' || x.it.tipo === filtro; });
   $('nt-grid').innerHTML = vis.map(function(x, i){
     var it = x.it, capa = urlSegura(it.capa), dest = (i === 0 && vis.length > 2) ? ' nt-destaque' : '';
+    var ext = (it.tipo === 'midia' && /^https?:/i.test(urlSegura(it.link))) ? urlSegura(it.link) : '';
     return '<article class="nt-card nt-' + it.tipo + dest + '">' +
-      '<button type="button" class="nt-capa" data-nt-abrir="' + esc(x.k) + '" aria-label="' + esc(u('ler')) + '">' +
+      (ext ? '<a class="nt-capa" href="' + esc(ext) + '" target="_blank" rel="noopener" aria-label="' + esc(u('ler_midia', {v: it.veiculo || ''})) + '">' : '<button type="button" class="nt-capa" data-nt-abrir="' + esc(x.k) + '" aria-label="' + esc(u('ler')) + '">') +
         (capa ? '<img src="' + esc(capa) + '" alt="" loading="lazy">' : '<span class="nt-capa-vazia">' + (it.tipo === 'release' ? '📝' : '📰') + '</span>') +
-      '</button>' +
+      (ext ? '</a>' : '</button>') +
       '<div class="nt-corpo">' + selo(it) +
-        '<h3 class="nt-t">' + esc(tx(it.titulo)) + '</h3>' +
+        '<h3 class="nt-t">' + (ext ? '<a href="' + esc(ext) + '" target="_blank" rel="noopener">' + esc(tx(it.titulo)) + '</a>' : esc(tx(it.titulo))) + '</h3>' +
         '<p class="nt-resumo">' + esc(resumo(it)) + '</p>' +
         '<div class="nt-meta">📅 ' + esc(dataFmt(it.data)) + (it.tipo === 'midia' && it.veiculo ? ' · ' + esc(it.veiculo) : '') + '</div>' +
         '<div class="nt-acoes">' +
-          '<button type="button" class="nt-btn" data-nt-abrir="' + esc(x.k) + '">📰 ' + esc(u('ler')) + '</button>' +
+          (ext ? '<a class="nt-btn" href="' + esc(ext) + '" target="_blank" rel="noopener">📰 ' + esc(u('ler_midia', {v: it.veiculo || ''})) + ' ↗</a>' : '<button type="button" class="nt-btn" data-nt-abrir="' + esc(x.k) + '">📰 ' + esc(u('ler')) + '</button>') +
           '<button type="button" class="nt-btn nt-btn-ghost nt-btn-mini nt-so-adm" data-nt-editar="' + esc(x.k) + '">✏️ Editar</button>' +
           '<button type="button" class="nt-btn nt-btn-perigo nt-btn-mini nt-so-adm" data-nt-excluir="' + esc(x.k) + '">✕ Excluir</button>' +
         '</div>' +
