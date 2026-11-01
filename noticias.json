@@ -1,6 +1,58 @@
 {
  "versao": 1,
  "itens": {
+  "midia_cgn_programa_integrado_20261101": {
+   "tipo": "midia",
+   "data": "2026-11-01",
+   "ts": 1793541600000,
+   "titulo": {
+    "pt": "Indígenas de MS aprovam plano com 155 metas para o quarto mandato de Lula",
+    "en": "Indigenous peoples of MS approve plan with 155 targets for Lula’s fourth term",
+    "es": "Indígenas de MS aprueban plan con 155 metas para el cuarto mandato de Lula",
+    "fr": "Les autochtones du MS approuvent un plan de 155 objectifs pour le quatrième mandat de Lula"
+   },
+   "resumo": {
+    "pt": "O Campo Grande News noticiou a aprovação, pelo Fórum dos Caciques de Mato Grosso do Sul, do Programa Integrado com 155 metas, que será entregue à Casa Civil, ao Ministério dos Povos Indígenas e à Funai, com metas a cumprir até 2030.",
+    "en": "Campo Grande News reported the approval, by the Forum of Chiefs of Mato Grosso do Sul, of the Integrated Program with 155 targets, which will be delivered to the Chief of Staff Office, the Ministry of Indigenous Peoples and Funai, with targets to be met by 2030.",
+    "es": "Campo Grande News informó sobre la aprobación, por el Foro de los Caciques de Mato Grosso do Sul, del Programa Integrado con 155 metas, que será entregado a la Casa Civil, al Ministerio de los Pueblos Indígenas y a la Funai, con metas a cumplir hasta 2030.",
+    "fr": "Campo Grande News a rendu compte de l’approbation, par le Forum des Caciques du Mato Grosso do Sul, du Programme intégré de 155 objectifs, qui sera remis à la Casa Civil, au ministère des Peuples autochtones et à la Funai, avec des objectifs à atteindre d’ici 2030."
+   },
+   "texto": {
+    "pt": [
+     "O portal Campo Grande News publicou matéria sobre a aprovação do Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030 pelo Fórum dos Caciques de Mato Grosso do Sul (FOCAMS). O documento reúne 155 metas e será entregue à Casa Civil da Presidência da República, ao Ministério dos Povos Indígenas e à Funai, para que o governo federal as cumpra até 2030.",
+     "A matéria destaca algumas das metas: reduzir a mortalidade de crianças de até cinco anos de 34,7 para no máximo 26 a cada mil nascidas vivas; elevar a alfabetização dos indígenas de 84,95% para 90%; e ampliar de 35.218 para 60 mil os produtores indígenas com cadastro da agricultura familiar.",
+     "O texto também registra o atendimento de saúde para os indígenas que vivem nas cidades, a começar por Campo Grande, as propostas de empreendedorismo e a proteção dos conhecimentos tradicionais.",
+     "O Programa foi aprovado por unanimidade e por aclamação em 31 de outubro de 2026, em Campo Grande, e foi elaborado pelo Instituto Cacique Enir Terena (ICET), a pedido do FOCAMS. A matéria completa está no site do Campo Grande News."
+    ],
+    "en": [
+     "The Campo Grande News portal published a story on the approval of the Integrated Program of Policies for Indigenous Peoples 2027 to 2030 by the Forum of Chiefs of Mato Grosso do Sul (FOCAMS). The document brings together 155 targets and will be delivered to the Chief of Staff Office of the Presidency, the Ministry of Indigenous Peoples and Funai, for the federal government to meet them by 2030.",
+     "The story highlights some of the targets: reducing the mortality of children under five from 34.7 to at most 26 per thousand live births; raising Indigenous literacy from 84.95% to 90%; and increasing the number of Indigenous producers registered in family farming from 35,218 to 60,000.",
+     "The story also covers health care for Indigenous people living in cities, starting with Campo Grande, the entrepreneurship proposals and the protection of traditional knowledge.",
+     "The Program was approved unanimously and by acclamation on October 31, 2026, in Campo Grande, and was prepared by the Cacique Enir Terena Institute (ICET) at the request of FOCAMS. The full story is on the Campo Grande News website."
+    ],
+    "es": [
+     "El portal Campo Grande News publicó una nota sobre la aprobación del Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030 por el Foro de los Caciques de Mato Grosso do Sul (FOCAMS). El documento reúne 155 metas y será entregado a la Casa Civil de la Presidencia de la República, al Ministerio de los Pueblos Indígenas y a la Funai, para que el gobierno federal las cumpla hasta 2030.",
+     "La nota destaca algunas de las metas: reducir la mortalidad de niños menores de cinco años de 34,7 a como máximo 26 por cada mil nacidos vivos; elevar la alfabetización de los indígenas del 84,95% al 90%; y ampliar de 35.218 a 60 mil los productores indígenas con registro de agricultura familiar.",
+     "El texto también menciona la atención de salud para los indígenas que viven en las ciudades, comenzando por Campo Grande, las propuestas de emprendimiento y la protección de los conocimientos tradicionales.",
+     "El Programa fue aprobado por unanimidad y por aclamación el 31 de octubre de 2026, en Campo Grande, y fue elaborado por el Instituto Cacique Enir Terena (ICET), a pedido del FOCAMS. La nota completa está en el sitio de Campo Grande News."
+    ],
+    "fr": [
+     "Le portail Campo Grande News a publié un article sur l’approbation du Programme intégré de politiques pour les peuples autochtones 2027 à 2030 par le Forum des Caciques du Mato Grosso do Sul (FOCAMS). Le document réunit 155 objectifs et sera remis à la Casa Civil de la Présidence de la République, au ministère des Peuples autochtones et à la Funai, afin que le gouvernement fédéral les atteigne d’ici 2030.",
+     "L’article met en avant certains objectifs : réduire la mortalité des enfants de moins de cinq ans de 34,7 à 26 au maximum pour mille naissances vivantes ; porter l’alphabétisation des autochtones de 84,95 % à 90 % ; et faire passer de 35 218 à 60 000 le nombre de producteurs autochtones inscrits à l’agriculture familiale.",
+     "Le texte évoque aussi les soins de santé pour les autochtones vivant en ville, à commencer par Campo Grande, les propositions d’entrepreneuriat et la protection des savoirs traditionnels.",
+     "Le Programme a été approuvé à l’unanimité et par acclamation le 31 octobre 2026, à Campo Grande, et a été élaboré par l’Institut Cacique Enir Terena (ICET) à la demande du FOCAMS. L’article complet est disponible sur le site de Campo Grande News."
+    ]
+   },
+   "veiculo": "Campo Grande News",
+   "link": "https://www.campograndenews.com.br/brasil/cidades/indigenas-de-ms-aprovam-plano-com-155-metas-para-o-quarto-mandato-de-lula",
+   "capa": "imgs/galeria/programa-integrado-00-aprovacao.jpg",
+   "capaLeg": {
+    "pt": "Programa Integrado de Políticas para os Povos Indígenas 2027 a 2030.",
+    "en": "Integrated Program of Policies for Indigenous Peoples 2027 to 2030.",
+    "es": "Programa Integrado de Políticas para los Pueblos Indígenas 2027 a 2030.",
+    "fr": "Programme intégré de politiques pour les peuples autochtones 2027 à 2030."
+   }
+  },
   "rel_programa_integrado_20261031": {
    "tipo": "release",
    "data": "2026-10-31",
