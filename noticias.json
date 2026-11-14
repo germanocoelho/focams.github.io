@@ -679,12 +679,30 @@
     }
    ],
    "assinatura": "Aldeia XP Comunicação",
-   "assinaturaLogo": "imgs/aldeiaxp-logo-escura.png"
+   "assinaturaLogo": "imgs/aldeiaxp-logo-escura.png",
+   "imprensa": [
+    {
+     "veiculo": "MS Notícias",
+     "titulo": {
+      "pt": "Regra da UFMS ameaça cotas indígenas em 43 vagas",
+      "en": "UFMS rule threatens Indigenous quotas in 43 vacancies",
+      "es": "Regla de la UFMS amenaza las cuotas indígenas en 43 vacantes",
+      "fr": "Une règle de l’UFMS menace les quotas autochtones sur 43 postes"
+     },
+     "info": {
+      "pt": "Tero Queiroz · Direitos Humanos · 12/11/2026, 13h43",
+      "en": "Tero Queiroz · Human Rights · Nov. 12, 2026, 1:43 p.m.",
+      "es": "Tero Queiroz · Derechos Humanos · 12/11/2026, 13:43",
+      "fr": "Tero Queiroz · Droits humains · 12/11/2026, 13 h 43"
+     },
+     "link": "https://www.msnoticias.com.br/editorias/politica-mato-grosso-sul/regra-da-ufms-ameaca-cotas-indigenas-em-43-vagas/153496/"
+    }
+   ]
   },
-  "midia_msnoticias_vagas_indigenas_ufms_20261114": {
+  "midia_msnoticias_vagas_indigenas_ufms_20261112": {
    "tipo": "midia",
-   "data": "2026-11-14",
-   "ts": 1794657600000,
+   "data": "2026-11-12",
+   "ts": 1794505380000,
    "titulo": {
     "pt": "Regra da UFMS ameaça cotas indígenas em 43 vagas",
     "en": "UFMS rule threatens Indigenous quotas in 43 vacancies",
@@ -692,25 +710,29 @@
     "fr": "Une règle de l’UFMS menace les quotas autochtones sur 43 postes"
    },
    "resumo": {
-    "pt": "O MS Notícias noticiou a representação do CMDDI, do FOCAMS e do ICET ao Ministério Público Federal sobre o Edital PROGEP/UFMS nº 152/2026, do concurso para técnico-administrativos da UFMS. O edital reserva 3% das 154 vagas a pessoas indígenas, mas, segundo as entidades, a forma como a reserva é aplicada pode zerar a vaga indígena, inclusive nas 43 vagas do interior.",
-    "en": "MS Notícias reported on the complaint filed by CMDDI, FOCAMS and ICET with the Federal Public Prosecutor’s Office regarding Notice PROGEP/UFMS No. 152/2026, for the UFMS technical-administrative staff exam. The notice reserves 3% of its 154 vacancies for Indigenous people, but, according to the organizations, the way the reservation is applied may reduce the Indigenous vacancy to zero, including in the 43 vacancies outside the capital.",
-    "es": "MS Notícias informó sobre la representación del CMDDI, del FOCAMS y del ICET ante el Ministerio Público Federal sobre la Convocatoria PROGEP/UFMS n.º 152/2026, del concurso para técnicos administrativos de la UFMS. La convocatoria reserva el 3% de las 154 vacantes a personas indígenas, pero, según las entidades, la forma en que se aplica la reserva puede dejar en cero la vacante indígena, incluso en las 43 vacantes del interior.",
-    "fr": "MS Notícias a rendu compte de la saisine du ministère public fédéral par le CMDDI, le FOCAMS et l’ICET au sujet de l’avis de concours PROGEP/UFMS nº 152/2026, pour le personnel technique et administratif de l’UFMS. L’avis réserve 3 % des 154 postes aux autochtones, mais, selon les organisations, la manière d’appliquer cette réserve peut réduire à zéro le poste autochtone, y compris pour les 43 postes de l’intérieur de l’État."
+    "pt": "O MS Notícias noticiou a representação do CMDDI, do FOCAMS e do ICET ao Ministério Público Federal sobre o Edital PROGEP/UFMS nº 152/2026, do concurso para técnico-administrativos da UFMS. O edital reserva 3% das 154 vagas a pessoas indígenas, mas, segundo as entidades, a forma como a reserva é aplicada pode zerar a vaga indígena, inclusive nas 43 vagas do interior. Por Tero Queiroz. Publicada no MS Notícias, editoria Direitos Humanos, em 12 de novembro de 2026, às 13h43 (atualizada às 14h02).",
+    "en": "MS Notícias reported on the complaint filed by CMDDI, FOCAMS and ICET with the Federal Public Prosecutor’s Office regarding Notice PROGEP/UFMS No. 152/2026, for the UFMS technical-administrative staff exam. The notice reserves 3% of its 154 vacancies for Indigenous people, but, according to the organizations, the way the reservation is applied may reduce the Indigenous vacancy to zero, including in the 43 vacancies outside the capital. By Tero Queiroz. Published by MS Notícias, Human Rights section, on November 12, 2026, at 1:43 p.m. (updated at 2:02 p.m.).",
+    "es": "MS Notícias informó sobre la representación del CMDDI, del FOCAMS y del ICET ante el Ministerio Público Federal sobre la Convocatoria PROGEP/UFMS n.º 152/2026, del concurso para técnicos administrativos de la UFMS. La convocatoria reserva el 3% de las 154 vacantes a personas indígenas, pero, según las entidades, la forma en que se aplica la reserva puede dejar en cero la vacante indígena, incluso en las 43 vacantes del interior. Por Tero Queiroz. Publicada en MS Notícias, sección Derechos Humanos, el 12 de noviembre de 2026, a las 13:43 (actualizada a las 14:02).",
+    "fr": "MS Notícias a rendu compte de la saisine du ministère public fédéral par le CMDDI, le FOCAMS et l’ICET au sujet de l’avis de concours PROGEP/UFMS nº 152/2026, pour le personnel technique et administratif de l’UFMS. L’avis réserve 3 % des 154 postes aux autochtones, mais, selon les organisations, la manière d’appliquer cette réserve peut réduire à zéro le poste autochtone, y compris pour les 43 postes de l’intérieur de l’État. Par Tero Queiroz. Publié par MS Notícias, rubrique Droits humains, le 12 novembre 2026 à 13 h 43 (mis à jour à 14 h 02)."
    },
    "texto": {
     "pt": [
+     "Por Tero Queiroz. Publicada no MS Notícias, editoria Direitos Humanos, em 12 de novembro de 2026, às 13h43 (atualizada às 14h02). CMDDI, FOCAMS e ICET, instituições indígenas, impugnaram o Edital.",
      "O MS Notícias noticiou a representação do CMDDI, do FOCAMS e do ICET ao Ministério Público Federal sobre o Edital PROGEP/UFMS nº 152/2026, do concurso para técnico-administrativos da UFMS. O edital reserva 3% das 154 vagas a pessoas indígenas, mas, segundo as entidades, a forma como a reserva é aplicada pode zerar a vaga indígena, inclusive nas 43 vagas do interior.",
      "As três entidades também apresentaram impugnações ao edital à UFMS e à Fapec, organizadora do concurso, em 4 de novembro. Pedem inscrição e lista específicas para indígenas, vaga indígena com cargo e cidade definidos e que a vaga indígena sem candidato num cargo passe para um indígena aprovado em outro cargo antes de ir para a ampla concorrência. A matéria completa está no site do MS Notícias."
     ],
     "en": [
+     "By Tero Queiroz. Published by MS Notícias, Human Rights section, on November 12, 2026, at 1:43 p.m. (updated at 2:02 p.m.). CMDDI, FOCAMS and ICET, Indigenous institutions, challenged the Notice.",
      "MS Notícias reported on the complaint filed by CMDDI, FOCAMS and ICET with the Federal Public Prosecutor’s Office regarding Notice PROGEP/UFMS No. 152/2026, for the UFMS technical-administrative staff exam. The notice reserves 3% of its 154 vacancies for Indigenous people, but, according to the organizations, the way the reservation is applied may reduce the Indigenous vacancy to zero, including in the 43 vacancies outside the capital.",
      "The three organizations also filed challenges to the notice with UFMS and Fapec, the exam organizer, on November 4. They ask for a specific registration and list for Indigenous candidates, an Indigenous vacancy with a defined position and city, and that an Indigenous vacancy with no candidate in one position go to an Indigenous candidate approved for another position before reverting to open competition. The full story is on the MS Notícias website."
     ],
     "es": [
+     "Por Tero Queiroz. Publicada en MS Notícias, sección Derechos Humanos, el 12 de noviembre de 2026, a las 13:43 (actualizada a las 14:02). CMDDI, FOCAMS e ICET, instituciones indígenas, impugnaron la Convocatoria.",
      "MS Notícias informó sobre la representación del CMDDI, del FOCAMS y del ICET ante el Ministerio Público Federal sobre la Convocatoria PROGEP/UFMS n.º 152/2026, del concurso para técnicos administrativos de la UFMS. La convocatoria reserva el 3% de las 154 vacantes a personas indígenas, pero, según las entidades, la forma en que se aplica la reserva puede dejar en cero la vacante indígena, incluso en las 43 vacantes del interior.",
      "Las tres entidades también presentaron impugnaciones a la convocatoria ante la UFMS y la Fapec, organizadora del concurso, el 4 de noviembre. Piden inscripción y lista específicas para indígenas, vacante indígena con cargo y ciudad definidos, y que la vacante indígena sin candidato en un cargo pase a un indígena aprobado en otro cargo antes de ir a la competencia general. La nota completa está en el sitio de MS Notícias."
     ],
     "fr": [
+     "Par Tero Queiroz. Publié par MS Notícias, rubrique Droits humains, le 12 novembre 2026 à 13 h 43 (mis à jour à 14 h 02). Le CMDDI, le FOCAMS et l’ICET, institutions autochtones, ont contesté l’avis de concours.",
      "MS Notícias a rendu compte de la saisine du ministère public fédéral par le CMDDI, le FOCAMS et l’ICET au sujet de l’avis de concours PROGEP/UFMS nº 152/2026, pour le personnel technique et administratif de l’UFMS. L’avis réserve 3 % des 154 postes aux autochtones, mais, selon les organisations, la manière d’appliquer cette réserve peut réduire à zéro le poste autochtone, y compris pour les 43 postes de l’intérieur de l’État.",
      "Les trois organisations ont également déposé, le 4 novembre, des recours contre l’avis auprès de l’UFMS et de la Fapec, organisatrice du concours. Elles demandent une inscription et une liste propres aux candidats autochtones, un poste autochtone avec une fonction et une ville définies, et qu’un poste autochtone sans candidat dans une fonction revienne à un candidat autochtone admis dans une autre fonction avant de passer à la concurrence générale. L’article complet se trouve sur le site de MS Notícias."
     ]
@@ -723,7 +745,15 @@
     "en": "In 71 of the 84 positions in the UFMS technical staff exam, the notice’s arithmetic gives 0.15 Indigenous candidates on the list of those approved.",
     "es": "En 71 de los 84 cargos del concurso técnico de la UFMS, la cuenta de la convocatoria da 0,15 indígena en la lista de aprobados.",
     "fr": "Dans 71 des 84 postes du concours technique de l’UFMS, le calcul de l’avis donne 0,15 autochtone sur la liste des admis."
-   }
+   },
+   "fina": {
+    "pt": "CMDDI, FOCAMS e ICET, instituições indígenas, impugnaram o Edital",
+    "en": "CMDDI, FOCAMS and ICET, Indigenous institutions, challenged the Notice",
+    "es": "CMDDI, FOCAMS e ICET, instituciones indígenas, impugnaron la Convocatoria",
+    "fr": "Le CMDDI, le FOCAMS et l’ICET, institutions autochtones, ont contesté l’avis de concours"
+   },
+   "autor": "Tero Queiroz",
+   "editoria": "Direitos Humanos"
   }
  }
 }
