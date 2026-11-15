@@ -1174,6 +1174,33 @@ body:has(#nt-modal:not([hidden])) #lang-switch, body:has(#nt-modal:not([hidden])
 @media (prefers-reduced-motion:reduce){.am-giro{animation:none}.am-los{animation:none;stroke-dashoffset:0}}
 @media(max-width:860px){.ti-autoria .aut-med2.m,.cons-autoria .aut-med2.m{display:none}}
 </style>
+<style>
+/* ══ cursor FOCAMS: emblema com grafismos indígenas orbitando ══ */
+html.fcur-on, html.fcur-on *{cursor:none !important}
+html.fcur-on input, html.fcur-on textarea, html.fcur-on select, html.fcur-on [contenteditable]{cursor:text !important}
+html.fcur-on #cursor-dot, html.fcur-on #cursor-ring{display:none !important}
+#fcur{position:fixed;left:0;top:0;width:0;height:0;pointer-events:none;z-index:2147483000;opacity:0;transition:opacity .3s}
+#fcur.vis{opacity:1}
+#fcur .fc-corpo{position:absolute;left:-23px;top:-23px;width:46px;height:46px;transition:transform .45s cubic-bezier(.3,1.6,.45,1)}
+#fcur.ativo .fc-corpo{transform:scale(1.32)}
+#fcur.clique .fc-corpo{transform:scale(.88)}
+#fcur .fc-emb{position:absolute;inset:7px;border-radius:50%;background:#fff url(imgs/cursor-focams.png) center/112% no-repeat;box-shadow:0 0 0 1.5px var(--mata,#163C2C),0 6px 14px -4px rgba(0,0,0,.45);animation:fcRespira 3.6s ease-in-out infinite}
+@keyframes fcRespira{50%{box-shadow:0 0 0 1.5px var(--mata,#163C2C),0 0 0 5px rgba(201,151,63,.22),0 6px 14px -4px rgba(0,0,0,.45)}}
+#fcur.ativo .fc-emb{box-shadow:0 0 0 2px var(--ouro,#C9973F),0 0 18px 2px rgba(201,151,63,.55)}
+#fcur .fc-orb{position:absolute;inset:-8px;animation:fcGiro 9s linear infinite}
+#fcur.ativo .fc-orb{animation-duration:2.6s}
+@keyframes fcGiro{to{transform:rotate(360deg)}}
+#fcur .fc-orb svg{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;overflow:visible;animation:fcCor 4.8s linear infinite}
+@keyframes fcCor{0%{color:#2F7D42}25%{color:#1D7A93}50%{color:#B5602A}75%{color:#C9973F}100%{color:#2F7D42}}
+#fcur .fc-dot{position:absolute;left:-1.5px;top:-1.5px;width:3px;height:3px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(22,60,44,.8);opacity:.9}
+.fc-rastro,.fc-faisca{position:fixed;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;pointer-events:none;z-index:2147482999}
+.fc-rastro{animation:fcRastro .9s ease-out forwards}
+@keyframes fcRastro{from{opacity:.85;transform:translate(var(--x),var(--y)) rotate(0) scale(.9)}to{opacity:0;transform:translate(var(--x),calc(var(--y) + 18px)) rotate(var(--r)) scale(.3)}}
+.fc-faisca{animation:fcFaisca .8s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes fcFaisca{from{opacity:1;transform:translate(var(--x),var(--y)) scale(.4) rotate(0)}to{opacity:0;transform:translate(calc(var(--x) + var(--dx)),calc(var(--y) + var(--dy))) scale(1.2) rotate(var(--r))}}
+@media (hover:none),(pointer:coarse){#fcur{display:none}}
+@media (prefers-reduced-motion:reduce){#fcur .fc-orb,#fcur .fc-emb,#fcur .fc-orb svg{animation:none}}
+</style>
 </head>
 <body>
 
@@ -4928,6 +4955,45 @@ else setTimeout(iniciar, 0);
 <script>
 /* medalhões GC e MA acendem alternadamente, como no motor da Editora */
 (function(){ document.querySelectorAll('.cons-autoria,.ti-autoria').forEach(function(box){ var ms=box.querySelectorAll('.aut-med2'); if(ms.length<2||matchMedia('(prefers-reduced-motion: reduce)').matches) return; var k=0; setInterval(function(){ ms.forEach(function(m){ m.classList.remove('on'); }); ms[k++%ms.length].classList.add('on'); },1800); }); })();
+</script>
+<script>
+/* cursor FOCAMS: o emblema do Fórum com oito grafismos indígenas em órbita, trocando de cor */
+(function(){
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var NS='http://www.w3.org/2000/svg';
+  /* grafismos: losango duplo, cruz Kadiwéu, zigue-zague, estrela de quatro pontas, pontos */
+  var G=[
+    '<path d="M6 0 12 6 6 12 0 6z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M6 3.5 8.5 6 6 8.5 3.5 6z" fill="currentColor"/>',
+    '<path d="M4.5 0h3v4.5H12v3H7.5V12h-3V7.5H0v-3h4.5z" fill="currentColor"/>',
+    '<path d="M0 8 3 3 6 8 9 3 12 8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+    '<path d="M6 0 7.5 4.5 12 6 7.5 7.5 6 12 4.5 7.5 0 6 4.5 4.5z" fill="currentColor"/>'
+  ];
+  var c=document.createElement('div'); c.id='fcur'; c.setAttribute('aria-hidden','true');
+  var orb='';
+  for(var i=0;i<8;i++){ var a=i*45, r=30;
+    orb+='<svg viewBox="0 0 12 12" style="transform:rotate('+a+'deg) translateY(-'+r+'px) rotate(-'+a+'deg);animation-delay:'+(-i*0.6)+'s">'+G[i%4]+'</svg>'; }
+  c.innerHTML='<div class="fc-corpo"><div class="fc-orb">'+orb+'</div><div class="fc-emb"></div></div><i class="fc-dot"></i>';
+  document.body.appendChild(c); document.documentElement.classList.add('fcur-on');
+  var CORES=['#2F7D42','#1D7A93','#B5602A','#C9973F'];
+  var x=-100,y=-100,px=x,py=y,cx=x,cy=y,ult=0,k=0;
+  addEventListener('pointermove',function(e){ if(e.pointerType && e.pointerType!=='mouse') return; x=e.clientX; y=e.clientY; if(!c.classList.contains('vis')){ cx=x; cy=y; c.classList.add('vis'); } },{passive:true});
+  document.documentElement.addEventListener('mouseleave',function(){ c.classList.remove('vis'); });
+  document.addEventListener('pointerover',function(e){ var el=e.target;
+    var campo=el.closest&&el.closest('input,textarea,select,[contenteditable]'); c.style.display=campo?'none':'';
+    c.classList.toggle('ativo',!!(el.closest&&el.closest('a,button,[role="button"],[role="tab"],summary,label,.roda-cargo,.obj-card,.irma-card,.livro3d,.prg-capa'))); });
+  function peca(cls,cor,g){ var d=document.createElement('div'); d.className=cls; d.innerHTML='<svg viewBox="0 0 12 12" width="12" height="12" style="color:'+cor+';overflow:visible">'+G[g]+'</svg>'; return d; }
+  addEventListener('pointerdown',function(e){ if(e.pointerType && e.pointerType!=='mouse') return; c.classList.add('clique'); setTimeout(function(){ c.classList.remove('clique'); },160);
+    for(var i=0;i<10;i++){ var a=i/10*Math.PI*2, d=34+Math.random()*26, f=peca('fc-faisca',CORES[i%4],i%4);
+      f.style.setProperty('--x',e.clientX+'px'); f.style.setProperty('--y',e.clientY+'px'); f.style.setProperty('--dx',Math.cos(a)*d+'px'); f.style.setProperty('--dy',Math.sin(a)*d+'px'); f.style.setProperty('--r',(Math.random()*360-180)+'deg');
+      document.body.appendChild(f); setTimeout((function(q){ return function(){ q.remove(); }; })(f),850); } });
+  (function q(){
+    cx+=(x-cx)*.32; cy+=(y-cy)*.32;
+    c.style.transform='translate('+cx+'px,'+cy+'px)';
+    var v=Math.hypot(x-px,y-py); px=x; py=y; var t=performance.now();
+    if(v>6 && t-ult>70){ ult=t; var r=peca('fc-rastro',CORES[k%4],k%4); k++; r.style.setProperty('--x',x+'px'); r.style.setProperty('--y',y+'px'); r.style.setProperty('--r',(Math.random()*180-90)+'deg'); document.body.appendChild(r); setTimeout(function(){ r.remove(); },950); }
+    requestAnimationFrame(q);
+  })();
+})();
 </script>
 </body>
 </html>
